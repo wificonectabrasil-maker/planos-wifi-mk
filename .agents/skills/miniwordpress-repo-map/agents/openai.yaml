@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mini WordPress Repo Map"
+  short_description: "Mapeia Core, Brand, Template e Legacy"
+  default_prompt: "Use $miniwordpress-repo-map to classify the repository before extracting Mini WordPress."

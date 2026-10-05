@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mini WordPress Database"
+  short_description: "Turso schema, migrations and media"
+  default_prompt: "Use $miniwordpress-database to configure or verify the Mini WordPress database."

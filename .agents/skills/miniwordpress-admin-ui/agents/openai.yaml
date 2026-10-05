@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mini WordPress Admin UI"
+  short_description: "Ajusta admin dark, denso e legivel"
+  default_prompt: "Use $miniwordpress-admin-ui to improve Mini WordPress admin layout and dark mode."

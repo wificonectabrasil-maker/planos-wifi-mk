@@ -1,0 +1,12 @@
+{
+  "name": "Mini WordPress",
+  "version": "3.1.0",
+  "preset": "miniwordpress-3.1",
+  "database": "Turso/libSQL",
+  "migrations": "turso/migrations",
+  "snapshot": "turso/template/miniwordpress-3.1.sql",
+  "content": "empty",
+  "media": "database-blobs",
+  "adminCredentials": "per-project-env",
+  "extensionTables": ["telecom_offers", "telecom_leads", "telecom_rate_limits"]
+}

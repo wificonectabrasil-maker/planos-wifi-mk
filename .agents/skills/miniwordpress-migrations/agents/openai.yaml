@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mini WordPress Migrations"
+  short_description: "Audita e consolida migrations SQL"
+  default_prompt: "Use $miniwordpress-migrations to audit and consolidate Mini WordPress SQL migrations."

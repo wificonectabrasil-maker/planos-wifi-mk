@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mini WordPress AI Prompts"
+  short_description: "Adapta prompts IA por nicho e marca"
+  default_prompt: "Use $miniwordpress-ai-prompts to adapt AI prompts and brand profiles."

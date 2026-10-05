@@ -1,0 +1,26 @@
+import type { EditorialSiloPlan } from "./lib/editorial/content-plan";
+import type { DriveSupportSource } from "./lib/editorial/drive-support";
+import type { CollaboratorProfile } from "./lib/site/collaborators";
+
+// Each new project supplies its own identity, editorial plan and sources.
+export const brandConfig = {
+  name: "Mini WordPress",
+  url: "http://localhost:3000",
+  description: "Artigos, guias e ideias organizados por tema.",
+  tagline: "Conhecimento organizado por tema",
+  locale: "pt-BR",
+  contactEmail: "",
+  logo: "/brand-logo.svg",
+  defaultAuthor: "Equipe editorial",
+  affiliateDisclosure: "",
+  niche: "",
+  tone: ["claro", "humano", "objetivo", "confiável"],
+  sourcePolicy:
+    "Priorize fontes primárias. Não invente dados, autoria, credenciais ou resultados. Adapte cuidados adicionais ao tema e às fontes fornecidas.",
+  visualPalette: { emerald: "#14b8a6", cobalt: "#3b82f6", midnight: "#111827" },
+  contentPlan: [] as EditorialSiloPlan[],
+  supportFolder: { name: "", id: "", url: "" },
+  supportSources: [] as DriveSupportSource[],
+  collaborators: [] as CollaboratorProfile[],
+  manifesto: [] as string[],
+};

@@ -1,0 +1,33 @@
+{
+  "name": "Mini WordPress",
+  "version": "3.1.0",
+  "preset": "miniwordpress-3.1",
+  "database": "Turso/libSQL",
+  "migrations": [
+    {
+      "name": "0001_core.sql",
+      "checksum": "e7a35fc3c64dcba7326a4e52d2e5517769723cf1b831ecbd8385b5c1db1ef8b5"
+    },
+    {
+      "name": "0002_url_rules_and_media.sql",
+      "checksum": "6468ecb61d7110f044b7bfec5a794baed53300284d779711fb0faa2508b4c700"
+    },
+    {
+      "name": "0003_telecom.sql",
+      "checksum": "61097abee11ded40033dd16aae2a0654daa21ef3f2488d5a0ec759baad4a3dba"
+    }
+  ],
+  "snapshot": "turso/template/miniwordpress-3.1.sql",
+  "content": "empty",
+  "media": "database-blobs",
+  "adminCredentials": "per-project-env",
+  "extensionTables": [
+    "telecom_offers",
+    "telecom_leads",
+    "telecom_rate_limits"
+  ],
+  "coreTables": 17,
+  "mediaTables": 2,
+  "controlTables": 1,
+  "schemaSha256": "8a7c75ddde384b3185ac38ffa04fcd60fafbe7c128af061d28eda27003f40cb6"
+}

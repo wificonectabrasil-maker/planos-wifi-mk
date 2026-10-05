@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mini WordPress Editor"
+  short_description: "Orienta editor, paineis e Tiptap"
+  default_prompt: "Use $miniwordpress-editor to work on the Mini WordPress post editor."

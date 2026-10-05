@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mini WordPress Frontend Template"
+  short_description: "Mantem template publico reutilizavel"
+  default_prompt: "Use $miniwordpress-frontend-template to work on the reusable public blog template."

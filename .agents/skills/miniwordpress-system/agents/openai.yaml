@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mini WordPress System"
+  short_description: "Roteia trabalho do Mini WordPress"
+  default_prompt: "Use $miniwordpress-system to route and plan Mini WordPress work."

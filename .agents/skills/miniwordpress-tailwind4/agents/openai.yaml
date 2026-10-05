@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mini WordPress Tailwind 4"
+  short_description: "Governa tokens e Tailwind 4"
+  default_prompt: "Use $miniwordpress-tailwind4 to audit Tailwind scopes, tokens and dark mode."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mini WordPress Export Package"
+  short_description: "Prepara ZIP ou repositorio neutro"
+  default_prompt: "Use $miniwordpress-export-package to prepare a neutral Mini WordPress package."

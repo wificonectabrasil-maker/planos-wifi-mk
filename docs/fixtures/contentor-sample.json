@@ -1,0 +1,31 @@
+﻿{
+  "type": "doc",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": [
+        { "type": "text", "text": "Introducao do artigo com " },
+        { "type": "text", "text": "formatacao", "marks": [{ "type": "bold" }] },
+        { "type": "text", "text": "." }
+      ]
+    },
+    {
+      "type": "heading",
+      "attrs": { "level": 2 },
+      "content": [{ "type": "text", "text": "Em estoque" }]
+    },
+    {
+      "type": "cta_button",
+      "attrs": {
+        "label": "VERIFICAR DISPONIBILIDADE",
+        "href": "https://amzn.to/exemplo",
+        "variant": "amazon_secondary",
+        "size": "md",
+        "align": "center",
+        "rel": "sponsored nofollow noopener",
+        "target": "_blank",
+        "tracking": "contentor:cta1"
+      }
+    }
+  ]
+}

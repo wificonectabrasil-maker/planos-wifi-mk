@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mini WordPress Silos SEO"
+  short_description: "Gerencia silos, links e SEO tecnico"
+  default_prompt: "Use $miniwordpress-silos-seo to work on silos, links, SERP and SEO workflows."
