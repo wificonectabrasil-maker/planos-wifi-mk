@@ -1,10 +1,12 @@
 import { requireAdminSession } from "@/lib/admin/auth";
-import { buildWhatsAppInquiry, buildWhatsAppUrl } from "@/lib/telecom/whatsapp";
+import { buildWhatsAppInquiry, buildWhatsAppUrl, resolveWhatsAppPhone } from "@/lib/telecom/whatsapp";
+import { SITE_WHATSAPP_PHONE } from "@/lib/site";
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Atendimento comercial", robots: { index: false, follow: false } };
 export default async function Page() {
   await requireAdminSession();
-  const url = buildWhatsAppUrl(process.env.WIFICONECTA_WHATSAPP, buildWhatsAppInquiry(""));
+  const phone = resolveWhatsAppPhone(process.env.WIFICONECTA_WHATSAPP, SITE_WHATSAPP_PHONE);
+  const url = buildWhatsAppUrl(phone, buildWhatsAppInquiry(""));
   return (
     <div className="space-y-4">
       <div className="admin-pane p-4">

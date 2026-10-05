@@ -12,6 +12,7 @@ export const brandConfig = {
   tagline: "Sua internet. Sem complicar o pedido.",
   locale: "pt-BR",
   contactEmail: "",
+  whatsappPhone: "5511948844107",
   logo: "/brand-logo.svg",
   defaultAuthor: "Equipe WifiConecta",
   affiliateDisclosure:

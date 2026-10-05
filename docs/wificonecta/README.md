@@ -46,7 +46,7 @@ A reprodução é automática, inline, em loop, com `muted`, `defaultMuted` e vo
 
 ## Configuração e conteúdo
 
-SITE_URL usa o domínio informado. Os cards usam o telefone fornecido por WIFICONECTA_WHATSAPP, sem telefone próprio nos dados do pacote. A indexação permanece desativada na prévia; revisar a configuração na publicação.
+SITE_URL usa o domínio informado. Os CTAs usam o telefone público da marca em `brand.config.ts`: +55 11 94884-4107. `WIFICONECTA_WHATSAPP` permite substituir esse número no servidor, sem deixar os botões indisponíveis quando a variável estiver ausente. Os cards não guardam telefones próprios. A indexação permanece desativada na prévia; revisar a configuração na publicação.
 
 brand.config.ts centraliza marca, política de fontes, tom e CTA dos artigos. lib/telecom/editorial-plan.ts mantém 15 pautas em cinco grupos. O setup idempotente cria apenas os silos editoriais.
 

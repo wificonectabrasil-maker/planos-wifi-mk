@@ -4,6 +4,13 @@ export function normalizeWhatsAppPhone(value: string | null | undefined) {
   return /^55[1-9]\d{9,10}$/.test(phone) ? phone : null;
 }
 
+export function resolveWhatsAppPhone(
+  configuredPhone: string | null | undefined,
+  brandPhone: string | null | undefined,
+) {
+  return normalizeWhatsAppPhone(configuredPhone) || normalizeWhatsAppPhone(brandPhone);
+}
+
 export function buildWhatsAppUrl(
   phone: string | null | undefined,
   message: string,

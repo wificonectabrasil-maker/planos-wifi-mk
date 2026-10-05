@@ -4,6 +4,18 @@ import { createClient } from "@libsql/client";
 import { migrate } from "../lib/database/migrate";
 import { isCurrentOffer, offerSchema } from "../lib/telecom/catalog";
 import { leadSchema, whatsappMessage } from "../lib/telecom/leads";
+import { buildWhatsAppUrl, resolveWhatsAppPhone } from "../lib/telecom/whatsapp";
+
+test("WhatsApp keeps the brand contact when a deployment has no valid environment override", () => {
+  const brandPhone = "5511999999999";
+  for (const configuredPhone of [undefined, null, "", " ", "invalid"]) {
+    const phone = resolveWhatsAppPhone(configuredPhone, brandPhone);
+    assert.equal(phone, brandPhone);
+    assert.equal(buildWhatsAppUrl(phone, "Consulta"), `https://wa.me/${brandPhone}?text=Consulta`);
+  }
+  assert.equal(resolveWhatsAppPhone("+55 (21) 98888-8888", brandPhone), "5521988888888");
+  assert.equal(resolveWhatsAppPhone(undefined, ""), null);
+});
 const base = {
   id: "test-offer",
   slug: "test-offer",

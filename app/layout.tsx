@@ -5,9 +5,9 @@ import "./wificonecta.css";
 import { SiteChrome } from "@/components/site/SiteChrome";
 import type { SiteHeaderLink } from "@/components/site/SiteHeader";
 import { getPublicPostsBySilo, getPublicSiloGroupsBySiloId, getPublicSilos } from "@/lib/db";
-import { SITE_DESCRIPTION, SITE_LOCALE, SITE_NAME } from "@/lib/site";
+import { SITE_DESCRIPTION, SITE_LOCALE, SITE_NAME, SITE_WHATSAPP_PHONE } from "@/lib/site";
 import { resolveSiteUrl } from "@/lib/site/url";
-import { normalizeWhatsAppPhone } from "@/lib/telecom/whatsapp";
+import { resolveWhatsAppPhone } from "@/lib/telecom/whatsapp";
 import { normalizeSiloGroup } from "@/lib/silo/groups";
 import type { Post, SiloGroup } from "@/lib/types";
 
@@ -226,7 +226,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body className={`${body.variable} min-h-screen`}>
         <SiteChrome
           headerLinks={headerLinks}
-          whatsappPhone={normalizeWhatsAppPhone(process.env.WIFICONECTA_WHATSAPP)}
+          whatsappPhone={resolveWhatsAppPhone(process.env.WIFICONECTA_WHATSAPP, SITE_WHATSAPP_PHONE)}
         >
           {children}
         </SiteChrome>

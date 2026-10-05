@@ -6,6 +6,7 @@ export const SITE_DESCRIPTION = brandConfig.description;
 export const SITE_LOCALE = brandConfig.locale;
 export const SITE_BRAND_TAGLINE = brandConfig.tagline;
 export const SITE_CONTACT_EMAIL = brandConfig.contactEmail;
+export const SITE_WHATSAPP_PHONE = brandConfig.whatsappPhone;
 export const AMAZON_AFFILIATE_DISCLOSURE = brandConfig.affiliateDisclosure;
 
 function normalizeComparableText(value: string) {
