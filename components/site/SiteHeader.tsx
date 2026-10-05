@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Menu, Wifi, X } from "lucide-react";
 import { commercialLinks } from "@/lib/telecom/catalog";
 import { WhatsAppCTA } from "@/components/telecom/WhatsAppCTA";
@@ -13,6 +13,28 @@ export type SiteHeaderLink = {
 export function SiteHeader({ links }: { links?: SiteHeaderLink[] }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const header = headerRef.current;
+    const site = header?.closest<HTMLElement>(".wifi-home");
+    if (pathname !== "/" || !header || !site) return;
+
+    // Keep one continuous video behind the header, including the expanded mobile menu.
+    const syncHeight = () => {
+      site.style.setProperty(
+        "--wifi-home-header-height",
+        `${header.getBoundingClientRect().height}px`,
+      );
+    };
+    syncHeight();
+    const observer = new ResizeObserver(syncHeight);
+    observer.observe(header);
+    return () => {
+      observer.disconnect();
+      site.style.removeProperty("--wifi-home-header-height");
+    };
+  }, [pathname]);
   const first = commercialLinks.slice(0, 6);
   const second = [
     { href: "/", label: "Início" },
@@ -25,10 +47,10 @@ export function SiteHeader({ links }: { links?: SiteHeaderLink[] }) {
     (l) => !["/", "/sobre", "/contato"].includes(l.href),
   );
   return (
-    <header className="wifi-header">
+    <header ref={headerRef} className="wifi-header">
       <div className="wifi-topbar">
         <div className="wifi-container">
-          <span>Atendimento em São Paulo • Promoções pelo WhatsApp</span>
+          <span>Atendimento humano em São Paulo • WhatsApp</span>
           <Link href="/#como-funciona">
             Como funciona <ArrowRight size={12} />
           </Link>
@@ -48,7 +70,7 @@ export function SiteHeader({ links }: { links?: SiteHeaderLink[] }) {
           <span>
             Casa, celular e TV.
             <br />
-            <strong>Vamos achar um pacote pra você.</strong>
+            <strong>Uma pessoa te ajuda a escolher.</strong>
           </span>
           <WhatsAppCTA
             source="header"

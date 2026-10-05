@@ -6,11 +6,11 @@ import { offerSchema } from "../lib/telecom/catalog";
 test("public site uses WhatsApp only, redirects retired pages and supports mobile navigation", async ({ page, request }) => {
   const errors: string[] = [];
   page.on("pageerror", e => errors.push(e.message));
-  const paths = ["/", "/planos", "/comparar", "/internet-residencial", "/internet-empresarial", "/internet-para-condominios", "/tv-e-streaming", "/celular-e-internet", "/operadoras", "/operadoras/claro", "/contato"];
+  const paths = ["/", "/sobre", "/planos", "/comparar", "/internet-residencial", "/internet-empresarial", "/internet-para-condominios", "/tv-e-streaming", "/celular-e-internet", "/operadoras", "/operadoras/claro", "/operadoras/vivo", "/operadoras/tim", "/contato"];
   for (const path of paths) {
     await page.goto(path);
     await expect(page.locator("main form, main input, main select, main table")).toHaveCount(0);
-    await expect(page.locator("main")).not.toContainText(/CEP|R\$|500 Mega|600 Mega|1 Giga/);
+    await expect(page.locator("main")).not.toContainText(/CEP|R\$/);
     const links = await page.locator('a[href^="https://wa.me/"]').evaluateAll(nodes => nodes.map(node => (node as HTMLAnchorElement).href));
     expect(links.length).toBeGreaterThan(0);
     for (const href of links) expect(new URL(href).pathname).toBe("/5511000000000");
@@ -19,10 +19,16 @@ test("public site uses WhatsApp only, redirects retired pages and supports mobil
   await expect(page).toHaveURL(/\/contato$/);
   await page.goto("/planos/500-mega");
   await expect(page).toHaveURL(/\/planos$/);
-  await page.goto("/operadoras/vivo");
-  await expect(page).toHaveURL(/\/operadoras$/);
+  for (const [slug, name] of [["claro", "Claro"], ["vivo", "Vivo"], ["tim", "TIM"]]) {
+    await page.goto(`/operadoras/${slug}`);
+    await expect(page).toHaveURL(new RegExp(`/operadoras/${slug}$`));
+    const destination = new URL((await page.getByRole("link", { name: `Consultar ${name} no WhatsApp`, exact: true }).getAttribute("href"))!);
+    expect(destination.searchParams.get("text")).toContain(`Serviços ${name}`);
+  }
   const sitemap = await (await request.get("/sitemap.xml")).text();
-  expect(sitemap).not.toMatch(/\/consultar|\/planos\/500-mega|\/planos\/600-mega|\/planos\/1-giga|\/operadoras\/vivo|\/operadoras\/tim/);
+  expect(sitemap).not.toMatch(/\/consultar|\/planos\/500-mega|\/planos\/600-mega|\/planos\/1-giga/);
+  expect(sitemap).toContain("/operadoras/vivo");
+  expect(sitemap).toContain("/operadoras/tim");
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
   await page.getByRole("button", { name: "Abrir menu" }).click();
@@ -65,8 +71,20 @@ test("WhatsApp opens the chosen subject and records a click without personal dat
   await expect(popup).toHaveURL(destination.toString());
   expect(await page.evaluate(() => JSON.parse(document.documentElement.dataset.lastConversion!))).toEqual({ event: "whatsapp_clicked", source: "hero" });
   await popup.close();
-  const tvCard = page.locator(".wifi-interest-card").filter({ has: page.getByRole("heading", { name: "TV e streaming", exact: true }) });
-  expect(new URL((await tvCard.getByRole("link").getAttribute("href"))!).searchParams.get("text")).toContain("TV e streaming");
+  const packageCards = page.locator("#pacotes .wifi-package-card");
+  await expect(packageCards).toHaveCount(4);
+  for (const [title, interest] of [
+    ["Claro Multi", "500 Mega + 60 GB, Globoplay"],
+    ["Claro com TV e streaming", "TV Box com 120 canais"],
+    ["Claro Empresas", "600 Mega + McAfee"],
+    ["Claro tv+ Box", "Claro tv+ Box para condomínio"],
+  ]) {
+    const card = packageCards.filter({ has: page.getByRole("heading", { name: title, exact: true }) });
+    const url = new URL((await card.getByRole("link").getAttribute("href"))!);
+    expect(url.pathname).toBe("/5511000000000");
+    expect(url.searchParams.get("text")).toContain(interest);
+    expect(url.searchParams.get("text")).toContain("São Paulo");
+  }
   await page.goto("/internet-empresarial");
   expect(new URL((await page.locator(".wifi-whatsapp-floating").getAttribute("href"))!).searchParams.get("text")).toContain("Internet para minha empresa");
   await page.setViewportSize({ width: 390, height: 844 });

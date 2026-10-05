@@ -18,13 +18,13 @@ export function SiteFooter(_props: { links?: SiteHeaderLink[] }) {
               </span>
             </Link>
             <p>
-              Internet pra sua rotina.
+              Seu pedido de internet, mais simples.
               <br />
-              Informação pra sua escolha.
+              Uma pessoa pra ajudar você.
             </p>
             <p className="wifi-footer-small">
-              Compare com calma. Confirme o endereço e as condições antes de
-              contratar.
+              A equipe explica as opções e ajuda a encaminhar o serviço que
+              você escolher. Atendimento pelo WhatsApp.
             </p>
           </div>
           <div>

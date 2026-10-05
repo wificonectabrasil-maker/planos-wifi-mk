@@ -2,7 +2,7 @@
 
 Projeto de consulta de pacotes e promoções de internet, celular e TV pelo WhatsApp, com atendimento atual em São Paulo. Desenvolvido sobre o Mini WordPress 3.1 em Next.js 16, React 19 e Tailwind 4, com Turso/libSQL para conteúdo, silos, auditorias, cache SERP, credenciais WordPress, visualizações e imagens. O site não publica valores ou planos fixos e não captura consultas por formulário.
 
-Consulte [o guia WifiConecta](docs/wificonecta/README.md) para páginas, operação comercial e validação. `/admin/comercial` descreve o atendimento pelo WhatsApp (11) 99271-4748. Os comandos abaixo preservam o funcionamento do template editorial.
+Consulte [o guia WifiConecta](docs/wificonecta/README.md) para páginas, operação comercial e validação. `/admin/comercial` descreve o atendimento pelo WhatsApp (11) 94884-4107. Os comandos abaixo preservam o funcionamento do template editorial.
 
 O gerenciador padrão em projetos novos e existentes é **pnpm**. Este preset fixa `pnpm@10.33.0` em `package.json` e usa `pnpm-lock.yaml`. No Windows, `pnpm.cmd` executa os mesmos comandos; `corepack pnpm` permite usar a versão fixada no projeto.
 

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -10,10 +9,10 @@ import {
   MonitorPlay,
   Smartphone,
   Wifi,
-  Zap,
 } from "lucide-react";
 import { WhatsAppCTA } from "@/components/telecom/WhatsAppCTA";
 import { PackageInterests } from "@/components/telecom/PackageInterests";
+import { HeroVideoBackground } from "@/components/telecom/HeroVideoBackground";
 import {
   ContractProcess,
   FinalCTA,
@@ -27,7 +26,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Planos de internet para sua casa, celular e TV",
   description:
-    "Consulte promoções temporárias de internet, celular, TV e combos pelo WhatsApp. Atendimento em São Paulo, com condições apresentadas conforme seu bairro e sua rotina.",
+    "Uma pessoa da WifiConecta ajuda você a escolher internet, celular e TV e encaminhar seu pedido. Atendimento pelo WhatsApp em São Paulo, com condições para seu endereço.",
   alternates: { canonical: "/" },
 };
 export default async function Home() {
@@ -79,8 +78,10 @@ export default async function Home() {
           ],
         }}
       />
-      <section className="wifi-hero">
-        <div className="wifi-container wifi-hero-grid">
+      <link rel="preload" as="image" href="/images/hero-claro-poster.webp" fetchPriority="high" />
+      <section className="wifi-hero wifi-hero-with-video">
+        <HeroVideoBackground />
+        <div className="wifi-container wifi-hero-grid wifi-hero-video-layout">
           <div className="wifi-hero-copy">
             <p className="wifi-eyebrow">
               <span className="wifi-eyebrow-dot" /> ATENDIMENTO EM SÃO PAULO
@@ -89,15 +90,12 @@ export default async function Home() {
               Internet pra sua casa.
               <br />
               <em>
-                Do jeito que a<br className="wifi-desktop-break" /> sua vida
-                pede.
+                Sem complicar o pedido.
               </em>
             </h1>
             <p className="wifi-hero-description">
-              A série, a reunião, o jogo. A casa toda online.
-              <br />
-              Converse com a gente pelo WhatsApp e conheça
-              <br className="wifi-desktop-break" /> as promoções pro seu bairro.
+              Uma pessoa da nossa equipe entende sua rotina, apresenta as
+              opções pro seu endereço e ajuda a encaminhar o pedido.
             </p>
             <div className="wifi-hero-actions">
               <WhatsAppCTA
@@ -106,40 +104,11 @@ export default async function Home() {
                 label="Ver promoções no WhatsApp"
                 fallbackLabel="Atendimento pelo WhatsApp"
               />
-              <p className="wifi-whatsapp-note">Pacotes e condições variam por bairro e são apresentados na conversa.</p>
+              <p className="wifi-whatsapp-note">Atendimento com uma pessoa, pelo WhatsApp. São Paulo, por enquanto.</p>
               <Link href="/comparar" className="wifi-text-link">
                 Quer uma ajuda pra escolher? Veja como funciona{" "}
                 <ArrowRight size={16} />
               </Link>
-            </div>
-          </div>
-          <div className="wifi-hero-visual">
-            <div className="wifi-hero-photo">
-              <Image
-                src="/images/familia-conectada.webp"
-                alt="Família no sofá usando um notebook e um tablet"
-                fill
-                sizes="(max-width: 800px) 100vw, 50vw"
-                priority
-              />
-              <div className="wifi-photo-bottom">
-                <span>
-                  <Wifi size={19} /> Cada casa tem uma rotina.
-                </span>
-                <strong>Encontre a conexão pra sua.</strong>
-              </div>
-            </div>
-            <div className="wifi-floating-label">
-              <span>
-                <Zap size={20} />
-              </span>
-              <div>
-                <strong>Seu dia pede conexão.</strong>
-                <small>A escolha começa com informação.</small>
-              </div>
-            </div>
-            <div className="wifi-hero-decoration" aria-hidden="true">
-              <Wifi size={76} strokeWidth={1.5} />
             </div>
           </div>
         </div>
@@ -171,12 +140,12 @@ export default async function Home() {
       <section className="wifi-operator-section">
         <div className="wifi-container">
           <div>
-            <p className="wifi-eyebrow">A operadora é parte da escolha</p>
-            <h2>Conheça os serviços. Consulte as condições atuais.</h2>
-            <p>Converse sobre internet, celular e TV da Claro. Os serviços e as condições para o seu bairro são confirmados no WhatsApp.</p>
+            <p className="wifi-eyebrow">Opções para o seu endereço</p>
+            <h2>A escolha também passa pela operadora.</h2>
+            <p>Trabalhamos com Claro, Vivo, TIM e provedores de bairro. A equipe confere quais serviços estão disponíveis onde você mora.</p>
           </div>
           <div className="wifi-operator-list">
-            {operators.filter(o => o.slug === "claro").map((o) => (
+            {operators.map((o) => (
               <Link href={`/operadoras/${o.slug}`} key={o.slug}>
                 <strong>{o.name}</strong>
                 <span>
@@ -184,6 +153,10 @@ export default async function Home() {
                 </span>
               </Link>
             ))}
+            <Link href="/operadoras#provedores">
+              <strong>Provedores de bairro</strong>
+              <span>Conhecer opções <ArrowRight size={13} /></span>
+            </Link>
           </div>
         </div>
       </section>

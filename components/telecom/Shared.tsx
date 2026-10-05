@@ -50,17 +50,17 @@ export function ContractProcess() {
     {
       icon: MessagesSquare,
       title: "Chame no WhatsApp",
-      text: "Nosso atendimento é pelo WhatsApp, em São Paulo por enquanto.",
+      text: "Uma pessoa da equipe ouve o que você precisa e confere as opções pro seu endereço em São Paulo.",
     },
     {
       icon: ListChecks,
-      title: "Conte o que procura",
-      text: "Fale do seu bairro, da sua rotina e dos serviços que precisa.",
+      title: "Escolha com tudo explicado",
+      text: "Confira o pacote, os benefícios, a mensalidade, a instalação e quando começa a cobrança.",
     },
     {
       icon: MessagesSquare,
-      title: "Conheça as opções atuais",
-      text: "Pacotes, valores e vantagens são apresentados na conversa, conforme o seu caso.",
+      title: "A gente encaminha o pedido",
+      text: "Com a sua confirmação, a equipe solicita o serviço e orienta os próximos passos da instalação com a operadora.",
     },
   ];
   return (
@@ -69,8 +69,8 @@ export function ContractProcess() {
         <div className="wifi-section-heading">
           <div>
             <p className="wifi-eyebrow">Tudo começa pelo WhatsApp</p>
-            <h2>Uma conversa pra encontrar seu pacote.</h2>
-            <p>Confira as opções do momento e tire suas dúvidas antes de decidir.</p>
+            <h2>Da escolha ao pedido, com uma pessoa ao seu lado.</h2>
+            <p>Conte o que precisa. A gente ajuda a entender as opções e cuida do encaminhamento do pedido.</p>
           </div>
         </div>
         <div className="wifi-process-grid">
@@ -92,12 +92,12 @@ export function FinalCTA() {
     <section className="wifi-final-cta">
       <div className="wifi-container">
         <div>
-          <p className="wifi-eyebrow">Um pacote que combina com você</p>
-          <h2>Vamos conversar sobre a sua rotina?</h2>
+          <p className="wifi-eyebrow">Seu dia já tem coisa demais</p>
+          <h2>Deixa o pedido de internet com a gente.</h2>
           <p>
-            Consulte promoções e vantagens de internet, celular e TV. A gente
-            ajuda você a comparar as opções e conferir as condições pro seu
-            endereço.
+            Chame no WhatsApp e conte o que precisa. Uma pessoa da equipe
+            explica os pacotes, tira suas dúvidas e ajuda a encaminhar o
+            serviço que você escolher.
           </p>
           <WhatsAppCTA
             source="final-cta"
@@ -124,7 +124,7 @@ export function TrustStrip() {
       </span>
       <span>
         <ListChecks size={20} />
-        Atendimento pelo WhatsApp
+        Atendimento com uma pessoa
       </span>
       <span>
         <BadgeCheck size={20} />

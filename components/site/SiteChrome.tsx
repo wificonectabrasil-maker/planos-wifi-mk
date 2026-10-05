@@ -20,8 +20,9 @@ export function SiteChrome({
   const segments = useSelectedLayoutSegments();
   if (segments[0] === "admin" && segments[1] !== "preview")
     return <>{children}</>;
+  const isHome = segments.length === 0;
   const fullWidth =
-    segments.length === 0 ||
+    isHome ||
     [
       "planos",
       "operadoras",
@@ -36,7 +37,7 @@ export function SiteChrome({
     ].includes(segments[0]);
   return (
     <WhatsAppProvider phone={whatsappPhone}>
-      <div className="wifi-site">
+      <div className={isHome ? "wifi-site wifi-home" : "wifi-site"}>
         <ConversionObserver />
         <a href="#conteudo" className="wifi-skip-link">
           Pular para o conteúdo

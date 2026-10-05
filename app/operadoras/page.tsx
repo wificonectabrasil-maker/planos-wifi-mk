@@ -2,9 +2,11 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { telecomMetadata } from "@/lib/telecom/metadata";
 import { Breadcrumb, FinalCTA, RegionNotice } from "@/components/telecom/Shared";
+import { WhatsAppCTA } from "@/components/telecom/WhatsAppCTA";
+import { operators } from "@/lib/telecom/catalog";
 export const metadata = telecomMetadata(
-  "Serviços Claro: consulta de pacotes pelo WhatsApp",
-  "Consulte opções de internet, celular e TV da Claro com a WifiConecta. Atendimento atual em São Paulo pelo WhatsApp.",
+  "Claro, Vivo, TIM e provedores de bairro",
+  "A WifiConecta trabalha com Claro, Vivo, TIM e provedores de bairro. Uma pessoa ajuda você a conferir as opções pro seu endereço em São Paulo pelo WhatsApp.",
   "/operadoras",
 );
 export default function Page() {
@@ -14,15 +16,24 @@ export default function Page() {
         <Breadcrumb items={[{ label: "Operadoras", href: "/operadoras" }]} />
         <div className="wifi-page-intro">
           <p className="wifi-eyebrow">Serviços para a sua rotina</p>
-          <h1>Conheça as opções na conversa.</h1>
-          <p>No momento, nossas consultas são sobre serviços Claro em São Paulo. Os pacotes disponíveis, as vantagens e as condições para o seu bairro são confirmados pelo WhatsApp.</p>
+          <h1>Qual operadora faz sentido pro seu endereço?</h1>
+          <p>Trabalhamos com Claro, Vivo, TIM e provedores de bairro. Uma pessoa da equipe confere as opções disponíveis onde você mora e ajuda a entender as condições de cada serviço.</p>
         </div>
       </div></div>
       <section className="wifi-section wifi-container">
         <RegionNotice />
-        <article className="wifi-operator-card">
-          <h2>Claro</h2><p>Internet, celular e TV: conte o que procura e confira as opções atuais para você.</p>
-          <Link href="/operadoras/claro" className="wifi-text-link">Consultar serviços Claro <ArrowRight size={16} /></Link>
+        <div className="wifi-operator-grid">
+          {operators.map(operator => (
+            <article className="wifi-operator-card" key={operator.slug}>
+              <h2>{operator.name}</h2><p>{operator.description}</p>
+              <Link href={`/operadoras/${operator.slug}`} className="wifi-text-link">Consultar serviços {operator.name} <ArrowRight size={16} /></Link>
+            </article>
+          ))}
+        </div>
+        <article className="wifi-operator-card" id="provedores">
+          <h2>Provedores de bairro</h2>
+          <p>Também trabalhamos com provedores locais. Conte seu bairro em São Paulo para a equipe consultar as opções, explicar o que cada serviço inclui e ajudar no pedido.</p>
+          <WhatsAppCTA source="local-providers" interest="Provedores de bairro para minha residência" label="Consultar provedores no WhatsApp" />
         </article>
       </section>
       <FinalCTA />

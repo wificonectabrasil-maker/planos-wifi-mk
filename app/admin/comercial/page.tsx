@@ -13,7 +13,7 @@ export default async function Page() {
       </div>
       <div className="admin-pane space-y-3 p-4 text-sm">
         <p><strong>Região atual:</strong> São Paulo, por enquanto.</p>
-        <p><strong>Canal:</strong> WhatsApp (11) 99271-4748.</p>
+        <p><strong>Canal:</strong> WhatsApp (11) 94884-4107.</p>
         <p>O site não cadastra planos fixos nem recebe consultas por formulário. Promoções temporárias e condições por bairro devem ser verificadas no atendimento.</p>
         {url ? <a className="admin-button" href={url} target="_blank" rel="noopener noreferrer">Abrir canal de atendimento</a> : <p role="alert">Configure WIFICONECTA_WHATSAPP para ativar o canal.</p>}
       </div>

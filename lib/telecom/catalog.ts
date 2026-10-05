@@ -196,7 +196,7 @@ export const commercialLinks = [
 export const commercialPaths = [
   "/planos",
   ...commercialLinks.map((l) => l.href),
-  "/operadoras/claro",
+  ...operators.map(operator => `/operadoras/${operator.slug}`),
 ];
 export const servicePages: Record<
   string,
@@ -213,7 +213,7 @@ export const servicePages: Record<
     eyebrow: "Internet pra casa",
     title: "A casa toda conectada. Sem complicar a escolha.",
     description:
-      "Série na TV, trabalho no notebook, celular de todo mundo. Conte sua rotina no WhatsApp e consulte os pacotes atuais em São Paulo.",
+      "Série na TV, trabalho no notebook, celular de todo mundo. Uma pessoa da equipe entende sua rotina, apresenta as opções pro seu endereço e ajuda a encaminhar o pedido.",
     considerations: [
       [
         "Conte seu bairro na conversa",
@@ -225,7 +225,7 @@ export const servicePages: Record<
       ],
       [
         "Faça a conta completa",
-        "Compare mensalidade depois da promoção, instalação, fidelidade e os serviços que você realmente vai usar.",
+        "A equipe explica a mensalidade durante e depois da promoção, instalação, fidelidade e a data da primeira cobrança antes de encaminhar o pedido.",
       ],
     ],
   },

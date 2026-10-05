@@ -14,7 +14,7 @@ export default function Page() {
         <div className="wifi-page-intro">
           <p className="wifi-eyebrow">Sua rotina vem primeiro</p>
           <h1>Vamos encontrar um pacote que combine com você?</h1>
-          <p>As promoções mudam e as condições variam por bairro. Por isso, os pacotes e valores são apresentados diretamente no WhatsApp, conforme o que você precisa.</p>
+          <p>Veja as composições Claro que você pode consultar. As promoções mudam e as condições variam por bairro: os valores e os detalhes do pacote para o seu caso são confirmados no WhatsApp.</p>
         </div>
       </div></div>
       <PackageInterests />

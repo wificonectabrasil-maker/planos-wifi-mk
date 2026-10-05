@@ -15,7 +15,7 @@ test("admin, editor, publication, SEO, media and WordPress adapter on isolated T
     page.getByRole("heading", { level: 1, name: /Internet pra sua casa/ }),
   ).toBeVisible();
   await expect(
-    page.getByText("O que você quer conectar?"),
+    page.getByText("Conheça os pacotes Claro para São Paulo."),
   ).toBeVisible();
   await page.goto("/admin");
   await expect(page).toHaveURL(/\/admin\/login/);
