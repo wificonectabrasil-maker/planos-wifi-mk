@@ -183,20 +183,11 @@ export const speedProfiles = [
       "Antes de pagar por 1 Giga, confirme se seus equipamentos suportam essa velocidade e compare o uso real da casa. Mais velocidade não é sinônimo de menor latência.",
   },
 ];
-export const commercialLinks = [
-  { href: "/internet-residencial", label: "Internet pra casa" },
-  { href: "/celular-e-internet", label: "Internet + celular" },
-  { href: "/tv-e-streaming", label: "TV e streaming" },
-  { href: "/internet-empresarial", label: "Pra sua empresa" },
-  { href: "/internet-para-condominios", label: "Condomínios" },
-  { href: "/operadoras", label: "Operadoras" },
-  { href: "/comparar", label: "Ajuda pra escolher" },
-  { href: "/blog", label: "Dicas e guias" },
-];
+export { commercialLinks } from "./navigation";
 export const commercialPaths = [
   "/planos",
-  ...commercialLinks.map((l) => l.href),
-  ...operators.map(operator => `/operadoras/${operator.slug}`),
+  "/internet-empresarial",
+  "/internet-para-condominios",
 ];
 export const servicePages: Record<
   string,

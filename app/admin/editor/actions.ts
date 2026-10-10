@@ -1,4 +1,5 @@
 "use server";
+import { resolveSiteUrl } from "@/lib/site/url";
 
 import { z } from "zod";
 import * as cheerio from "cheerio";
@@ -655,7 +656,7 @@ export async function saveEditorPost(payload: unknown) {
       const { syncLinkOccurrences } = await import("@/lib/silo/siloService");
       await syncLinkOccurrences(finalSiloId, data.id, data.content_html, {
         siloSlug: finalSiloSlug,
-        siteUrl: process.env.SITE_URL ?? "http://localhost:3000",
+        siteUrl: resolveSiteUrl(),
       });
     } catch (error) {
       console.error("Erro ao sincronizar ocorrencias de links (V2):", error);

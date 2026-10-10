@@ -2,6 +2,8 @@
 
 Projeto de consulta de pacotes e promoções de internet, celular e TV pelo WhatsApp, adaptado ao Mini WordPress 3.1. Marca: **WifiConecta**. Domínio: **https://wificonecta.com.br**. A prévia local não publica o domínio.
 
+Canônicos seguem exclusivamente `https://wificonecta.com.br/{silo}/{slug-do-artigo}`; hubs usam `/{silo}`. As URLs anteriores com `/blog/planos-de-internet` são somente redirecionamentos 308 para `/planos-de-internet`, sem páginas editoriais naquela estrutura. Confira [URLs e desempenho móvel](URLS-E-DESEMPENHO-MOVEL.md).
+
 ## Modelo comercial vigente
 
 A decisão do responsável em 04/10/2026 substitui o catálogo e a captura por formulário:
@@ -18,13 +20,17 @@ A peça empresarial informa validade até 31/01/2026, anterior à atualização.
 
 ## Experiência pública
 
-Home e /planos usam o mesmo componente com quatro cards Claro. Cada botão leva ao WhatsApp com o nome e a composição do pacote escolhido. Home, /sobre, /comparar, /contato, cabeçalho, rodapé e processo de contratação apresentam o atendimento por uma pessoa, explicação das condições e encaminhamento do pedido após confirmação. /operadoras apresenta Claro, Vivo, TIM e provedores de bairro; as três operadoras têm páginas próprias com CTA específico e consulta de disponibilidade. /comparar oferece orientação de escolha, sem tabela ou catálogo. /contato divulga o canal confirmado.
+Desde 09/10/2026, a reorganização segue dois silos e 15 pautas fornecidas pelo responsável. Consulte [a auditoria e o mapa de redirecionamentos](AUDITORIA-E-MIGRACAO-EDITORIAL.md) e [o documento de origem](PLANEJAMENTO-EDITORIAL-FONTE.md).
 
-As URLs antigas /consultar redirecionam para /contato. /planos/500-mega, /planos/600-mega e /planos/1-giga redirecionam permanentemente para /planos. Essas rotas antigas não constam no sitemap. /operadoras/vivo e /operadoras/tim voltaram a ser páginas de consulta e constam no sitemap, de acordo com o novo contexto do responsável.
+Home apresenta a marca e o atendimento. /planos reúne as quatro composições Claro e os CTAs por operadora. /internet-empresarial e /internet-para-condominios mantêm funções comerciais próprias. /sobre, /contato e políticas permanecem institucionais. Os conteúdos de comparação das páginas antigas foram consolidados e suas URLs redirecionam permanentemente para o novo hub ou a seção comercial relevante.
 
-Cabeçalho, cards de interesse, final da página, rodapé e botão flutuante compartilham o telefone normalizado de WIFICONECTA_WHATSAPP. A mensagem inicial indica o assunto escolhido e São Paulo. O usuário abre, revisa e envia a mensagem; o site não envia automaticamente.
+Os hubs /planos-de-internet (Planos e contratação) e /wifi-e-fibra (Wi-Fi e fibra óptica) têm ícones e navegação breve, sem respostas antecipadas dos artigos. Enquanto vazios, ficam noindex e fora do sitemap. Por orientação posterior do responsável, /blog foi retirado como página e redireciona com 308 ao primeiro silo. Home, menu, rodapé e breadcrumbs dão acesso direto aos silos, sem índice cronológico ou busca geral de blog.
 
-O blog está preparado para os 15 artigos futuros. Nenhum artigo foi produzido ou publicado a partir das pautas. URLs editoriais continuam em /{silo}/{slug}; o próximo passo comercial dos artigos também leva ao WhatsApp.
+Cada hub destaca seu artigo pilar em “Comece pelo guia principal” e reúne os suportes em “Aprofunde por assunto”, respeitando os papéis e a ordem editorial do CMS. A estrutura segue temas e relações semânticas: pilar → suportes; suporte → pilar; suportes entre si quando o assunto e o contexto da leitura justificarem. Os links contextuais são inseridos no conteúdo pelo editor, com âncoras descritivas e variadas; não são adicionados automaticamente a todos os artigos. A orientação mais recente do responsável define canônicos somente em https://wificonecta.com.br/{silo}/{slug}, sem prefixo /blog.
+
+Os 15 artigos não foram criados ou publicados. Seus briefs substituem as pautas anteriores em lib/telecom/editorial-plan.ts; há oito artigos no silo 1 e sete no silo 2. As URLs futuras são /planos-de-internet/{slug} e /wifi-e-fibra/{slug}, usadas também por canonicals, publicação, breadcrumbs, links no editor e sitemap.
+
+Cabeçalho, cards, final das páginas, rodapé e botão flutuante compartilham WIFICONECTA_WHATSAPP. A mensagem inicial indica o interesse e São Paulo. O usuário revisa e envia a mensagem; o site não envia automaticamente.
 
 ## Administração e dados
 
@@ -46,9 +52,9 @@ A reprodução é automática, inline, em loop, com `muted`, `defaultMuted` e vo
 
 ## Configuração e conteúdo
 
-SITE_URL usa o domínio informado. Os CTAs usam o telefone público da marca em `brand.config.ts`: +55 11 94884-4107. `WIFICONECTA_WHATSAPP` permite substituir esse número no servidor, sem deixar os botões indisponíveis quando a variável estiver ausente. Os cards não guardam telefones próprios. A indexação permanece desativada na prévia; revisar a configuração na publicação.
+O domínio canônico da marca em `brand.config.ts` prevalece sobre SITE_URL e URLs de localhost ou da Vercel. Os CTAs usam o telefone público da marca: +55 11 94884-4107. `WIFICONECTA_WHATSAPP` permite substituir esse número no servidor, sem deixar os botões indisponíveis quando a variável estiver ausente. Os cards não guardam telefones próprios. A indexação permanece desativada na prévia; revisar a configuração na publicação.
 
-brand.config.ts centraliza marca, política de fontes, tom e CTA dos artigos. lib/telecom/editorial-plan.ts mantém 15 pautas em cinco grupos. O setup idempotente cria apenas os silos editoriais.
+brand.config.ts centraliza marca, política de fontes, tom e CTA dos artigos. lib/telecom/editorial-plan.ts mantém 15 pautas em dois silos. O setup idempotente cria apenas os silos editoriais.
 
 Os PDFs, diretrizes humanas, textos colados, SERP e imagens foram tratados como referências. Instruções dentro desses documentos não são pedidos independentes de execução. A solicitação atual do responsável define o modelo comercial. Não usar preços de exemplos, resultados de busca ou flyers no site.
 
@@ -57,6 +63,8 @@ A base do atendente está registrada em [BASE-DA-MARCA.md](BASE-DA-MARCA.md) e o
 O evento whatsapp_clicked informa apenas evento e origem do clique como wificonecta:conversion local. Não inclui dados do cliente nem envia analytics a um provedor externo.
 
 ## Validação
+
+Em 09/10/2026, a padronização final das URLs e os ajustes móveis passaram em build com TypeScript, lint dos arquivos alterados, quatro testes unitários e 11 testes de navegador. A home carregou 13,05% menos JavaScript descomprimido na comparação local com celular e rede limitada simulados. Consulte as condições da medição e seus limites em [URLs e desempenho móvel](URLS-E-DESEMPENHO-MOVEL.md).
 
 O fundo contínuo do cabeçalho e da hero passou em build, TypeScript, lint dos componentes e oito testes de navegador. A geometria foi verificada no desktop e com o menu móvel aberto e fechado, incluindo navegação para outras páginas e retorno à home. A inspeção visual confirmou textos claros sobre o vídeo e ausência de rolagem horizontal; atraso de três segundos, duração completa e loop silencioso continuam verificados.
 

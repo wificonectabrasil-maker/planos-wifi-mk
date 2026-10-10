@@ -19,4 +19,4 @@ Triggers travam slug/canonical/silo de posts publicados e slug do silo após pub
 
 Não há seed de marcas, artigos, autores ou credenciais. Crie novos conteúdos pelo admin ou adaptador WP. Consulte [setup](TURSO_SETUP.md).
 
-Extensão histórica WifiConecta: `0003_telecom.sql` criou `telecom_offers`, `telecom_leads` e `telecom_rate_limits`. A migration e os dados são preservados, mas as páginas públicas não leem ofertas e a captura está desativada. Estas tabelas não entram no contrato público Core. O setup acrescenta apenas cinco silos editoriais. Os testes de escrita usam banco local isolado.
+Extensão histórica WifiConecta: `0003_telecom.sql` criou `telecom_offers`, `telecom_leads` e `telecom_rate_limits`. A migration e os dados são preservados, mas as páginas públicas não leem ofertas e a captura está desativada. Estas tabelas não entram no contrato público Core. Desde 09/10/2026, o setup prepara apenas dois silos editoriais e desativa grupos antigos vazios sem exclusão; aborta se houver posts vinculados a grupos antigos. Os testes de escrita usam banco local isolado.

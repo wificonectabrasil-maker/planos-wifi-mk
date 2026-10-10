@@ -18,17 +18,16 @@ test("public site uses WhatsApp only, redirects retired pages and supports mobil
   await page.goto("/consultar?cep=01310100");
   await expect(page).toHaveURL(/\/contato$/);
   await page.goto("/planos/500-mega");
-  await expect(page).toHaveURL(/\/planos$/);
+  await expect(page).toHaveURL(/\/planos-de-internet$/);
   for (const [slug, name] of [["claro", "Claro"], ["vivo", "Vivo"], ["tim", "TIM"]]) {
     await page.goto(`/operadoras/${slug}`);
-    await expect(page).toHaveURL(new RegExp(`/operadoras/${slug}$`));
+    await expect(page).toHaveURL(new RegExp(`/planos#operadora-${slug}$`));
     const destination = new URL((await page.getByRole("link", { name: `Consultar ${name} no WhatsApp`, exact: true }).getAttribute("href"))!);
     expect(destination.searchParams.get("text")).toContain(`Serviços ${name}`);
   }
   const sitemap = await (await request.get("/sitemap.xml")).text();
   expect(sitemap).not.toMatch(/\/consultar|\/planos\/500-mega|\/planos\/600-mega|\/planos\/1-giga/);
-  expect(sitemap).toContain("/operadoras/vivo");
-  expect(sitemap).toContain("/operadoras/tim");
+  expect(sitemap).not.toContain("/operadoras/");
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
   await page.getByRole("button", { name: "Abrir menu" }).click();

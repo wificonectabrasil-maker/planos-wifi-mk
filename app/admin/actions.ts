@@ -118,7 +118,6 @@ function revalidateKnownPostPaths(siloSlug: string | null | undefined, postSlug:
 
   if (canonicalSiloPath && canonicalSiloPath !== legacySiloPath) {
     revalidatePath(canonicalSiloPath);
-    revalidatePath(`/admin/silos/${canonicalSiloPath.slice(1)}`);
   }
 
   if (canonicalPostPath && canonicalPostPath !== legacyPostPath) {

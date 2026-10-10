@@ -1,9 +1,13 @@
 import type { NextConfig } from "next";
+import { wifiEditorialRedirects } from "./lib/telecom/redirects";
 
 const nextConfig: NextConfig = {
   distDir: process.env.PLAYWRIGHT_DIST_DIR || ".next",
   poweredByHeader: false,
   trailingSlash: false,
+  async redirects() {
+    return wifiEditorialRedirects.map(rule => ({ ...rule, permanent: true }));
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [

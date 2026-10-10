@@ -1,4 +1,6 @@
 "use client";
+import { buildPostCanonicalPath } from "@/lib/seo/canonical";
+
 
 import { useEditorContext } from "@/components/editor/EditorContext";
 import { buildExpectedLinkAudit, findEditorialArticlePlan, getEditorialSiloPlan, getEditorialArticlePlan } from "@/lib/editorial/content-plan";
@@ -297,7 +299,7 @@ export function LinkHygienePanel() {
                             id: String(item.id ?? ""),
                             slug: String(item.slug ?? ""),
                             urls: [
-                                item.siloSlug && item.slug ? `/${item.siloSlug}/${item.slug}` : "",
+                                item.siloSlug && item.slug ? buildPostCanonicalPath(item.siloSlug, item.slug)! : "",
                                 item.slug ? `/${item.slug}` : "",
                                 item.url ? String(item.url) : "",
                             ].filter(Boolean),

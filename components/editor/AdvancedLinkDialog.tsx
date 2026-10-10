@@ -1,4 +1,5 @@
 "use client";
+import { buildPostCanonicalPath } from "@/lib/seo/canonical";
 
 import { useEffect, useMemo, useState } from "react";
 import { Check, ExternalLink, Link as LinkIcon, Search, X } from "lucide-react";
@@ -483,7 +484,7 @@ export function AdvancedLinkDialog({ open, onClose }: Props) {
                       const roleLabel = item.role === "PILLAR" ? "PILAR" : item.role === "SUPPORT" ? "SUPORTE" : item.role === "AUX" ? "APOIO" : "POST";
                       const roleColor = item.role === "PILLAR" ? "bg-orange-500" : item.role === "SUPPORT" ? "bg-yellow-500" : item.role === "AUX" ? "bg-blue-500" : "bg-gray-400";
                       const siloSlug = item.siloSlug || "";
-                      const href = siloSlug ? `/${siloSlug}/${item.slug}` : `/${item.slug}`;
+                      const href = siloSlug ? buildPostCanonicalPath(siloSlug, item.slug)! : `/${item.slug}`;
                       return (
                         <button
                           key={item.id}
@@ -523,7 +524,7 @@ export function AdvancedLinkDialog({ open, onClose }: Props) {
                       key={item.id}
                       type="button"
                       onClick={() => {
-                        setUrl(`/${item.siloSlug}/${item.slug}`);
+                        setUrl(buildPostCanonicalPath(item.siloSlug, item.slug)!);
                         if (!selectedText) {
                           setText(item.title);
                         }
@@ -536,7 +537,7 @@ export function AdvancedLinkDialog({ open, onClose }: Props) {
                     >
                       <p className="font-medium text-(--text)">{item.title}</p>
                       <p className="text-[10px] text-(--muted-2)">
-                        /{item.siloSlug}/{item.slug}
+                        {buildPostCanonicalPath(item.siloSlug, item.slug)}
                       </p>
                     </button>
                   ))}

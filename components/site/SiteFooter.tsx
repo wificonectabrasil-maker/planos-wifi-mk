@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Wifi } from "lucide-react";
 import type { SiteHeaderLink } from "./SiteHeader";
-import { commercialLinks } from "@/lib/telecom/catalog";
+import { commercialLinks } from "@/lib/telecom/navigation";
 import { WhatsAppCTA } from "@/components/telecom/WhatsAppCTA";
 export function SiteFooter(_props: { links?: SiteHeaderLink[] }) {
   return (
@@ -9,7 +9,7 @@ export function SiteFooter(_props: { links?: SiteHeaderLink[] }) {
       <div className="wifi-container">
         <div className="wifi-footer-grid">
           <div>
-            <Link href="/" className="wifi-logo">
+            <Link prefetch={false} href="/" className="wifi-logo">
               <span className="wifi-logo-symbol">
                 <Wifi size={26} />
               </span>
@@ -30,31 +30,30 @@ export function SiteFooter(_props: { links?: SiteHeaderLink[] }) {
           <div>
             <h2>Encontre seu plano</h2>
             {commercialLinks.slice(0, 5).map((l) => (
-              <Link key={l.href} href={l.href}>
+              <Link prefetch={false} key={l.href} href={l.href}>
                 {l.label}
               </Link>
             ))}
           </div>
           <div>
             <h2>Escolha com clareza</h2>
-            <Link href="/comparar">Ajuda para escolher</Link>
-            <Link href="/operadoras">Operadoras</Link>
-            <Link href="/planos">Pacotes e promoções</Link>
-            <Link href="/blog">Dicas e guias</Link>
+            <Link prefetch={false} href="/planos-de-internet">Planos e contratação</Link>
+            <Link prefetch={false} href="/wifi-e-fibra">Wi-Fi e fibra óptica</Link>
+            <Link prefetch={false} href="/planos">Pacotes e promoções</Link>
             <WhatsAppCTA source="footer-help" variant="link" label="Consultar no WhatsApp" />
           </div>
           <div>
             <h2>WifiConecta</h2>
-            <Link href="/sobre">Sobre o projeto</Link>
-            <Link href="/contato">Contato</Link>
+            <Link prefetch={false} href="/sobre">Sobre o projeto</Link>
+            <Link prefetch={false} href="/contato">Contato</Link>
             <WhatsAppCTA
               source="footer"
               variant="link"
               label="Promoções no WhatsApp"
             />
-            <Link href="/politica-de-privacidade">Privacidade</Link>
-            <Link href="/politica-editorial">Política editorial</Link>
-            <Link href="/politica-de-afiliados">Transparência comercial</Link>
+            <Link prefetch={false} href="/politica-de-privacidade">Privacidade</Link>
+            <Link prefetch={false} href="/politica-editorial">Política editorial</Link>
+            <Link prefetch={false} href="/politica-de-afiliados">Transparência comercial</Link>
           </div>
         </div>
         <div className="wifi-footer-bottom">

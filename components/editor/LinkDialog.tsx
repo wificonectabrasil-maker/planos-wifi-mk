@@ -1,4 +1,6 @@
 "use client";
+import { buildPostCanonicalPath } from "@/lib/seo/canonical";
+
 
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import type { Editor } from "@tiptap/react";
@@ -324,7 +326,7 @@ export function LinkDialog({ editor, open, onClose }: Props) {
                     key={item.id}
                     type="button"
                     onClick={() => {
-                      setUrl(`/${item.siloSlug}/${item.slug}`);
+                      setUrl(buildPostCanonicalPath(item.siloSlug, item.slug)!);
                       setText(item.title);
                       setPostId(item.id);
                       setLinkType("internal");

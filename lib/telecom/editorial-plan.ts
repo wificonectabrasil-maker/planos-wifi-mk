@@ -1,150 +1,63 @@
 import type { EditorialSiloPlan } from "@/lib/editorial/content-plan";
-const clusters = [
+
+// Backlog supplied by the owner on 09/10/2026. This configuration never creates posts.
+export const wifiEditorialSilos = [
   {
-    name: "Contratação",
-    slug: "contratacao",
+    name: "Planos e contratação",
+    slug: "planos-de-internet",
+    path: "/planos-de-internet",
+    icon: "plans",
+    description: "Encontre os artigos sobre escolha de planos, operadoras e condições de contratação.",
+    scope: ["Planos e preços", "Operadoras e cobertura", "Velocidades e combos", "Contrato e instalação"],
     articles: [
-      [
-        "Como contratar internet residencial sem complicação",
-        "como-contratar-internet-residencial",
-        "Entender documentos, consulta de endereço e etapas até a instalação.",
-      ],
-      [
-        "Como saber qual internet atende seu endereço",
-        "internet-disponivel-no-meu-endereco",
-        "Distinguir uma solicitação comercial de uma confirmação técnica de cobertura.",
-      ],
-      [
-        "Como trocar de internet sem ficar no escuro",
-        "como-trocar-de-internet",
-        "Planejar a troca sem presumir prazos, cancelamento ou instalação.",
-      ],
+      ["Como escolher o melhor plano de internet residencial para sua casa?", "como-escolher-plano-internet-residencial", "melhor plano de internet residencial", "Pilar: organizar os critérios de escolha. Apontar aos guias específicos sem repetir suas explicações completas."],
+      ["Internet residencial barata: como encontrar um plano que vale a pena?", "internet-residencial-barata", "internet residencial barata", "Comparar custo total, mensalidade, taxas e promoções. Reservar regras de permanência mínima para o artigo de fidelidade."],
+      ["Claro, Vivo ou TIM: qual internet residencial escolher?", "claro-vivo-ou-tim-internet", "Claro Vivo ou TIM internet", "Comparar operadoras, tecnologias e condições, sem vencedora universal. A consulta comercial permanece em /planos."],
+      ["Como saber quais operadoras de internet atendem meu CEP?", "internet-disponivel-no-meu-cep", "internet disponível no meu CEP", "Distinguir cobertura regional e disponibilidade técnica no endereço. Não criar consulta por CEP no site."],
+      ["Internet de 300, 500, 600 Mega ou 1 Giga: qual velocidade contratar?", "quantos-mega-de-internet-preciso", "quantos Mega de internet preciso", "Dimensionar a capacidade total da casa. Remeter aos guias de streaming, jogos e home office para cada uso específico."],
+      ["Combo de internet, celular e TV: quando vale a pena contratar?", "combo-internet-celular-e-tv", "combo internet celular e TV", "Avaliar contratação conjunta, custo e limitações. Não transformar composições comerciais temporárias em ofertas permanentes."],
+      ["Internet residencial sem fidelidade: quais são as vantagens e desvantagens?", "internet-residencial-sem-fidelidade", "internet residencial sem fidelidade", "Explicar permanência mínima, multas e contrato com fontes atuais. Diferenciar do guia de preços."],
+      ["Como contratar internet residencial em São Paulo: cobertura, planos e instalação", "contratar-internet-residencial-sao-paulo", "contratar internet residencial em São Paulo", "Guia local das etapas de contratação. A home apresenta o serviço da WifiConecta; este artigo explica o processo ao leitor."],
     ],
   },
   {
-    name: "Velocidades",
-    slug: "velocidades",
+    name: "Wi-Fi e fibra óptica",
+    slug: "wifi-e-fibra",
+    path: "/wifi-e-fibra",
+    icon: "wifi",
+    description: "Encontre os artigos sobre tecnologias de acesso, rede sem fio e qualidade da conexão.",
+    scope: ["Fibra óptica", "Rede Wi-Fi", "Streaming, jogos e trabalho", "Testes de conexão"],
     articles: [
-      [
-        "Quantos Mega sua casa realmente precisa?",
-        "quantos-mega-preciso",
-        "Relacionar usos simultâneos, aparelhos, upload, Wi-Fi e orçamento.",
-      ],
-      [
-        "500 Mega é suficiente para a sua casa?",
-        "500-mega-e-bom",
-        "Explicar o que 500 Mbps representa sem prometer um número fixo de aparelhos.",
-      ],
-      [
-        "500 Mega, 600 Mega ou 1 Giga: o que muda?",
-        "500-mega-600-mega-ou-1-giga",
-        "Comparar capacidade, limitações dos equipamentos e custo real.",
-      ],
+      ["Internet fibra óptica ou internet comum: qual a diferença e qual escolher?", "internet-fibra-optica-ou-comum", "internet fibra óptica", "Pilar: comparar tecnologias de acesso e suas limitações. Não assumir a função do guia de escolha de planos."],
+      ["Qual a diferença entre internet e Wi-Fi? Entenda antes de contratar", "diferenca-entre-internet-e-wifi", "diferença entre internet e Wi-Fi", "Explicar conexão da operadora e rede interna. Remeter ao diagnóstico de lentidão para soluções práticas."],
+      ["Wi-Fi lento em casa: 10 causas comuns e como melhorar a conexão", "wifi-lento-como-melhorar", "Wi-Fi lento", "Diagnosticar posicionamento, interferência, aparelhos e sinal. O artigo de teste de velocidade concentra método e interpretação das medições."],
+      ["Quantos Mega de internet precisa para assistir Netflix, YouTube e streaming?", "internet-para-streaming", "internet para streaming", "Dimensionar banda por qualidade de vídeo e telas simultâneas. Não comparar assinaturas ou combos comerciais."],
+      ["Qual a melhor internet para jogar online? Velocidade, ping e estabilidade", "internet-para-jogos-online", "melhor internet para jogos online", "Explicar latência, estabilidade e conexão nos jogos. Separar de download e dimensionamento geral dos Mega."],
+      ["Internet para home office: qual velocidade e conexão são ideais?", "internet-para-home-office", "internet para home office", "Examinar videochamadas, upload e uso simultâneo em casa. Não duplicar a página comercial para CNPJ."],
+      ["Teste de velocidade da internet: como saber se você recebe o que contratou?", "teste-de-velocidade-da-internet", "teste de velocidade da internet", "Ensinar método e interpretação de download, upload e ping. Não oferecer ferramenta fictícia nem reproduzir o diagnóstico completo do Wi-Fi lento."],
     ],
   },
-  {
-    name: "Wi-Fi e uso",
-    slug: "wifi-e-uso",
-    articles: [
-      [
-        "Como melhorar o Wi-Fi dentro de casa",
-        "como-melhorar-o-wifi",
-        "Diferenciar problema de sinal interno de capacidade da conexão.",
-      ],
-      [
-        "Internet para home office: o que conferir",
-        "internet-para-home-office",
-        "Analisar upload, estabilidade e rede local em chamadas e envio de arquivos.",
-      ],
-      [
-        "Internet para jogos: mais Mega resolve tudo?",
-        "internet-para-jogos",
-        "Explicar latência, cabo, Wi-Fi e download sem ranking inventado.",
-      ],
-    ],
-  },
-  {
-    name: "Operadoras",
-    slug: "guias-de-operadoras",
-    articles: [
-      [
-        "Internet Claro: o que conferir antes de contratar",
-        "internet-claro-como-contratar",
-        "Verificar tecnologia, endereço e condições usando fontes atuais da operadora.",
-      ],
-      [
-        "Vivo Fibra: como consultar planos e condições",
-        "vivo-fibra-planos-e-condicoes",
-        "Reunir critérios para uma consulta de disponibilidade da Vivo.",
-      ],
-      [
-        "Internet TIM: como avaliar as opções para casa",
-        "internet-tim-para-casa",
-        "Orientar a consulta de serviço residencial da TIM sem garantir cobertura.",
-      ],
-    ],
-  },
-  {
-    name: "Comparações e combos",
-    slug: "comparacoes-e-combos",
-    articles: [
-      [
-        "Como comparar planos de internet sem cair na pegadinha",
-        "como-comparar-planos-de-internet",
-        "Comparar preço total, promoção, fidelidade, upload e benefícios.",
-      ],
-      [
-        "Internet e celular juntos: o combo compensa?",
-        "internet-e-celular-combo",
-        "Confrontar pacote e contratação separada com dados reais.",
-      ],
-      [
-        "Internet com TV e streaming: o que vem no pacote?",
-        "internet-tv-e-streaming",
-        "Separar equipamento, assinatura, canais e benefícios temporários.",
-      ],
-    ],
-  },
-];
-// Briefs only. No posts or articles are published by this plan.
-export const wifiEditorialPlan: EditorialSiloPlan[] = clusters.map(
-  (cluster) => ({
-    name: cluster.name,
-    slug: cluster.slug,
-    kgrSlug: cluster.slug,
-    articles: cluster.articles.map(([title, slug, uniqueIntent], index) => ({
-      siloName: cluster.name,
-      siloSlug: cluster.slug,
-      kgrSiloSlug: cluster.slug,
-      role: index === 0 ? "PILLAR" : "SUPPORT",
-      position: index + 1,
-      uniqueIntent,
-      title,
-      slug,
-      primaryKeyword: title.replace(/[?:]/g, ""),
-      secondaryKeywords: [
-        "internet residencial",
-        "disponibilidade",
-        "planos de internet",
-      ],
-      searchIntent: "Informação para escolher e solicitar um plano",
-      anchorIn: title,
-      expectedLinks:
-        index === 0
-          ? cluster.articles
-              .slice(1)
-              .map(([targetTitle, targetSlug]) => ({
-                targetSlug,
-                anchor: targetTitle,
-                relationship: "pillar-to-support" as const,
-              }))
-          : [
-              {
-                targetSlug: cluster.articles[0][1],
-                anchor: cluster.articles[0][0],
-                relationship: "support-to-pillar" as const,
-              },
-            ],
-    })),
-  }),
-);
+] as const;
+
+export const wifiEditorialPlan: EditorialSiloPlan[] = wifiEditorialSilos.map(silo => ({
+  name: silo.name,
+  slug: silo.slug,
+  kgrSlug: silo.slug,
+  articles: silo.articles.map(([title, slug, primaryKeyword, uniqueIntent], index) => ({
+    siloName: silo.name,
+    siloSlug: silo.slug,
+    kgrSiloSlug: silo.slug,
+    role: index === 0 ? "PILLAR" : "SUPPORT",
+    position: index + 1,
+    uniqueIntent,
+    title,
+    slug,
+    primaryKeyword,
+    secondaryKeywords: [],
+    searchIntent: "Informacional",
+    anchorIn: primaryKeyword,
+    expectedLinks: index === 0
+      ? silo.articles.slice(1).map(([, targetSlug, keyword]) => ({ targetSlug, anchor: keyword, relationship: "pillar-to-support" as const }))
+      : [{ targetSlug: silo.articles[0][1], anchor: silo.articles[0][2], relationship: "support-to-pillar" as const }],
+  })),
+}));

@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { resolveSiteUrl } from "@/lib/site/url";
 import { requireAdminSession } from "@/lib/admin/auth";
 import { adminGetSiloBySlug, adminListPostsBySiloId } from "@/lib/db";
 import {
@@ -44,7 +45,7 @@ export default async function EditSiloPage({
 
 
   const { getAdminDatabase } = await import("@/lib/database");
-  const siteUrl = process.env.SITE_URL ?? "http://localhost:3000";
+  const siteUrl = resolveSiteUrl();
 
   let metrics: ReturnType<typeof buildSiloMetrics>;
   let cannibalization: ReturnType<typeof buildInternalSimilarity>;

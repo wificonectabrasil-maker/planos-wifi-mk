@@ -1,8 +1,11 @@
+import { buildPostCanonicalPath, buildSiloCanonicalPath } from "@/lib/seo/canonical";
 import type { Metadata } from "next";
 
 import "./globals.css";
 import "./wificonecta.css";
 import { SiteChrome } from "@/components/site/SiteChrome";
+import { SiteFooter } from "@/components/site/SiteFooter";
+import { brandConfig } from "@/brand.config";
 import type { SiteHeaderLink } from "@/components/site/SiteHeader";
 import { getPublicPostsBySilo, getPublicSiloGroupsBySiloId, getPublicSilos } from "@/lib/db";
 import { SITE_DESCRIPTION, SITE_LOCALE, SITE_NAME, SITE_WHATSAPP_PHONE } from "@/lib/site";
@@ -120,7 +123,7 @@ function buildSiloSubmenu(siloSlug: string, posts: Post[], groups: SiloGroup[]):
       );
       return {
         label: post.title,
-        href: `/${siloSlug}/${post.slug}`,
+        href: buildPostCanonicalPath(siloSlug, post.slug)!,
         role,
         groupKey,
         order,
@@ -190,7 +193,12 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     { href: "/contato", label: "Contato" },
   ];
 
-  try {
+  if ((brandConfig as { staticSiloNavigation?: boolean }).staticSiloNavigation) {
+    headerLinks = buildHeaderLinksFromSilos(brandConfig.contentPlan.map(silo => ({
+      href: buildSiloCanonicalPath(silo.slug)!,
+      label: silo.name,
+    })));
+  } else try {
     const silos = await getPublicSilos();
     const siloLinks = await Promise.all(
       silos
@@ -203,14 +211,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             ]);
             if (posts.length === 0) return null;
             return {
-              href: `/${silo.slug}`,
+              href: buildSiloCanonicalPath(silo.slug)!,
               label: silo.name,
               submenu: buildSiloSubmenu(silo.slug, posts, groups),
             } as SiteHeaderLink;
           } catch (submenuError) {
             console.error("[SITE] failed to build silo submenu", { siloSlug: silo.slug, submenuError });
             return {
-              href: `/${silo.slug}`,
+              href: buildSiloCanonicalPath(silo.slug)!,
               label: silo.name,
             } as SiteHeaderLink;
           }
@@ -226,6 +234,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body className={`${body.variable} min-h-screen`}>
         <SiteChrome
           headerLinks={headerLinks}
+          footer={<SiteFooter />}
           whatsappPhone={resolveWhatsAppPhone(process.env.WIFICONECTA_WHATSAPP, SITE_WHATSAPP_PHONE)}
         >
           {children}

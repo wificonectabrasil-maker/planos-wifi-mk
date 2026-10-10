@@ -1,3 +1,4 @@
+import { buildPostCanonicalPath, buildSiloCanonicalPath } from "@/lib/seo/canonical";
 import type { Post, Silo } from "@/lib/types";
 import { extractLinksFromContent, type LinkPositionBucket } from "@/lib/seo/extractLinksFromContent";
 
@@ -99,7 +100,7 @@ export function buildSiloMetrics({ silo, posts, siteUrl }: BuildArgs): SiloMetri
     const canonical = normalizePath(post.canonical_path ?? undefined);
     if (canonical) postPathMap.set(canonical, post.id);
     if (post.slug) {
-      const mainPath = normalizePath(`/${silo.slug}/${post.slug}`);
+      const mainPath = normalizePath(buildPostCanonicalPath(silo.slug, post.slug));
       if (mainPath) postPathMap.set(mainPath, post.id);
     }
   });
@@ -163,7 +164,7 @@ export function buildSiloMetrics({ silo, posts, siteUrl }: BuildArgs): SiloMetri
 
       const path = resolvePathFromHref(link.href, siteUrl);
       if (path) {
-        if (path.startsWith(`/${silo.slug}`) || path === `/silos/${silo.slug}`) {
+        if (path.startsWith(`${buildSiloCanonicalPath(silo.slug)}/`) || path === buildSiloCanonicalPath(silo.slug) || path === `/silos/${silo.slug}`) {
           internalSiloLinks += 1;
         }
 

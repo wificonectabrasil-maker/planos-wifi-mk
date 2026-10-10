@@ -101,8 +101,8 @@ test("continuous home background follows the mobile menu and resets on other pag
   expect(geometry.backgroundBottom).toBeCloseTo(geometry.heroBottom, 1);
   expect(geometry.overflow).toBe(false);
 
-  await page.getByRole("navigation", { name: "Navegação principal" }).getByRole("link", { name: "Pacotes e promoções", exact: true }).click();
-  await expect(page).toHaveURL(/\/planos$/);
+  await page.getByRole("navigation", { name: "Navegação principal" }).getByRole("link", { name: "Internet pra casa", exact: true }).click();
+  await expect(page).toHaveURL(/\/planos#pacotes$/);
   await expect(page.locator(".wifi-home")).toHaveCount(0);
   await expect.poll(() => page.locator(".wifi-header").evaluate(element => getComputedStyle(element).backgroundColor)).toBe("rgb(255, 255, 255)");
 

@@ -1,5 +1,9 @@
 # Silos and SEO System
 
+Atualização WifiConecta de 09/10/2026: o plano da marca tem dois silos, 15 briefs e dois pilares. A orientação mais recente exige canônicos em `https://wificonecta.com.br/{silo}/{slug}`, sem prefixo `/blog`. `buildSiloCanonicalPath` e `buildPostCanonicalPath` geram caminhos planos e são usados também em links, breadcrumbs, publicação, métricas e sitemap. A opção `brandConfig.useBrandCanonicalOrigin` fixa a origem da marca e impede que localhost ou Vercel substituam o domínio público. O CMS preserva slugs de artigos publicados. Os hubs vazios desta marca são uma exceção solicitada pelo responsável: ficam visíveis para navegação e planejamento, mas com `noindex` e fora do sitemap. Não são criados posts de exemplo. [Auditoria e migração](../wificonecta/AUDITORIA-E-MIGRACAO-EDITORIAL.md).
+
+Por orientação posterior do responsável, `/blog` deixa de ser índice e redireciona ao silo de contratação. A navegação é temática e direta aos hubs; cada hub destaca o pilar e agrupa os suportes conforme a organização editorial. As ligações no texto devem ser pertinentes ao contexto, com âncoras descritivas variadas, relações pilar–suporte e relações justificadas entre suportes. A arquitetura é uma base para SEO semântico; não substitui a redação, a pesquisa e a validação dos futuros artigos.
+
 Este documento define o sistema de silos, arquitetura editorial, SEO tecnico e auditorias do Mini WordPress.
 
 O silo e a unidade central de organizacao editorial. Cada marca pode ter silos diferentes, mas a logica de gerenciamento, auditoria e linkagem pertence ao Core.

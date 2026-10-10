@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { listAllPostSitemapEntries, getPublicSilos } from "@/lib/db";
 import { resolveSiteUrl } from "@/lib/site/url";
 import { commercialPaths } from "@/lib/telecom/catalog";
+import { buildPostCanonicalPath, buildSiloCanonicalPath } from "@/lib/seo/canonical";
 
 export const revalidate = 3600;
 
@@ -28,12 +29,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const siloUrls = silos
     .filter((s) => silosWithPublishedPosts.has(s.slug))
     .map((s) => ({
-      url: `${siteUrl}/${s.slug}`,
+      url: `${siteUrl}${buildSiloCanonicalPath(s.slug)}`,
       lastModified: now,
     }));
 
   const postUrls = posts.map((p) => ({
-    url: `${siteUrl}/${p.silo}/${p.slug}`,
+    url: `${siteUrl}${buildPostCanonicalPath(p.silo, p.slug)}`,
     lastModified: p.lastModified ? new Date(p.lastModified) : now,
   }));
 

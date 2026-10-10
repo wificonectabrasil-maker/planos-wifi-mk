@@ -1,4 +1,5 @@
 import { SITE_URL } from "@/lib/site";
+import { brandConfig } from "@/brand.config";
 
 const DEFAULT_SITE_URL = SITE_URL;
 
@@ -24,6 +25,10 @@ function normalizeSiteUrl(value: string | null | undefined): string | null {
 }
 
 export function resolveSiteUrl(): string {
+  // The public canonical domain must stay stable on local and Vercel preview hosts.
+  if ((brandConfig as { useBrandCanonicalOrigin?: boolean }).useBrandCanonicalOrigin) {
+    return normalizeSiteUrl(DEFAULT_SITE_URL) ?? DEFAULT_SITE_URL;
+  }
   const candidates = [
     process.env.SITE_URL,
     process.env.NEXT_PUBLIC_SITE_URL,

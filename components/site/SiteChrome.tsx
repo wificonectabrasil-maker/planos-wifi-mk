@@ -2,7 +2,6 @@
 import type { ReactNode } from "react";
 import { useSelectedLayoutSegments } from "next/navigation";
 import { SiteHeader, type SiteHeaderLink } from "./SiteHeader";
-import { SiteFooter } from "./SiteFooter";
 import { ConversionObserver } from "@/components/telecom/ConversionObserver";
 import {
   WhatsAppProvider,
@@ -11,10 +10,12 @@ import {
 export function SiteChrome({
   children,
   headerLinks,
+  footer,
   whatsappPhone = null,
 }: {
   children: ReactNode;
   headerLinks?: SiteHeaderLink[];
+  footer: ReactNode;
   whatsappPhone?: string | null;
 }) {
   const segments = useSelectedLayoutSegments();
@@ -28,7 +29,8 @@ export function SiteChrome({
       "operadoras",
       "comparar",
       "consultar",
-      "blog",
+      "planos-de-internet",
+      "wifi-e-fibra",
       "internet-residencial",
       "internet-empresarial",
       "internet-para-condominios",
@@ -51,7 +53,7 @@ export function SiteChrome({
         >
           {children}
         </main>
-        <SiteFooter />
+        {footer}
           <aside aria-label="Atendimento da WifiConecta">
             <WhatsAppCTA
               source="floating"

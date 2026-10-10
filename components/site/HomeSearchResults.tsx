@@ -1,4 +1,5 @@
 "use client";
+import { buildPostCanonicalPath } from "@/lib/seo/canonical";
 
 import Link from "next/link";
 import { useMemo } from "react";
@@ -57,7 +58,7 @@ export function HomeSearchResults({ posts, maxResults = 10 }: HomeSearchResultsP
           {results.map((post, index) => {
             const cover = resolvePostCoverUrl(post);
             const coverAlt = resolvePostCoverAlt(post);
-            const href = post.silo ? `/${post.silo.slug}/${post.slug}` : "/#posts-mais-novos";
+            const href = post.silo ? buildPostCanonicalPath(post.silo.slug, post.slug)! : "/#posts-mais-novos";
 
             return (
               <Link

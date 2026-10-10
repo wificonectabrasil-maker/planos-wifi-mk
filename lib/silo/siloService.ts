@@ -1,3 +1,5 @@
+import { buildPostCanonicalPath } from "@/lib/seo/canonical";
+import { resolveSiteUrl } from "@/lib/site/url";
 import * as cheerio from "cheerio";
 import crypto from "crypto";
 import { getAdminDatabase } from "@/lib/database";
@@ -273,7 +275,7 @@ export async function syncLinkOccurrences(
     if (!siloId || !sourcePostId) return;
 
     const database = getAdminDatabase();
-    const siteUrl = options.siteUrl ?? process.env.SITE_URL ?? "http://localhost:3000";
+    const siteUrl = options.siteUrl ?? resolveSiteUrl();
     const siteHost = getSiteHost(siteUrl);
     const basePath = getBasePath(siteUrl);
 
@@ -321,7 +323,7 @@ export async function syncLinkOccurrences(
             if (canonical) postPathMap.set(canonical, p.id);
         }
         if (p.slug && siloSlug) {
-            const mainPath = normalizePath(`/${siloSlug}/${p.slug}`);
+            const mainPath = normalizePath(buildPostCanonicalPath(siloSlug, p.slug)!);
             if (mainPath) postPathMap.set(mainPath, p.id);
         }
     });

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import {
-  ArrowRight,
   BadgeCheck,
   ListChecks,
   MapPin,
@@ -138,48 +137,6 @@ export function RegionNotice() {
     <div className="wifi-region-notice">
       <MapPin size={22} aria-hidden="true" />
       <p><strong>Atendimento em São Paulo, por enquanto.</strong> As promoções mudam e as condições variam por bairro. Pacotes, valores e benefícios são apresentados no WhatsApp.</p>
-    </div>
-  );
-}
-export function GuideCards() {
-  const guides = [
-    {
-      title: "Como encontrar seu próximo pacote?",
-      text: "Conte sua rotina para conhecer as opções atuais.",
-      href: "/planos",
-      label: "Pacotes e promoções",
-      icon: ListChecks,
-    },
-    {
-      title: "Sua conta cabe no combo?",
-      text: "Casa e celular juntos: confira o que entra na conta.",
-      href: "/celular-e-internet",
-      label: "Casa + celular",
-      icon: MessagesSquare,
-    },
-    {
-      title: "O que vale perguntar na conversa?",
-      text: "Promoção, fidelidade e benefícios. Cada detalhe importa.",
-      href: "/comparar",
-      label: "Escolha do plano",
-      icon: ShieldCheck,
-    },
-  ];
-  return (
-    <div className="wifi-guide-grid">
-      {guides.map((g) => (
-        <Link key={g.href} href={g.href} className="wifi-guide-card">
-          <div className="wifi-guide-icon">
-            <g.icon size={29} />
-          </div>
-          <span className="wifi-eyebrow">{g.label}</span>
-          <h3>{g.title}</h3>
-          <p>{g.text}</p>
-          <span className="wifi-text-link">
-            Ver guia <ArrowRight size={16} />
-          </span>
-        </Link>
-      ))}
     </div>
   );
 }

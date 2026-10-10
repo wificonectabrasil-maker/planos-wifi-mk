@@ -13,7 +13,7 @@ import type { PostWithSilo } from "@/lib/types";
 import { resolveContentHtmlForRender } from "@/lib/editor/resolveContentHtml";
 import { resolvePostCoverAlt, resolvePostCoverUrl } from "@/lib/site/postCover";
 import { resolveSiteUrl } from "@/lib/site/url";
-import { buildCanonicalUrl, buildPostCanonicalPath } from "@/lib/seo/canonical";
+import { buildCanonicalUrl, buildPostCanonicalPath, buildSiloCanonicalPath } from "@/lib/seo/canonical";
 import { DEFAULT_AUTHOR_PROFILE, findCollaboratorByName } from "@/lib/site/collaborators";
 import { SITE_DESCRIPTION, SITE_NAME, isStandardAffiliateDisclosure } from "@/lib/site";
 import { getCanonicalSiloSlug, getLegacySiloRedirect } from "@/lib/silo-config";
@@ -359,7 +359,7 @@ function buildBreadcrumbJsonLd(post: PostWithSilo, siteUrl: string, silo: string
         "@type": "ListItem",
         position: 2,
         name: post.silo?.name ?? silo,
-        item: `${base}/${silo}`,
+        item: `${base}${buildSiloCanonicalPath(silo)}`,
       },
       {
         "@type": "ListItem",
@@ -378,7 +378,7 @@ export default async function PostPage({ params }: { params: Promise<{ silo: str
   if (!post) {
     const redirectSlug = getLegacySiloRedirect(silo);
     if (redirectSlug) permanentRedirect(`/${redirectSlug}/${slug}`);
-    const deletedRedirectTarget = await getPublicUrlRedirectTarget(`/${silo}/${slug}`);
+    const deletedRedirectTarget = await getPublicUrlRedirectTarget(buildPostCanonicalPath(silo, slug)!);
     if (deletedRedirectTarget) permanentRedirect(deletedRedirectTarget);
     return notFound();
   }
@@ -444,12 +444,12 @@ export default async function PostPage({ params }: { params: Promise<{ silo: str
         <article className="page-in relative z-10 mx-auto max-w-6xl px-4 pb-8 pt-8 sm:px-5 md:px-6">
           <header className="space-y-3">
             <nav className="text-[11px] text-(--muted-2)">
-              <Link href="/">Home</Link> / <Link href={`/${postSiloSlug}`}>{post.silo?.name ?? silo}</Link> / {post.title}
+              <Link href="/">Home</Link> / <Link href={buildSiloCanonicalPath(postSiloSlug)!}>{post.silo?.name ?? silo}</Link> / {post.title}
             </nav>
 
             <div>
               <Link
-                href={`/${postSiloSlug}`}
+                href={buildSiloCanonicalPath(postSiloSlug)!}
                 className="inline-flex items-center rounded-full border border-[rgba(165,119,100,0.3)] bg-white/80 px-3 py-1 text-xs font-semibold text-(--muted-2) hover:text-(--ink)"
               >
                 Voltar para {post.silo?.name ?? silo}

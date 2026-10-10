@@ -1,3 +1,4 @@
+import { buildPostCanonicalPath } from "@/lib/seo/canonical";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { requireAdminSession } from "@/lib/admin/auth";
@@ -1478,7 +1479,7 @@ export async function POST(req: Request) {
       const title = String(row.title ?? "");
       const slug = String(row.slug ?? "");
       const targetKeyword = String(row.target_keyword ?? row.focus_keyword ?? title).trim();
-      const url = `/${siloData.slug}/${slug}`;
+      const url = buildPostCanonicalPath(siloData.slug, slug)!;
       const expectedByPlan = expectedTargetSlugs.has(slug);
       const roleInfo = hierarchyMap.get(postId);
       const role = roleInfo?.role ?? null;
@@ -1639,7 +1640,7 @@ export async function POST(req: Request) {
     (postsData ?? []).map((row: any) => {
       const postId = String(row.id ?? "");
       const slug = String(row.slug ?? "");
-      const url = slug ? `/${siloData.slug}/${slug}` : "";
+      const url = slug ? buildPostCanonicalPath(siloData.slug, slug)! : "";
       return [postId, url] as const;
     })
   );

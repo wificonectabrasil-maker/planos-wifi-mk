@@ -1,4 +1,5 @@
 "use client";
+import { buildPostCanonicalPath } from "@/lib/seo/canonical";
 
 import { BubbleMenu } from "@tiptap/react/menus";
 import type { Editor } from "@tiptap/core";
@@ -18,7 +19,7 @@ export function InternalLinkCandidateMenu({ editor }: { editor: Editor | null })
     if (attrs?.href) return attrs.href as string;
     if (attrs?.slug) {
       if (String(attrs.slug).startsWith("/")) return String(attrs.slug);
-      if (siloSlug) return `/${siloSlug}/${attrs.slug}`;
+      if (siloSlug) return buildPostCanonicalPath(siloSlug, String(attrs.slug))!;
       return `/${attrs.slug}`;
     }
     return "";
@@ -56,7 +57,7 @@ export function InternalLinkCandidateMenu({ editor }: { editor: Editor | null })
     const nextHref = next.startsWith("http") || next.startsWith("/")
       ? next
       : siloSlug
-        ? `/${siloSlug}/${next}`
+        ? buildPostCanonicalPath(siloSlug, next)!
         : `/${next}`;
 
     editor

@@ -1,6 +1,7 @@
 import { PackageInterests } from "@/components/telecom/PackageInterests";
 import { Breadcrumb, ContractProcess, FinalCTA } from "@/components/telecom/Shared";
 import { telecomMetadata } from "@/lib/telecom/metadata";
+import { OperatorConsultations } from "@/components/telecom/OperatorConsultations";
 export const metadata = telecomMetadata(
   "Pacotes e promoções: consulte pelo WhatsApp",
   "Consulte pacotes de internet, celular e TV com a WifiConecta. Atendimento em São Paulo e condições atuais apresentadas pelo WhatsApp.",
@@ -18,6 +19,7 @@ export default function Page() {
         </div>
       </div></div>
       <PackageInterests />
+      <OperatorConsultations />
       <ContractProcess />
       <FinalCTA />
     </>

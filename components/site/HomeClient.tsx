@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { buildPostCanonicalPath } from "@/lib/seo/canonical";
 import type { PublicHomePost } from "@/lib/types";
 function Articles({ posts }: { posts: PublicHomePost[] }) {
   return (
@@ -6,7 +7,7 @@ function Articles({ posts }: { posts: PublicHomePost[] }) {
       {posts.map((post) => (
         <Link
           key={post.id}
-          href={"/" + post.silo?.slug + "/" + post.slug}
+          href={buildPostCanonicalPath(post.silo?.slug, post.slug) ?? `/${post.slug}`}
           className="brand-card rounded-2xl p-5"
         >
           <p className="text-xs text-(--muted-2)">{post.silo?.name}</p>

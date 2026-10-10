@@ -1,3 +1,4 @@
+import { buildPostCanonicalPath } from "@/lib/seo/canonical";
 import { getPublicDatabase } from "@/lib/database";
 import type { Post, PostLink, PostWithSilo, PublicHomePost, Silo, SiloBatch, SiloBatchPost, SiloGroup } from "@/lib/types";
 import type { SiloPost } from "@/lib/types/silo";
@@ -763,7 +764,7 @@ export async function adminDeletePosts(
   for (const row of publicRows) {
     const siloSlug = getCanonicalSiloSlug(String(row.silos?.slug ?? ""));
     const postSlug = String(row.slug ?? "").trim();
-    const sourcePath = normalizeUrlPath(siloSlug && postSlug ? `/${siloSlug}/${postSlug}` : `/${postSlug}`);
+    const sourcePath = normalizeUrlPath(buildPostCanonicalPath(siloSlug, postSlug) ?? `/${postSlug}`);
     const targetPath = `/pagina-nao-encontrada?from=${encodeURIComponent(sourcePath)}`;
 
     const { error: redirectError } = await database.from("url_redirects").upsert(

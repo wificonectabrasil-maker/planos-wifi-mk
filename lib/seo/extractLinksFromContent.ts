@@ -1,4 +1,5 @@
-﻿import * as cheerio from "cheerio";
+﻿import { buildSiloCanonicalPath } from "@/lib/seo/canonical";
+import * as cheerio from "cheerio";
 
 export type LinkRelFlags = {
   nofollow: boolean;
@@ -135,7 +136,7 @@ function buildLink(params: {
   const path = getPathFromHref(safe, params.siteHost);
   const isInternal = Boolean(path);
   const isSiloInternal = Boolean(
-    path && params.siloSlug && path.startsWith(`/${params.siloSlug}`)
+    path && params.siloSlug && (path === buildSiloCanonicalPath(params.siloSlug) || path.startsWith(`${buildSiloCanonicalPath(params.siloSlug)}/`))
   );
 
   return {

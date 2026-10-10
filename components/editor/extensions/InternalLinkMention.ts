@@ -1,4 +1,5 @@
 "use client";
+import { buildPostCanonicalPath } from "@/lib/seo/canonical";
 
 import Mention from "@tiptap/extension-mention";
 import type { SuggestionOptions } from "@tiptap/suggestion";
@@ -111,7 +112,7 @@ function renderList() {
 
       const meta = document.createElement("div");
       meta.className = "text-[10px] text-(--muted-2)";
-      meta.textContent = `/${item.siloSlug}/${item.slug}`;
+      meta.textContent = buildPostCanonicalPath(item.siloSlug, item.slug)!;
 
       row.appendChild(title);
       row.appendChild(meta);
@@ -130,7 +131,7 @@ const suggestion: Partial<SuggestionOptions<Item>> = {
   },
   render: renderList as any,
   command: ({ editor, range, props }) => {
-    const href = `/${props.siloSlug}/${props.slug}`;
+    const href = buildPostCanonicalPath(props.siloSlug, props.slug)!;
     editor
       .chain()
       .focus()

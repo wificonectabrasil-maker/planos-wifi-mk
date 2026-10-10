@@ -1,8 +1,9 @@
+import { buildPostCanonicalPath } from "@/lib/seo/canonical";
 import Link from "next/link";
 import type { PostWithSilo } from "@/lib/types";
 
 export function PostCard({ post }: { post: PostWithSilo }) {
-  const href = post.silo ? `/${post.silo.slug}/${post.slug}` : `/${post.slug}`;
+  const href = post.silo ? buildPostCanonicalPath(post.silo.slug, post.slug)! : `/${post.slug}`;
 
   return (
     <Link

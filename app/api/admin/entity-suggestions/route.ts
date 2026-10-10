@@ -1,3 +1,4 @@
+import { buildPostCanonicalPath } from "@/lib/seo/canonical";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { requireAdminSession } from "@/lib/admin/auth";
@@ -68,7 +69,7 @@ async function findMentionPost(term: string, currentPostId?: string) {
     return {
       id: candidate.id,
       title: candidate.title,
-      url: `/${candidate.silo_slug}/${candidate.slug}`,
+      url: buildPostCanonicalPath(candidate.silo_slug, candidate.slug)!,
     } satisfies MentionPost;
   } catch {
     return null;

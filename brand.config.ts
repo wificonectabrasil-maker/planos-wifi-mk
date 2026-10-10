@@ -7,6 +7,8 @@ import { wifiEditorialPlan } from "./lib/telecom/editorial-plan";
 export const brandConfig = {
   name: "WifiConecta",
   url: "https://wificonecta.com.br",
+  useBrandCanonicalOrigin: true,
+  staticSiloNavigation: true,
   description:
     "A WifiConecta facilita seu pedido de internet. Uma pessoa entende sua necessidade, explica os pacotes e ajuda a encaminhar o serviço pelo WhatsApp em São Paulo.",
   tagline: "Sua internet. Sem complicar o pedido.",

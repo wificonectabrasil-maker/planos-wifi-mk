@@ -1,4 +1,5 @@
 "use server";
+import { resolveSiteUrl } from "@/lib/site/url";
 
 import { getAdminDatabase } from "@/lib/database";
 import { z } from "zod";
@@ -595,7 +596,7 @@ export async function auditSiloAction(payload: z.infer<typeof auditSchema>) {
     let aiStatus: "skipped" | "success" | "failed" = "skipped";
 
     try {
-        const siteUrl = process.env.SITE_URL ?? "http://localhost:3000";
+        const siteUrl = resolveSiteUrl();
         const { data: postsForSync, error: postsForSyncError } = await database
             .from("posts")
             .select("id, slug, canonical_path, content_html")

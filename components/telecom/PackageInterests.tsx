@@ -4,6 +4,7 @@ import { WhatsAppCTA } from "./WhatsAppCTA";
 // Compositions supplied by the owner; availability and current terms are confirmed in the conversation.
 const packages = [
   {
+    id: "internet-celular",
     icon: Smartphone,
     audience: "Casa + celular",
     title: "Claro Multi",
@@ -18,6 +19,7 @@ const packages = [
     interest: "Claro Multi: 500 Mega + 60 GB, Globoplay, Passaporte Américas e armazenamento na nuvem",
   },
   {
+    id: "tv-streaming",
     icon: House,
     audience: "Internet + celular + TV",
     title: "Claro com TV e streaming",
@@ -32,6 +34,7 @@ const packages = [
     interest: "Claro: 500 Mega + 60 GB + TV Box com 120 canais e seis streamings",
   },
   {
+    id: "empresa",
     icon: Building2,
     audience: "Exclusivo para CNPJ",
     title: "Claro Empresas",
@@ -45,6 +48,7 @@ const packages = [
     interest: "Claro Empresas: 600 Mega + McAfee, contratação para CNPJ",
   },
   {
+    id: "condominio",
     icon: MonitorPlay,
     audience: "Para condomínios",
     title: "Claro tv+ Box",
@@ -72,8 +76,8 @@ export function PackageInterests() {
           </div>
         </div>
         <div className="wifi-package-grid">
-          {packages.map(({ icon: Icon, audience, title, text, specs, benefits, streaming, note, interest }) => (
-            <article className="wifi-interest-card wifi-package-card" key={title}>
+          {packages.map(({ id, icon: Icon, audience, title, text, specs, benefits, streaming, note, interest }) => (
+            <article id={id} className="wifi-interest-card wifi-package-card" key={title}>
               <div className="wifi-package-top">
                 <div className="wifi-interest-icon"><Icon size={26} aria-hidden="true" /></div>
                 <span className="wifi-package-audience">{audience}</span>

@@ -2,8 +2,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Menu, Wifi, X } from "lucide-react";
-import { commercialLinks } from "@/lib/telecom/catalog";
+import { ArrowRight, ClipboardList, Menu, Router, Wifi, X } from "lucide-react";
+import { commercialLinks } from "@/lib/telecom/navigation";
 import { WhatsAppCTA } from "@/components/telecom/WhatsAppCTA";
 export type SiteHeaderLink = {
   href: string;
@@ -36,28 +36,28 @@ export function SiteHeader({ links }: { links?: SiteHeaderLink[] }) {
     };
   }, [pathname]);
   const first = commercialLinks.slice(0, 6);
-  const second = [
+  const second: { href: string; label: string; icon?: typeof Wifi }[] = [
     { href: "/", label: "Início" },
-    { href: "/planos", label: "Pacotes e promoções" },
-    ...commercialLinks.slice(6),
+    { href: "/planos-de-internet", label: "Planos e contratação", icon: ClipboardList },
+    { href: "/wifi-e-fibra", label: "Wi-Fi e fibra óptica", icon: Router },
     { href: "/sobre", label: "Sobre a WifiConecta" },
     { href: "/contato", label: "Contato" },
   ];
   const publishedTopics = (links || []).filter(
-    (l) => !["/", "/sobre", "/contato"].includes(l.href),
+    (l) => !["/", "/sobre", "/contato", "/planos-de-internet", "/wifi-e-fibra"].includes(l.href),
   );
   return (
     <header ref={headerRef} className="wifi-header">
       <div className="wifi-topbar">
         <div className="wifi-container">
           <span>Atendimento humano em São Paulo • WhatsApp</span>
-          <Link href="/#como-funciona">
+          <Link prefetch={false} href="/#como-funciona">
             Como funciona <ArrowRight size={12} />
           </Link>
         </div>
       </div>
       <div className="wifi-header-main wifi-container">
-        <Link href="/" className="wifi-logo" aria-label="WifiConecta — início">
+        <Link prefetch={false} href="/" className="wifi-logo" aria-label="WifiConecta — início">
           <span className="wifi-logo-symbol">
             <Wifi size={26} strokeWidth={2.7} />
           </span>
@@ -96,7 +96,7 @@ export function SiteHeader({ links }: { links?: SiteHeaderLink[] }) {
         <div className="wifi-container">
           <div className="wifi-nav-row">
             {first.map((l) => (
-              <Link
+              <Link prefetch={false}
                 key={l.href}
                 href={l.href}
                 aria-current={pathname === l.href ? "page" : undefined}
@@ -108,21 +108,22 @@ export function SiteHeader({ links }: { links?: SiteHeaderLink[] }) {
           </div>
           <div className="wifi-nav-row wifi-nav-secondary">
             {second.map((l) => (
-              <Link
+              <Link prefetch={false}
                 key={l.href}
                 href={l.href}
                 aria-current={pathname === l.href ? "page" : undefined}
                 onClick={() => setOpen(false)}
               >
+                {l.icon ? <l.icon size={14} aria-hidden="true" /> : null}
                 {l.label}
               </Link>
             ))}
             {publishedTopics.length ? (
               <details className="wifi-topics-menu">
-                <summary>Temas do blog</summary>
+                <summary>Mais assuntos</summary>
                 <div>
                   {publishedTopics.map((l) => (
-                    <Link
+                    <Link prefetch={false}
                       href={l.href}
                       key={l.href}
                       onClick={() => setOpen(false)}
