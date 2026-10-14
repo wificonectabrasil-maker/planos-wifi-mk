@@ -31,7 +31,7 @@ export default function Page() {
         </p>
         <h2>Oferta e disponibilidade.</h2>
         <p>
-          Os pacotes e seus valores são apresentados exclusivamente pelo WhatsApp.
+          As condições atuais são confirmadas no WhatsApp. Campanhas publicadas no site precisam de revisão comercial, validade e restrições claras; exemplos antigos não representam ofertas vigentes.
           Por enquanto, atendemos São Paulo. As promoções são temporárias e os
           benefícios e condições variam por bairro e perfil do cliente.
           O atendimento confirma as opções antes de uma contratação.

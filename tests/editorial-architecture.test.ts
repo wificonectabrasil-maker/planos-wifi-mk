@@ -45,7 +45,8 @@ test("15 briefs have distinct keywords and resolve to the chosen hierarchy in SE
   for (const silo of wifiEditorialPlan) {
     assert.equal(silo.articles.filter(article => article.role === "PILLAR").length, 1);
     for (const article of silo.articles) {
-      for (const link of article.expectedLinks) assert(silo.articles.some(target => target.slug === link.targetSlug));
+      for (const link of article.expectedLinks) assert(articles.some(target => target.slug === link.targetSlug));
+      if (article.role === "SUPPORT") assert(article.expectedLinks.some(link => link.relationship === "support-to-pillar" && link.targetSlug === silo.articles[0].slug));
     }
   }
   assert.equal(buildSiloCanonicalPath("planos-de-internet"), "/planos-de-internet");

@@ -1,34 +1,22 @@
-import { Breadcrumb, ContractProcess, RegionNotice } from "@/components/telecom/Shared";
-import { telecomMetadata } from "@/lib/telecom/metadata";
+import Link from "next/link";
+import { CommercialIntro, ContentSection } from "@/components/telecom/CommercialContent";
 import { WhatsAppCTA } from "@/components/telecom/WhatsAppCTA";
-export const metadata = telecomMetadata(
-  "Contato: consulte pacotes pelo WhatsApp",
-  "Converse com uma pessoa da WifiConecta pelo WhatsApp (11) 94884-4107. Ajuda para escolher seu pacote e encaminhar o pedido em São Paulo.",
-  "/contato",
-);
+import { telecomMetadata } from "@/lib/telecom/metadata";
+export const metadata = telecomMetadata("Fale com a WifiConecta no WhatsApp", "Precisa de internet em São Paulo? Fale com uma pessoa da WifiConecta pelo WhatsApp (11) 94884-4107 e consulte opções para seu endereço.", "/contato");
+const interests = [
+  ["internet", "Só internet", "Internet residencial"],
+  ["internet_celular", "Internet + celular", "Combo de internet e celular"],
+  ["internet_tv", "TV e streaming", "Internet com TV Box e streaming"],
+  ["internet_camera", "Internet + câmera", "Internet com câmera residencial"],
+  ["empresa", "Minha empresa", "Internet empresarial para CNPJ"],
+  ["condominio", "Meu condomínio", "Atendimento para condomínio"],
+];
 export default function Page() {
-  return (
-    <>
-      <div className="wifi-page-tint"><div className="wifi-container">
-        <Breadcrumb items={[{ label: "Contato", href: "/contato" }]} />
-        <div className="wifi-page-intro">
-          <p className="wifi-eyebrow">Uma pessoa atende você</p>
-          <h1>Conta pra gente o que você precisa.</h1>
-          <p>Chame no WhatsApp, conte seu bairro em São Paulo e como usa a internet. Uma pessoa da equipe apresenta as opções, explica as condições e ajuda a encaminhar o pedido do pacote que você escolher.</p>
-          <div className="wifi-page-actions"><WhatsAppCTA source="contact" label="Falar pelo WhatsApp" /></div>
-          <p className="wifi-contact-number">Nosso WhatsApp: <strong>(11) 94884-4107</strong></p>
-        </div>
-      </div></div>
-      <section className="wifi-section wifi-container">
-        <RegionNotice />
-        <div className="wifi-prose">
-          <h2>Antes de decidir, confira as condições.</h2>
-          <p>Promoções são temporárias e podem variar conforme o bairro e o perfil do cliente. Na conversa, você confirma disponibilidade, serviços incluídos, mensalidade, validade dos benefícios, instalação e data da primeira cobrança. O pedido é encaminhado depois da sua confirmação.</p>
-          <h2>Dúvidas sobre conteúdo ou dados pessoais?</h2>
-          <p>Use o mesmo WhatsApp para pedir uma correção de conteúdo ou tratar dos dados compartilhados no atendimento.</p>
-        </div>
-      </section>
-      <ContractProcess />
-    </>
-  );
+  return <>
+    <CommercialIntro path="/contato" label="Contato" title="Fale com uma pessoa para encontrar sua internet" interest="Ajuda para consultar opções de internet em São Paulo" cta="Abrir WhatsApp para consultar opções">Quer contratar internet, conferir uma promoção ou ver o que está disponível para sua casa? Chame a WifiConecta. O atendimento comercial começa com uma pessoa, não com um robô.</CommercialIntro>
+    <ContentSection title="Escolha o assunto para começar a conversa"><p className="wifi-contact-number">Nosso WhatsApp: <strong>+55 11 94884-4107</strong></p><div className="wifi-contact-interests">{interests.map(([category, label, interest]) => <WhatsAppCTA key={category} source={"contact-" + category} category={category} interest={interest} label={label} />)}</div><p>Atendimento em São Paulo, por enquanto. A equipe confirma a disponibilidade para seu endereço na conversa.</p></ContentSection>
+    <ContentSection title="O que vale contar na primeira mensagem"><p>Seu bairro e o tipo de pacote já ajudam a começar. Para conferir disponibilidade, a prestadora pode precisar de CEP, rua, número e unidade. Você compartilha esses dados voluntariamente no WhatsApp, conforme a necessidade do atendimento.</p><p>Conte também quantas pessoas usam a rede e se precisa de instalação em uma data específica. Não há formulário de dados pessoais ou contratação automática neste site.</p></ContentSection>
+    <ContentSection title="O que acontece depois"><p>Uma pessoa verifica as alternativas comerciais e explica valores, benefícios, fidelidade, instalação e primeira cobrança. Você tira as dúvidas e decide se quer solicitar o serviço.</p><p>Abrir o WhatsApp não envia uma mensagem sem sua ação, não assina contrato e não garante instalação. O encaminhamento vem depois da sua confirmação; a prestação do serviço é da operadora escolhida.</p></ContentSection>
+    <ContentSection title="Precisa corrigir conteúdo ou falar de privacidade?"><p>Use o mesmo canal para solicitar correções e tratar de informações compartilhadas no atendimento. Consulte a <Link prefetch={false} href="/politica-de-privacidade">política de privacidade</Link> e a <Link prefetch={false} href="/politica-editorial">política editorial</Link>.</p></ContentSection>
+  </>;
 }

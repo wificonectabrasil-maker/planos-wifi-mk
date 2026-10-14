@@ -15,7 +15,7 @@ test("two short hubs have icons, correct canonicals and no indexable placeholder
   await expect(page).toHaveURL(/\/planos-de-internet$/);
   for (const silo of wifiEditorialSilos) {
     await page.goto(silo.path);
-    await expect(page.getByRole("heading", { level: 1, name: silo.name })).toBeVisible();
+    await expect(page.getByRole("heading", { level: 1, name: silo.title })).toBeVisible();
     await expect(page.locator(".wifi-editorial-symbol svg")).toHaveCount(1);
     await expect(page.getByRole("heading", { name: "Os primeiros artigos estão em preparação." })).toBeVisible();
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `${canonicalOrigin}${silo.path}`);
@@ -105,8 +105,17 @@ test("published pillars and supports stay inside their silo with contextual link
         expect(schema.join(" ")).toContain(`${canonicalOrigin}${fixture.path}`);
         await expect(page.locator('meta[property="og:url"]')).toHaveAttribute("content", `${canonicalOrigin}${fixture.path}`);
         await expect(page.locator('a[href^="/blog"]')).toHaveCount(0);
-        await page.setViewportSize({ width: 320, height: 844 });
-        expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+        for (const width of [1440, 390, 320]) {
+          await page.setViewportSize({ width, height: 900 });
+          expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+          if (width === 1440) expect((await page.locator(".content").boundingBox())!.width).toBeGreaterThan(600);
+          if (silo.slug === "planos-de-internet" && fixture.role === "PILLAR" && width !== 320)
+          {
+            await page.evaluate(() => scrollTo(0, 0));
+            await page.waitForTimeout(600);
+            await page.screenshot({ path: `artifacts/2026-10-14-article-${width}.png` });
+          }
+        }
       }
       await page.goto(pillarPath);
       await page.locator(`.content a[href="${supportPath}"]`).click();

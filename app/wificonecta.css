@@ -2118,3 +2118,35 @@
   }
 }
 .wifi-site .wifi-editorial-supports { margin-top: 48px; }
+
+/* Commercial revision: brand public scope, 14/10/2026. */
+.wifi-site .wifi-commercial-copy { max-width: 940px; }
+.wifi-site .wifi-commercial-copy h2 { margin-bottom: 22px; font-size: clamp(26px, 3vw, 36px); line-height: 1.2; }
+.wifi-site .wifi-commercial-copy h3 { margin-bottom: 12px; font-size: 20px; }
+.wifi-site .wifi-commercial-copy p { margin-block: 16px; max-width: 78ch; color: var(--wifi-muted); font-size: 16px; line-height: 1.75; }
+.wifi-site .wifi-commercial-copy .wifi-commercial-transparency { border-left: 3px solid var(--wifi-blue); padding-left: 20px; font-size: 14px; }
+.wifi-site .wifi-commercial-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+.wifi-site .wifi-small-print { font-size: 13px !important; line-height: 1.6; }
+.wifi-site .wifi-commercial-questions { border-top: 1px solid var(--wifi-line); }
+.wifi-site .wifi-commercial-questions details { border-bottom: 1px solid var(--wifi-line); padding-block: 12px; }
+.wifi-site .wifi-commercial-questions summary { min-height: 44px; display: list-item; align-content: center; font-size: 17px; font-weight: 700; cursor: pointer; padding: 10px 10px 10px 0; }
+.wifi-site .wifi-checklist { padding-left: 22px; color: var(--wifi-muted); line-height: 1.8; }
+.wifi-site .wifi-checklist li { margin-block: 12px; }
+.wifi-site .wifi-contact-interests, .wifi-site .wifi-home-business { display: flex; flex-wrap: wrap; gap: 16px; margin-block: 28px; }
+.wifi-site .wifi-home-business a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: var(--wifi-blue); font-weight: 700; }
+.wifi-site .wifi-commercial-copy a:not(.wifi-whatsapp-button), .wifi-site .wifi-resource-links a { color: var(--wifi-blue); text-decoration: underline; text-underline-offset: 3px; }
+.wifi-site .wifi-resource-links { display: grid; gap: 12px; padding-left: 20px; }
+.wifi-site .wifi-resource-links a { display: inline-block; padding-block: 10px; }
+.wifi-site .wifi-campaign { padding: 30px; margin-block: 24px; border: 1px solid var(--wifi-line); border-radius: 16px; background: #f0f5fc; }
+.wifi-site .wifi-campaign p, .wifi-site .wifi-campaign dd, .wifi-site .wifi-campaign ul { margin-block: 14px; line-height: 1.7; }
+.wifi-site .wifi-campaign dt { font-weight: 700; }
+.wifi-site .wifi-campaign-price { font-weight: 800; font-size: 26px; }
+.wifi-site .wifi-campaign .wifi-text-link { margin-left: 20px; }
+@media (max-width: 800px) {
+  .wifi-site .wifi-commercial-grid { grid-template-columns: minmax(0, 1fr); }
+  .wifi-site .wifi-contact-interests { flex-direction: column; align-items: stretch; }
+  .wifi-site .wifi-contact-interests .wifi-whatsapp-button { justify-content: center; }
+  .wifi-site .wifi-campaign { padding: 22px; }
+  .wifi-site .wifi-campaign .wifi-text-link { display: flex; margin: 18px 0 0; }
+  .wifi-site .wifi-commercial-copy h2 { overflow-wrap: anywhere; }
+}

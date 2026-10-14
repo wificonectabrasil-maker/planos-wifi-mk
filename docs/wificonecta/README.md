@@ -1,5 +1,7 @@
 # WifiConecta
 
+Atualização vigente de 14/10/2026: consulte a [revisão comercial e editorial](REVISAO-2026-10-14.md), os [15 briefings revisados](PLANEJAMENTO-EDITORIAL-2026-10-14.md) e o [CSV](PLANEJAMENTO-EDITORIAL-2026-10-14.csv). Esta revisão substitui as composições históricas por modalidades para consulta, separa Home e /planos e prepara campanhas documentadas, sem ativar preços ou anúncios. Os artigos serão redigidos pelo responsável.
+
 Projeto de consulta de pacotes e promoções de internet, celular e TV pelo WhatsApp, adaptado ao Mini WordPress 3.1. Marca: **WifiConecta**. Domínio: **https://wificonecta.com.br**. A prévia local não publica o domínio.
 
 Canônicos seguem exclusivamente `https://wificonecta.com.br/{silo}/{slug-do-artigo}`; hubs usam `/{silo}`. As URLs anteriores com `/blog/planos-de-internet` são somente redirecionamentos 308 para `/planos-de-internet`, sem páginas editoriais naquela estrutura. Confira [URLs e desempenho móvel](URLS-E-DESEMPENHO-MOVEL.md).
@@ -14,7 +16,7 @@ A decisão do responsável em 04/10/2026 substitui o catálogo e a captura por f
 - Em 05/10/2026, o responsável autorizou substituir os interesses genéricos por quatro composições Claro das imagens, com velocidades e benefícios como referências para consulta.
 - Em 05/10/2026, o responsável forneceu o relato do atendente como [base da marca](BASE-DA-MARCA.md): atendimento humano, ajuda para escolher e encaminhamento do pedido com a confirmação do cliente. Informou atuação com Claro, Vivo, TIM e provedores de bairro. Essa atualização substitui a limitação anterior da apresentação institucional a Claro, mantendo os quatro cards comerciais Claro já autorizados e a confirmação de disponibilidade por endereço.
 
-As imagens originais com preços permanecem privadas. Os cards reproduzem Claro Multi (500 Mega + 60 GB, Globoplay, Passaporte Américas, iCloud+ 50 GB e Google One 100 GB); internet + celular + TV (500 Mega + 60 GB, TV Box 120 canais, ligações e seis streamings); Claro Empresas (600 Mega + McAfee, CNPJ); e Claro tv+ Box para condomínios (composição Multi com 5G e internet, seis streamings). Valores e disponibilidade ficam sob consulta. Não criar ofertas no banco a partir dessas imagens.
+Registro histórico de 05/10/2026, substituído pela revisão de 14/10: as imagens originais com preços permanecem privadas. Os cards daquela versão reproduziam Claro Multi (500 Mega + 60 GB, Globoplay, Passaporte Américas, iCloud+ 50 GB e Google One 100 GB); internet + celular + TV (500 Mega + 60 GB, TV Box 120 canais, ligações e seis streamings); Claro Empresas (600 Mega + McAfee, CNPJ); e Claro tv+ Box para condomínios (composição Multi com 5G e internet, seis streamings). Valores e disponibilidade ficam sob consulta. Não criar ofertas no banco a partir dessas imagens.
 
 A peça empresarial informa validade até 31/01/2026, anterior à atualização. Não anunciamos sua promoção como vigente, nem reproduzimos valores, economia, prazo promocional ou a alegação de Wi-Fi mais rápido. O card pede confirmação das condições atuais.
 
@@ -22,13 +24,13 @@ A peça empresarial informa validade até 31/01/2026, anterior à atualização.
 
 Desde 09/10/2026, a reorganização segue dois silos e 15 pautas fornecidas pelo responsável. Consulte [a auditoria e o mapa de redirecionamentos](AUDITORIA-E-MIGRACAO-EDITORIAL.md) e [o documento de origem](PLANEJAMENTO-EDITORIAL-FONTE.md).
 
-Home apresenta a marca e o atendimento. /planos reúne as quatro composições Claro e os CTAs por operadora. /internet-empresarial e /internet-para-condominios mantêm funções comerciais próprias. /sobre, /contato e políticas permanecem institucionais. Os conteúdos de comparação das páginas antigas foram consolidados e suas URLs redirecionam permanentemente para o novo hub ou a seção comercial relevante.
+Home apresenta a marca, o atendimento e entradas breves por categoria. /planos reúne quatro modalidades (internet, celular, TV e câmera), os CTAs por operadora e respostas sobre cobertura, composição, custo, instalação e primeira fatura. Não há catálogo de pacotes fixos. /internet-empresarial e /internet-para-condominios mantêm funções comerciais próprias. /sobre, /contato e políticas permanecem institucionais. Os conteúdos de comparação das páginas antigas foram consolidados e suas URLs redirecionam permanentemente para o novo hub ou a seção comercial relevante.
 
 Os hubs /planos-de-internet (Planos e contratação) e /wifi-e-fibra (Wi-Fi e fibra óptica) têm ícones e navegação breve, sem respostas antecipadas dos artigos. Enquanto vazios, ficam noindex e fora do sitemap. Por orientação posterior do responsável, /blog foi retirado como página e redireciona com 308 ao primeiro silo. Home, menu, rodapé e breadcrumbs dão acesso direto aos silos, sem índice cronológico ou busca geral de blog.
 
 Cada hub destaca seu artigo pilar em “Comece pelo guia principal” e reúne os suportes em “Aprofunde por assunto”, respeitando os papéis e a ordem editorial do CMS. A estrutura segue temas e relações semânticas: pilar → suportes; suporte → pilar; suportes entre si quando o assunto e o contexto da leitura justificarem. Os links contextuais são inseridos no conteúdo pelo editor, com âncoras descritivas e variadas; não são adicionados automaticamente a todos os artigos. A orientação mais recente do responsável define canônicos somente em https://wificonecta.com.br/{silo}/{slug}, sem prefixo /blog.
 
-Os 15 artigos não foram criados ou publicados. Seus briefs substituem as pautas anteriores em lib/telecom/editorial-plan.ts; há oito artigos no silo 1 e sete no silo 2. As URLs futuras são /planos-de-internet/{slug} e /wifi-e-fibra/{slug}, usadas também por canonicals, publicação, breadcrumbs, links no editor e sitemap.
+Os 15 artigos não foram criados ou publicados. Os briefs revisados em 14/10 substituem as pautas de 09/10 em lib/telecom/editorial-plan.ts e editorial-briefs.ts; há oito artigos no silo 1 e sete no silo 2. As URLs futuras são /planos-de-internet/{slug} e /wifi-e-fibra/{slug}, usadas também por canonicals, publicação, breadcrumbs, links no editor e sitemap.
 
 Cabeçalho, cards, final das páginas, rodapé e botão flutuante compartilham WIFICONECTA_WHATSAPP. A mensagem inicial indica o interesse e São Paulo. O usuário revisa e envia a mensagem; o site não envia automaticamente.
 
@@ -52,7 +54,7 @@ A reprodução é automática, inline, em loop, com `muted`, `defaultMuted` e vo
 
 ## Configuração e conteúdo
 
-O domínio canônico da marca em `brand.config.ts` prevalece sobre SITE_URL e URLs de localhost ou da Vercel. Os CTAs usam o telefone público da marca: +55 11 94884-4107. `WIFICONECTA_WHATSAPP` permite substituir esse número no servidor, sem deixar os botões indisponíveis quando a variável estiver ausente. Os cards não guardam telefones próprios. A indexação permanece desativada na prévia; revisar a configuração na publicação.
+O domínio canônico da marca em `brand.config.ts` prevalece sobre SITE_URL e URLs de localhost ou da Vercel. Os CTAs usam o telefone público da marca: +55 11 94884-4107. `WIFICONECTA_WHATSAPP` permite substituir esse número no servidor, sem deixar os botões indisponíveis quando a variável estiver ausente. Os cards não guardam telefones próprios. A indexação exige NEXT_PUBLIC_ALLOW_INDEXING=true explicitamente e continua desativada em VERCEL_ENV=preview. Hosts *.vercel.app recebem X-Robots-Tag noindex. Validar domínio, HTTPS e condições comerciais antes de liberar a produção.
 
 brand.config.ts centraliza marca, política de fontes, tom e CTA dos artigos. lib/telecom/editorial-plan.ts mantém 15 pautas em dois silos. O setup idempotente cria apenas os silos editoriais.
 
@@ -60,7 +62,7 @@ Os PDFs, diretrizes humanas, textos colados, SERP e imagens foram tratados como 
 
 A base do atendente está registrada em [BASE-DA-MARCA.md](BASE-DA-MARCA.md) e orienta `brand.config.ts`, manifesto e tom editorial. Os exemplos de mensalidades de clientes não viram preços públicos ou depoimentos. Instalação gratuita e primeira cobrança são assuntos para confirmar no atendimento, sem garantia universal de gratuidade, cobrança em um mês ou teste gratuito. As ferramentas de IA do CMS continuam editoriais; o atendimento comercial apresentado é humano.
 
-O evento whatsapp_clicked informa apenas evento e origem do clique como wificonecta:conversion local. Não inclui dados do cliente nem envia analytics a um provedor externo.
+Desde 14/10, o evento whatsapp_cta_click informa página, botão, categoria e campanha como wificonecta:conversion local. UTMs são aceitas apenas pela taxonomia revisada; parâmetros livres e dados pessoais são descartados. O evento comprova clique, sem indicar conversa ou venda. Não há persistência entre páginas nem envio a provedor externo.
 
 ## Validação
 

@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { MessageCircle, ArrowUpRight } from "lucide-react";
 import { buildWhatsAppInquiry, buildWhatsAppUrl } from "@/lib/telecom/whatsapp";
 import { trackConversion } from "@/lib/telecom/analytics";
+import { safeAttribution } from "@/lib/telecom/attribution";
 
 const WhatsAppContext = createContext<string | null>(null);
 
@@ -44,6 +45,8 @@ export function WhatsAppCTA({
   className = "",
   variant = "button",
   hideWhenUnavailable = false,
+  category = "internet",
+  campaignId,
 }: {
   source: string;
   interest?: string;
@@ -52,6 +55,8 @@ export function WhatsAppCTA({
   className?: string;
   variant?: "button" | "link" | "floating";
   hideWhenUnavailable?: boolean;
+  category?: string;
+  campaignId?: string;
 }) {
   const phone = useContext(WhatsAppContext);
   const pathname = usePathname();
@@ -90,7 +95,13 @@ export function WhatsAppCTA({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      onClick={() => trackConversion("whatsapp_clicked", { source })}
+      onClick={() => trackConversion("whatsapp_cta_click", {
+        page_path: pathname,
+        cta_id: source,
+        category,
+        campaign_id: campaignId ?? "",
+        ...safeAttribution(window.location.search, campaignId),
+      })}
     >
       {content}
     </a>

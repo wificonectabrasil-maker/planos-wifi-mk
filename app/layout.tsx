@@ -10,6 +10,7 @@ import type { SiteHeaderLink } from "@/components/site/SiteHeader";
 import { getPublicPostsBySilo, getPublicSiloGroupsBySiloId, getPublicSilos } from "@/lib/db";
 import { SITE_DESCRIPTION, SITE_LOCALE, SITE_NAME, SITE_WHATSAPP_PHONE } from "@/lib/site";
 import { resolveSiteUrl } from "@/lib/site/url";
+import { publicIndexingAllowed } from "@/lib/site/indexing";
 import { resolveWhatsAppPhone } from "@/lib/telecom/whatsapp";
 import { normalizeSiloGroup } from "@/lib/silo/groups";
 import type { Post, SiloGroup } from "@/lib/types";
@@ -20,8 +21,7 @@ const ogLocale = SITE_LOCALE.replace("-", "_");
 const twitterSite = process.env.NEXT_PUBLIC_TWITTER_SITE?.trim() || undefined;
 const siteUrl = resolveSiteUrl();
 const defaultSocialImage = "/opengraph-image";
-const isPreviewDeployment = process.env.VERCEL_ENV === "preview";
-const allowIndexing = !isPreviewDeployment && process.env.NEXT_PUBLIC_ALLOW_INDEXING !== "false";
+const allowIndexing = publicIndexingAllowed();
 export const revalidate = 3600;
 
 export const metadata: Metadata = {

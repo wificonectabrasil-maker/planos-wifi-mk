@@ -1,174 +1,57 @@
-import { EditorialSiloCards } from "@/components/telecom/EditorialSiloCards";
-import type { Metadata } from "next";
+import { ArrowRight, Camera, House, MonitorPlay, Smartphone } from "lucide-react";
 import Link from "next/link";
-import {
-  ArrowRight,
-  Building2,
-  House,
-  MonitorPlay,
-  Smartphone,
-} from "lucide-react";
+import { EditorialSiloCards } from "@/components/telecom/EditorialSiloCards";
 import { WhatsAppCTA } from "@/components/telecom/WhatsAppCTA";
-import { PackageInterests } from "@/components/telecom/PackageInterests";
 import { HeroVideoBackground } from "@/components/telecom/HeroVideoBackground";
-import {
-  ContractProcess,
-  FinalCTA,
-  TrustStrip,
-} from "@/components/telecom/Shared";
-import { operators } from "@/lib/telecom/catalog";
+import { ContractProcess, FinalCTA, TrustStrip } from "@/components/telecom/Shared";
+import { ContentSection, EditorialResources, TransparencyNote } from "@/components/telecom/CommercialContent";
+import { CampaignSlot } from "@/components/telecom/CampaignSlot";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { resolveSiteUrl } from "@/lib/site/url";
+import { telecomMetadata } from "@/lib/telecom/metadata";
 export const revalidate = 3600;
-export const metadata: Metadata = {
-  title: "Planos de internet para sua casa, celular e TV",
-  description:
-    "Uma pessoa da WifiConecta ajuda você a escolher internet, celular e TV e encaminhar seu pedido. Atendimento pelo WhatsApp em São Paulo, com condições para seu endereço.",
-  alternates: { canonical: "/" },
+export const metadata = {
+  ...telecomMetadata("Peça internet com ajuda de verdade no WhatsApp", "Quer contratar internet sem perder tempo? A WifiConecta ajuda a conferir opções para seu endereço em São Paulo. Atendimento humano pelo WhatsApp.", "/"),
+  title: { absolute: "WifiConecta | Peça internet com ajuda de verdade no WhatsApp" },
 };
-export default async function Home() {
-  const categories = [
-    {
-      icon: House,
-      title: "Internet pra casa",
-      text: "Sua rotina conectada",
-      href: "/planos#pacotes",
-    },
-    {
-      icon: Smartphone,
-      title: "Internet + celular",
-      text: "Dentro e fora de casa",
-      href: "/planos#internet-celular",
-    },
-    {
-      icon: MonitorPlay,
-      title: "TV e streaming",
-      text: "Seu próximo play",
-      href: "/planos#tv-streaming",
-    },
-    {
-      icon: Building2,
-      title: "Pra sua empresa",
-      text: "Conexão pro trabalho",
-      href: "/internet-empresarial",
-    },
-  ];
-  return (
-    <>
-      <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "Organization",
-              "@id": `${resolveSiteUrl()}/#organization`,
-              name: "WifiConecta",
-              url: resolveSiteUrl(),
-              logo: `${resolveSiteUrl()}/brand-logo.svg`,
-            },
-            {
-              "@type": "WebSite",
-              name: "WifiConecta",
-              url: resolveSiteUrl(),
-              inLanguage: "pt-BR",
-            },
-          ],
-        }}
-      />
-      <link rel="preload" as="image" href="/images/hero-claro-poster.webp" fetchPriority="high" />
-      <section className="wifi-hero wifi-hero-with-video">
-        <HeroVideoBackground />
-        <div className="wifi-container wifi-hero-grid wifi-hero-video-layout">
-          <div className="wifi-hero-copy">
-            <p className="wifi-eyebrow">
-              <span className="wifi-eyebrow-dot" /> ATENDIMENTO EM SÃO PAULO
-            </p>
-            <h1>
-              Internet pra sua casa.
-              <br />
-              <em>
-                Sem complicar o pedido.
-              </em>
-            </h1>
-            <p className="wifi-hero-description">
-              Uma pessoa da nossa equipe entende sua rotina, apresenta as
-              opções pro seu endereço e ajuda a encaminhar o pedido.
-            </p>
-            <div className="wifi-hero-actions">
-              <WhatsAppCTA
-                source="hero"
-                className="wifi-hero-whatsapp"
-                label="Ver promoções no WhatsApp"
-                fallbackLabel="Atendimento pelo WhatsApp"
-              />
-              <p className="wifi-whatsapp-note">Atendimento com uma pessoa, pelo WhatsApp. São Paulo, por enquanto.</p>
-              <Link href="/#como-funciona" className="wifi-text-link">
-                Quer uma ajuda pra escolher? Veja como funciona{" "}
-                <ArrowRight size={16} />
-              </Link>
-            </div>
-          </div>
+const categories = [
+  { icon: House, title: "Só internet pra casa", text: "Conectar a casa sem juntar serviços que você não usa.", href: "/planos#internet-residencial" },
+  { icon: Smartphone, title: "Internet + celular", text: "Confira se juntar a conexão de casa e os dados da rua compensa.", href: "/planos#internet-celular" },
+  { icon: MonitorPlay, title: "Internet + TV e streaming", text: "Converse sobre o que sua família gosta de assistir.", href: "/planos#tv-streaming" },
+  { icon: Camera, title: "Internet + câmera", text: "Consulte opções para acompanhar a casa pelo celular.", href: "/planos#internet-camera" },
+];
+export default function Home() {
+  return <>
+    <JsonLd data={{ "@context": "https://schema.org", "@graph": [
+      { "@type": "Organization", "@id": resolveSiteUrl() + "/#organization", name: "WifiConecta", url: resolveSiteUrl(), logo: resolveSiteUrl() + "/brand-logo.svg" },
+      { "@type": "WebSite", name: "WifiConecta", url: resolveSiteUrl(), inLanguage: "pt-BR" },
+    ] }} />
+    <link rel="preload" as="image" href="/images/hero-claro-poster.webp" fetchPriority="high" />
+    <section className="wifi-hero wifi-hero-with-video">
+      <HeroVideoBackground />
+      <div className="wifi-container wifi-hero-grid wifi-hero-video-layout"><div className="wifi-hero-copy">
+        <p className="wifi-eyebrow"><span className="wifi-eyebrow-dot" /> ATENDIMENTO HUMANO EM SÃO PAULO</p>
+        <h1>Internet pra sua casa.<br /><em>Sem virar uma novela.</em></h1>
+        <p className="wifi-hero-description">Você conta o que precisa. Uma pessoa confere as opções para seu endereço, explica as condições e ajuda a encaminhar o pedido.</p>
+        <div className="wifi-hero-actions">
+          <WhatsAppCTA source="hero" interest="Internet para minha casa" category="internet" className="wifi-hero-whatsapp" label="Consultar opções no WhatsApp" fallbackLabel="Atendimento pelo WhatsApp" />
+          <p className="wifi-whatsapp-note">Atendimento de gente. Condições explicadas antes do pedido.</p>
+          <Link prefetch={false} href="/#como-funciona" className="wifi-text-link">Veja como funciona <ArrowRight size={16} aria-hidden="true" /></Link>
         </div>
-      </section>
-      <TrustStrip />
-      <section className="wifi-categories wifi-container">
-        <div className="wifi-section-heading">
-          <div>
-            <p className="wifi-eyebrow">O que você procura hoje?</p>
-            <h2>Tem um caminho pra cada rotina.</h2>
-          </div>
-        </div>
-        <div className="wifi-category-grid">
-          {categories.map((c) => (
-            <Link href={c.href} key={c.href} className="wifi-category-card">
-              <span>
-                <c.icon size={25} />
-              </span>
-              <div>
-                <h3>{c.title}</h3>
-                <p>{c.text}</p>
-              </div>
-              <ArrowRight size={17} />
-            </Link>
-          ))}
-        </div>
-      </section>
-      <PackageInterests />
-      <section className="wifi-operator-section">
-        <div className="wifi-container">
-          <div>
-            <p className="wifi-eyebrow">Opções para o seu endereço</p>
-            <h2>A escolha também passa pela operadora.</h2>
-            <p>Trabalhamos com Claro, Vivo, TIM e provedores de bairro. A equipe confere quais serviços estão disponíveis onde você mora.</p>
-          </div>
-          <div className="wifi-operator-list">
-            {operators.map((o) => (
-              <Link href={`/planos#operadora-${o.slug}`} key={o.slug}>
-                <strong>{o.name}</strong>
-                <span>
-                  Consultar serviços <ArrowRight size={13} />
-                </span>
-              </Link>
-            ))}
-            <Link href="/planos#operadoras">
-              <strong>Provedores de bairro</strong>
-              <span>Consultar opções <ArrowRight size={13} /></span>
-            </Link>
-          </div>
-        </div>
-      </section>
-      <ContractProcess />
-      <section className="wifi-section wifi-container">
-        <div className="wifi-section-heading">
-          <div>
-            <p className="wifi-eyebrow">Escolher bem começa por entender</p>
-            <h2>Menos dúvida. Mais clareza.</h2>
-            <p>Guias para olhar além da propaganda e fazer uma escolha sua.</p>
-          </div>
-        </div>
-        <EditorialSiloCards />
-      </section>
-      <FinalCTA />
-    </>
-  );
+      </div></div>
+    </section>
+    <TrustStrip />
+    <section className="wifi-categories wifi-container">
+      <div className="wifi-section-heading"><div><p className="wifi-eyebrow">Sua rotina vem primeiro</p><h2>O que você quer conectar?</h2><p>O pacote depende do que você usa e do que está disponível onde mora.</p></div></div>
+      <div className="wifi-category-grid">{categories.map(c => <Link prefetch={false} href={c.href} key={c.href} className="wifi-category-card"><span><c.icon size={25} aria-hidden="true" /></span><div><h3>{c.title}</h3><p>{c.text}</p></div><ArrowRight size={17} aria-hidden="true" /></Link>)}</div>
+      <div className="wifi-home-business"><Link prefetch={false} href="/internet-empresarial">Internet para sua empresa <ArrowRight size={16} aria-hidden="true" /></Link><Link prefetch={false} href="/internet-para-condominios">Atendimento para condomínios <ArrowRight size={16} aria-hidden="true" /></Link></div>
+    </section>
+    <ContentSection title="A gente não escolhe só pelo número de Mega"><p>São tantos anúncios, preços diferentes e letras miúdas que pedir internet vira mais uma tarefa na agenda. A WifiConecta começa pela sua necessidade e pela disponibilidade do endereço.</p><p>Trabalhamos com opções de Claro, Vivo, TIM e provedores de bairro, conforme disponibilidade. Uma pessoa ajuda a conferir mensalidade, benefícios e regras entre as opções comercializadas. Você decide com as informações em mãos.</p><Link prefetch={false} href="/planos" className="wifi-text-link">Conhecer as modalidades e consultar pacotes <ArrowRight size={16} aria-hidden="true" /></Link></ContentSection>
+    <CampaignSlot placement="home" />
+    <ContractProcess />
+    <ContentSection title="As promoções mudam. A explicação vem antes do pedido."><p>O benefício dura quanto tempo? Tem taxa de instalação? Quando chega a primeira cobrança? Essas respostas fazem parte da conversa, antes de solicitar o serviço.</p><p>Algumas ofertas elegíveis podem ter instalação gratuita e cobrança inicial aproximadamente um mês após a instalação. A equipe confirma a regra da proposta e do contrato para o seu caso.</p><TransparencyNote /></ContentSection>
+    <section className="wifi-section wifi-container"><div className="wifi-section-heading"><div><p className="wifi-eyebrow">Prefere entender primeiro?</p><h2>Escolha o assunto. Siga no seu ritmo.</h2><p>Guias sobre contratação e qualidade da conexão, organizados por tema.</p></div></div><EditorialSiloCards /></section>
+    <EditorialResources slugs={["como-escolher-plano-internet-residencial", "operadoras-internet-no-meu-cep", "fibra-optica-cabo-internet-sem-fio"]} />
+    <FinalCTA />
+  </>;
 }

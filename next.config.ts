@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   distDir: process.env.PLAYWRIGHT_DIST_DIR || ".next",
   poweredByHeader: false,
   trailingSlash: false,
+  async headers() {
+    return [{ source: "/:path*", has: [{ type: "host", value: ".*\\.vercel\\.app" }], headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] }];
+  },
   async redirects() {
     return wifiEditorialRedirects.map(rule => ({ ...rule, permanent: true }));
   },

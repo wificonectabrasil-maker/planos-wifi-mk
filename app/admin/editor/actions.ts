@@ -4,6 +4,7 @@ import { resolveSiteUrl } from "@/lib/site/url";
 import { z } from "zod";
 import * as cheerio from "cheerio";
 import { revalidatePath } from "next/cache";
+import { brandConfig } from "@/brand.config";
 import {
   adminDeleteSiloPost,
   adminFindTargetKeywordConflict,
@@ -138,6 +139,7 @@ async function revalidatePostPaths(id: string) {
   }
 
   revalidatePath("/");
+  for (const path of (brandConfig as { editorialResourcePages?: string[] }).editorialResourcePages ?? []) revalidatePath(path);
   revalidatePath("/sitemap.xml");
 }
 

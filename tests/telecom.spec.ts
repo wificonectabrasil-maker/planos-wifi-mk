@@ -10,7 +10,7 @@ test("public site uses WhatsApp only, redirects retired pages and supports mobil
   for (const path of paths) {
     await page.goto(path);
     await expect(page.locator("main form, main input, main select, main table")).toHaveCount(0);
-    await expect(page.locator("main")).not.toContainText(/CEP|R\$/);
+    await expect(page.locator("main")).not.toContainText(/R\$/);
     const links = await page.locator('a[href^="https://wa.me/"]').evaluateAll(nodes => nodes.map(node => (node as HTMLAnchorElement).href));
     expect(links.length).toBeGreaterThan(0);
     for (const href of links) expect(new URL(href).pathname).toBe("/5511000000000");
@@ -53,7 +53,7 @@ test("retired capture API rejects submissions without storing personal data", as
 test("WhatsApp opens the chosen subject and records a click without personal data", async ({ page, context }) => {
   await context.route("https://wa.me/**", route => route.fulfill({ contentType: "text/html", body: "<html><body>Destino interceptado no teste.</body></html>" }));
   await page.goto("/");
-  const hero = page.getByRole("link", { name: "Ver promoções no WhatsApp", exact: true });
+  const hero = page.getByRole("link", { name: "Consultar opções no WhatsApp", exact: true });
   const destination = new URL((await hero.getAttribute("href"))!);
   expect(destination.hostname).toBe("wa.me");
   expect(destination.pathname).toBe("/5511000000000");
@@ -68,15 +68,16 @@ test("WhatsApp opens the chosen subject and records a click without personal dat
   await hero.click();
   const popup = await popupPromise;
   await expect(popup).toHaveURL(destination.toString());
-  expect(await page.evaluate(() => JSON.parse(document.documentElement.dataset.lastConversion!))).toEqual({ event: "whatsapp_clicked", source: "hero" });
+  expect(await page.evaluate(() => JSON.parse(document.documentElement.dataset.lastConversion!))).toEqual({ event: "whatsapp_cta_click", page_path: "/", cta_id: "hero", category: "internet", campaign_id: "" });
   await popup.close();
+  await page.goto("/planos");
   const packageCards = page.locator("#pacotes .wifi-package-card");
   await expect(packageCards).toHaveCount(4);
   for (const [title, interest] of [
-    ["Claro Multi", "500 Mega + 60 GB, Globoplay"],
-    ["Claro com TV e streaming", "TV Box com 120 canais"],
-    ["Claro Empresas", "600 Mega + McAfee"],
-    ["Claro tv+ Box", "Claro tv+ Box para condomínio"],
+    ["Internet residencial", "Só internet residencial"],
+    ["Internet + TV e streaming", "Internet com TV Box e streaming"],
+    ["Internet + celular", "Combo de internet residencial e celular"],
+    ["Internet + câmera residencial", "Pacote de internet com câmera residencial"],
   ]) {
     const card = packageCards.filter({ has: page.getByRole("heading", { name: title, exact: true }) });
     const url = new URL((await card.getByRole("link").getAttribute("href"))!);

@@ -2,6 +2,7 @@
 
 import { z } from "zod";
 import { revalidatePath } from "next/cache";
+import { brandConfig } from "@/brand.config";
 import { redirect } from "next/navigation";
 import {
   adminCreatePost,
@@ -130,6 +131,7 @@ async function revalidatePostPaths(id: string) {
   if (!post) return;
 
   revalidateKnownPostPaths(post.silo?.slug ?? null, post.slug);
+  for (const path of (brandConfig as { editorialResourcePages?: string[] }).editorialResourcePages ?? []) revalidatePath(path);
 
   revalidatePath("/");
   revalidatePath("/admin");

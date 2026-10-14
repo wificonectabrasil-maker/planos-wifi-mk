@@ -1,11 +1,20 @@
-import { ServiceLanding } from "@/components/telecom/ServiceLanding";
+import { CommercialIntro, CommercialQuestions, ContentSection, TransparencyNote } from "@/components/telecom/CommercialContent";
+import { WhatsAppCTA } from "@/components/telecom/WhatsAppCTA";
 import { telecomMetadata } from "@/lib/telecom/metadata";
-export const dynamic = "force-dynamic";
-export const metadata = telecomMetadata(
-  "Internet para condomínios: consulta e infraestrutura",
-  "Solicite uma avaliação para seu condomínio ou apartamento. Entenda disponibilidade, infraestrutura e contratação.",
-  "/internet-para-condominios",
-);
+export const revalidate = 3600;
+export const metadata = telecomMetadata("Internet para condomínios em São Paulo", "Precisa de internet no apartamento ou avaliar uma demanda do condomínio em São Paulo? Consulte infraestrutura, viabilidade e alternativas pelo WhatsApp.", "/internet-para-condominios");
 export default function Page() {
-  return <ServiceLanding slug="internet-para-condominios" />;
+  return <>
+    <CommercialIntro path="/internet-para-condominios" label="Condomínios" title="Internet para condomínios em São Paulo: cada necessidade tem uma consulta" interest="Internet para condomínio: entender disponibilidade e atendimento" cta="Verificar meu caso no WhatsApp">Uma oferta pode existir no bairro e ainda faltar viabilidade no seu bloco. Para moradores, o pedido é residencial. Para síndicos e administradoras, a conversa começa pela demanda do prédio e por quem pode avaliá-la.</CommercialIntro>
+    <ContentSection title="Você quer conectar um apartamento?" id="moradores"><p>A consulta considera endereço, número, bloco e unidade quando necessário. Entrada da operadora no prédio, cabeamento, espaço técnico e regras de acesso podem fazer diferença na instalação.</p><p>A WifiConecta ajuda a consultar opções residenciais elegíveis e explica o próximo passo com a prestadora. Não é preciso contratar um pacote de TV para consultar internet no apartamento.</p><WhatsAppCTA source="condo-resident" category="condominio_morador" interest="Sou morador e preciso de internet no apartamento" label="Sou morador e preciso de internet" /></ContentSection>
+    <ContentSection title="Você é síndico ou administra o condomínio?" id="sindicos"><p>Infraestrutura para os apartamentos, internet da portaria e conexão para áreas comuns são demandas diferentes. Comece dizendo qual problema quer resolver e quais serviços já existem no prédio.</p><p>A equipe verifica se existe uma modalidade comercial adequada e quem pode fazer a avaliação técnica. A conversa não representa aprovação de obra, projeto de rede coletiva ou garantia de atendimento a todas as unidades.</p><WhatsAppCTA source="condo-manager" category="condominio_gestao" interest="Sou síndico ou administrador e quero consultar uma demanda do condomínio" label="Sou síndico ou administrador" /></ContentSection>
+    <ContentSection title="O que precisa ser verificado no prédio?"><ul className="wifi-checklist"><li>Disponibilidade da operadora e viabilidade para cada endereço ou unidade.</li><li>Entrada de cabos, áreas técnicas e equipamentos existentes.</li><li>Autorização e regras de acesso para o técnico.</li><li>Responsabilidade por manutenção e por eventual obra.</li><li>Condições específicas de uma conexão para portaria, câmeras ou áreas comuns.</li></ul><p>Esses pontos devem ser alinhados entre a administração e a prestadora. Cobertura no bairro não equivale à liberação da instalação no prédio.</p></ContentSection>
+    <ContentSection title="TV Box e conexão do condomínio são coisas diferentes"><p>Um pacote de TV e streaming para a família é uma contratação individual. Ele não substitui infraestrutura de fibra nem um projeto de conectividade para o prédio.</p><p>Se você procura entretenimento no apartamento, consulte essa categoria na página de pacotes. Se a necessidade é do condomínio, explique a finalidade na conversa para verificar o encaminhamento possível.</p><Link prefetch={false} className="wifi-text-link" href="/planos#tv-streaming">Consultar internet, TV e streaming para a residência</Link><TransparencyNote /></ContentSection>
+    <CommercialQuestions items={[
+      ["Uma operadora pode atender um prédio e não outro?", "Sim. Infraestrutura e viabilidade podem variar por endereço, bloco e unidade. A prestadora precisa confirmar a disponibilidade do serviço."],
+      ["A WifiConecta faz a infraestrutura do prédio?", "A WifiConecta orienta e auxilia na consulta comercial. Projeto, obra, instalação e manutenção exigem avaliação e responsabilidade da prestadora ou empresa contratada para essa finalidade."],
+      ["Chamar no WhatsApp já contrata o serviço?", "Não. A consulta serve para identificar a necessidade e verificar as opções. O pedido depende da apresentação das condições e da sua confirmação."],
+    ]} />
+  </>;
 }
+import Link from "next/link";

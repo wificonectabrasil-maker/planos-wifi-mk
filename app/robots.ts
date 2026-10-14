@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
 import { resolveSiteUrl } from "@/lib/site/url";
+import { publicIndexingAllowed } from "@/lib/site/indexing";
 
 export default function robots(): MetadataRoute.Robots {
   const siteUrl = resolveSiteUrl();
-  const allowIndexing = process.env.VERCEL_ENV !== "preview" && process.env.NEXT_PUBLIC_ALLOW_INDEXING !== "false";
+  const allowIndexing = publicIndexingAllowed();
 
   return {
     rules: [

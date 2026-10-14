@@ -1,4 +1,5 @@
 export type ConversionEvent =
+  | "whatsapp_cta_click"
   | "coverage_started"
   | "coverage_submitted"
   | "plan_viewed"

@@ -1,5 +1,7 @@
 # Adaptar a identidade
 
+WifiConecta em 14/10/2026: a política de fontes e o manifesto seguem a revisão comercial atual. editorialResourcePages permite revalidar páginas com recomendações de artigos ao salvar/publicar no CMS. Campanhas são uma adaptação da marca, independente das tabelas históricas, e não alteram o schema Core. Indexação desta marca exige liberação explícita; a origem canônica fixa foi preservada.
+
 Edite `brand.config.ts`: nome, URL, descrição, tagline, logo, idioma, contato, autor padrão, transparência de afiliados, nicho, tom e política de fontes.
 
 Na WifiConecta, `useBrandCanonicalOrigin: true` fixa canônicos, Open Graph, JSON-LD, sitemap e auditorias na URL da marca, independentemente do host de desenvolvimento ou deploy. Outros projetos sem essa opção mantêm a resolução por ambiente. `staticSiloNavigation: true` usa o plano configurado da marca no cabeçalho sem consultas de artigos ou grupos ao banco; nesta marca os dois hubs são entradas permanentes da navegação. Os hubs e a home usam cache com revalidação, e as ações administrativas invalidam as URLs ao publicar artigos. O rodapé está no servidor e a navegação pública fica em um módulo pequeno separado do catálogo e de seus validadores.

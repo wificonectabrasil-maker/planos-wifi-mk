@@ -501,10 +501,10 @@ export default async function PostPage({ params }: { params: Promise<{ silo: str
       </section>
 
       <article className="page-in mx-auto max-w-6xl px-4 pt-8 sm:px-5 md:px-6">
-        <div className="grid gap-8 md:grid-cols-[232px_minmax(0,1fr)]">
+        <div className={/<h[23](?:\s|>)/i.test(contentHtml) ? "grid gap-8 md:grid-cols-[232px_minmax(0,1fr)]" : "grid gap-8"}>
           <PostToc contentSelector=".content" title="Índice" />
 
-          <div className="space-y-8">
+          <div className={/<h[23](?:\s|>)/i.test(contentHtml) ? "min-w-0 space-y-8 md:col-start-2" : "min-w-0 space-y-8"}>
             {shouldShowTopDisclaimer ? <div className="text-xs italic text-(--muted)">{post.disclaimer}</div> : null}
 
             <div className="content">

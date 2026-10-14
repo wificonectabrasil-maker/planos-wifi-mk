@@ -9,6 +9,7 @@ Object.assign(process.env, {
   ADMIN_SESSION_SECRET: "isolated-e2e-session-secret-32chars",
   ADMIN_DISABLE_AUTH: "0",
   SITE_URL: `http://localhost:${port}`,
+  NEXT_PUBLIC_ALLOW_INDEXING: "true", // Simulate launch only inside isolated tests.
   WIFICONECTA_WHATSAPP: "5511000000000", // Isolated fixture; external navigation is intercepted in tests.
   GEMINI_API_KEY: "",
   GOOGLE_CSE_API_KEY: "",

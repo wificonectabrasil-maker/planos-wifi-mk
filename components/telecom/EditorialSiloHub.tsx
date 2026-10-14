@@ -11,6 +11,8 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumb } from "./Shared";
 import { WhatsAppCTA } from "./WhatsAppCTA";
 import type { Post } from "@/lib/types";
+import briefs from "@/lib/telecom/editorial-briefs";
+import { publicIndexingAllowed } from "@/lib/site/indexing";
 
 type SiloSlug = (typeof wifiEditorialSilos)[number]["slug"];
 const getSiloPosts = cache((slug: SiloSlug) => getPublicPostsBySilo(slug));
@@ -22,8 +24,8 @@ export async function editorialHubMetadata(slug: SiloSlug): Promise<Metadata> {
   const silo = definition(slug);
   const posts = await getSiloPosts(slug);
   return {
-    ...telecomMetadata(silo.name, silo.description, silo.path),
-    robots: { index: posts.length > 0 && process.env.VERCEL_ENV !== "preview" && process.env.NEXT_PUBLIC_ALLOW_INDEXING !== "false", follow: true },
+    ...telecomMetadata(silo.metaTitle, silo.description, silo.path),
+    robots: { index: posts.length > 0 && publicIndexingAllowed(), follow: true },
   };
 }
 
@@ -44,8 +46,8 @@ export async function EditorialSiloHub({ slug }: { slug: SiloSlug }) {
           <div className="wifi-page-intro wifi-editorial-intro">
             <span className="wifi-editorial-symbol"><Icon size={36} aria-hidden="true" /></span>
             <p className="wifi-eyebrow">Um tema, vários caminhos</p>
-            <h1>{silo.name}</h1>
-            <p>{silo.description}</p>
+            <h1>{silo.title}</h1>
+            <p>{silo.introduction}</p>
             <ul className="wifi-editorial-scope">{silo.scope.map(topic => <li key={topic}>{topic}</li>)}</ul>
           </div>
         </div>
@@ -62,8 +64,12 @@ export async function EditorialSiloHub({ slug }: { slug: SiloSlug }) {
             {supports.length ? <section aria-labelledby="silo-support-heading" className={pillars.length ? "wifi-editorial-supports" : undefined}>
               <div className="wifi-section-heading"><h2 id="silo-support-heading">Aprofunde por assunto</h2></div>
               <div className="wifi-guide-grid wifi-editorial-grid">
-                {supports.map(post => <SiloPostCard key={post.id} post={post} slug={slug} />)}
+                {supports.filter(post => !briefs.some(brief => brief.siloSlug === slug && brief.slug === post.slug)).map(post => <SiloPostCard key={post.id} post={post} slug={slug} />)}
               </div>
+              {silo.groups.map(group => {
+                const grouped = supports.filter(post => briefs.some(brief => brief.slug === post.slug && group.numbers.some(number => number === brief.number)));
+                return grouped.length ? <div className="wifi-editorial-supports" key={group.title}><h3>{group.title}</h3><div className="wifi-guide-grid wifi-editorial-grid">{grouped.map(post => <SiloPostCard key={post.id} post={post} slug={slug} />)}</div></div> : null;
+              })}
             </section> : null}
           </>
         ) : (
@@ -74,7 +80,7 @@ export async function EditorialSiloHub({ slug }: { slug: SiloSlug }) {
         )}
         <div className="wifi-editorial-next">
           <Link prefetch={false} href={other.path} className="wifi-text-link">Explorar {other.name} <ArrowRight size={16} aria-hidden="true" /></Link>
-          <div><p>Quer consultar um pacote para seu endereço em São Paulo?</p><WhatsAppCTA source="editorial-hub" label="Consultar pelo WhatsApp" /></div>
+          <div><p>Já sabe o que precisa para sua casa em São Paulo?</p><Link prefetch={false} className="wifi-text-link" href="/planos">Ver modalidades e consultar opções</Link><WhatsAppCTA source="editorial-hub" label="Consultar pelo WhatsApp" /></div>
         </div>
       </section>
       <JsonLd data={{
