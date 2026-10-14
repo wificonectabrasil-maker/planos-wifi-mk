@@ -1,18 +1,20 @@
+import { PackageQuickNav } from "@/components/telecom/PackageQuickNav";
 import { PackageInterests } from "@/components/telecom/PackageInterests";
 import { ContractProcess, FinalCTA } from "@/components/telecom/Shared";
-import { telecomMetadata } from "@/lib/telecom/metadata";
+import { staticPageMetadata } from "@/lib/telecom/metadata";
 import { OperatorConsultations } from "@/components/telecom/OperatorConsultations";
 import { CommercialIntro, CommercialQuestions, ContentSection, EditorialResources, TransparencyNote } from "@/components/telecom/CommercialContent";
 import { CampaignSlot } from "@/components/telecom/CampaignSlot";
 export const revalidate = 3600;
-export const metadata = telecomMetadata("Planos de internet residencial em São Paulo", "Procura internet para sua casa em São Paulo? Consulte modalidades, combos e ofertas de Claro, Vivo, TIM e provedores locais pelo WhatsApp.", "/planos");
+export const metadata = staticPageMetadata("/planos");
 export default function Page() {
   return <>
-    <CommercialIntro path="/planos" label="Pacotes e promoções" title="Planos de internet residencial em São Paulo: consulte opções para sua casa" interest="Internet residencial e ofertas disponíveis para meu endereço" cta="Conferir opções para meu endereço">
-      Quer instalar internet, mudar de operadora ou juntar a conexão com celular e TV? Uma pessoa da WifiConecta consulta as opções comercializadas para seu endereço e explica o que vem no pacote antes de encaminhar o pedido.
+    <CommercialIntro path="/planos" label="Pacotes e promoções" title="Planos de internet em São Paulo para sua casa" interest="Internet residencial e ofertas disponíveis para meu endereço" cta="Consultar promoções para meu endereço">
+      Internet, celular, TV ou câmera: consulte pacotes de Claro, Vivo, TIM e provedores regionais. Uma pessoa confere as promoções e condições para o seu endereço.
     </CommercialIntro>
-    <ContentSection title="Primeiro, o que chega à sua casa?"><p>Uma operadora pode atender o bairro e ainda não ter disponibilidade para o número da sua rua ou para o seu apartamento. A consulta considera o endereço completo, a infraestrutura e a viabilidade informada pela prestadora.</p><p>O atendimento começa pelo WhatsApp. Você conta onde precisa da conexão; a equipe confere as alternativas e orienta o próximo passo, sem uma promessa automática de cobertura.</p></ContentSection>
+    <PackageQuickNav />
     <PackageInterests />
+    <ContentSection title="Tem internet disponível para o seu endereço?"><p>Uma operadora pode atender o bairro e ainda não ter disponibilidade para o número da sua rua ou para o seu apartamento. A consulta considera o endereço completo, a infraestrutura e a viabilidade informada pela prestadora.</p><p>A capital é nossa prioridade, e também recebemos solicitações da Grande São Paulo, do interior e do litoral. A disponibilidade depende de cada endereço.</p><p>O atendimento começa pelo WhatsApp. Você conta onde precisa da conexão; a equipe confere as alternativas e orienta o próximo passo, sem uma promessa automática de cobertura.</p></ContentSection>
     <OperatorConsultations />
     <ContentSection title="Quanto custa? A composição muda a conta" id="precos"><p>Velocidade, tecnologia, endereço, celular, TV e equipamentos podem mudar o valor. Um combo com câmera não deve ser comparado só pela mensalidade com um pacote de internet sem serviços adicionais.</p><p>Uma faixa de preços só ajuda quando compara pacotes semelhantes, na mesma data e com as mesmas condições. Peça os valores atuais para o seu endereço pelo WhatsApp e confira a composição completa da proposta.</p><p>Na proposta, confira o total durante e depois do desconto, taxas, reajuste, fidelidade e o que acontece com os benefícios no fim da promoção.</p><TransparencyNote /></ContentSection>
     <CampaignSlot placement="plans" />

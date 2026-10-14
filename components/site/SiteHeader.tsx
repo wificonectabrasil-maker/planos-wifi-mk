@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowRight, ClipboardList, Menu, Router, Wifi, X } from "lucide-react";
 import { commercialLinks } from "@/lib/telecom/navigation";
 import { WhatsAppCTA } from "@/components/telecom/WhatsAppCTA";
+import { coverageCopy } from "@/lib/telecom/coverage";
 export type SiteHeaderLink = {
   href: string;
   label: string;
@@ -47,10 +48,15 @@ export function SiteHeader({ links }: { links?: SiteHeaderLink[] }) {
     (l) => !["/", "/sobre", "/contato", "/planos-de-internet", "/wifi-e-fibra"].includes(l.href),
   );
   return (
-    <header ref={headerRef} className="wifi-header">
+    <header ref={headerRef} className="wifi-header" onKeyDown={event => {
+      if (event.key === "Escape" && open) {
+        setOpen(false);
+        headerRef.current?.querySelector<HTMLButtonElement>(".wifi-mobile-toggle")?.focus();
+      }
+    }}>
       <div className="wifi-topbar">
         <div className="wifi-container">
-          <span>Atendimento humano em São Paulo • WhatsApp</span>
+          <span>{coverageCopy.short} • Atendimento humano</span>
           <Link prefetch={false} href="/#como-funciona">
             Como funciona <ArrowRight size={12} />
           </Link>

@@ -14,6 +14,6 @@ export function PackageInterests() {
       <span className="wifi-interest-label">Na conversa, confira:</span><ul>{checks.map(check => <li key={check}><Check size={16} aria-hidden="true" />{check}</li>)}</ul>
       <WhatsAppCTA source={"category-" + id} category={id === "internet-residencial" ? "internet" : id === "tv-streaming" ? "internet_tv" : id.replace("-", "_")} interest={interest} label={"Consultar " + title.toLowerCase()} />
     </article>)}</div>
-    <p className="wifi-section-note">Atendimento em São Paulo, sujeito à disponibilidade. Operadora, preços, benefícios e vigência variam conforme a oferta. A consulta não garante cobertura.</p>
+    <p className="wifi-section-note">Atendimento na capital e em outras cidades do estado, sujeito à disponibilidade. Operadora, preços, benefícios e vigência variam conforme a oferta. A consulta não garante cobertura.</p>
   </div></section>;
 }

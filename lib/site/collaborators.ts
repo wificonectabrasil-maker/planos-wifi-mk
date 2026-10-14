@@ -2,6 +2,7 @@ import { brandConfig } from "@/brand.config";
 export type CollaboratorLink = {
   label: string;
   href: string;
+  platform?: "instagram" | "facebook" | "whatsapp";
 };
 
 export type CollaboratorProfile = {
@@ -24,9 +25,12 @@ export type CollaboratorProfile = {
   reviewedByShort: string;
   expertBoxShort: string;
   aliases?: string[];
+  profilePath?: string;
 };
 
-export const DEFAULT_AUTHOR_PROFILE: CollaboratorProfile = {
+export const DEFAULT_AUTHOR_PROFILE: CollaboratorProfile = brandConfig.collaborators.find(
+  (person) => person.name === brandConfig.defaultAuthor,
+) ?? {
   id: "editorial",
   name: brandConfig.defaultAuthor,
   siteRole: "Equipe editorial",

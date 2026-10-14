@@ -8,12 +8,9 @@ import { ContentSection, EditorialResources, TransparencyNote } from "@/componen
 import { CampaignSlot } from "@/components/telecom/CampaignSlot";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { resolveSiteUrl } from "@/lib/site/url";
-import { telecomMetadata } from "@/lib/telecom/metadata";
+import { staticPageMetadata } from "@/lib/telecom/metadata";
 export const revalidate = 3600;
-export const metadata = {
-  ...telecomMetadata("Peça internet com ajuda de verdade no WhatsApp", "Quer contratar internet sem perder tempo? A WifiConecta ajuda a conferir opções para seu endereço em São Paulo. Atendimento humano pelo WhatsApp.", "/"),
-  title: { absolute: "WifiConecta | Peça internet com ajuda de verdade no WhatsApp" },
-};
+export const metadata = staticPageMetadata("/");
 const categories = [
   { icon: House, title: "Só internet pra casa", text: "Conectar a casa sem juntar serviços que você não usa.", href: "/planos#internet-residencial" },
   { icon: Smartphone, title: "Internet + celular", text: "Confira se juntar a conexão de casa e os dados da rua compensa.", href: "/planos#internet-celular" },
@@ -23,19 +20,20 @@ const categories = [
 export default function Home() {
   return <>
     <JsonLd data={{ "@context": "https://schema.org", "@graph": [
-      { "@type": "Organization", "@id": resolveSiteUrl() + "/#organization", name: "WifiConecta", url: resolveSiteUrl(), logo: resolveSiteUrl() + "/brand-logo.svg" },
+      { "@type": "Organization", "@id": resolveSiteUrl() + "/#organization", name: "WifiConecta", url: resolveSiteUrl(), logo: resolveSiteUrl() + "/brand-logo.svg", areaServed: { "@type": "State", name: "São Paulo" } },
       { "@type": "WebSite", name: "WifiConecta", url: resolveSiteUrl(), inLanguage: "pt-BR" },
     ] }} />
     <link rel="preload" as="image" href="/images/hero-claro-poster.webp" fetchPriority="high" />
     <section className="wifi-hero wifi-hero-with-video">
       <HeroVideoBackground />
       <div className="wifi-container wifi-hero-grid wifi-hero-video-layout"><div className="wifi-hero-copy">
-        <p className="wifi-eyebrow"><span className="wifi-eyebrow-dot" /> ATENDIMENTO HUMANO EM SÃO PAULO</p>
+        <p className="wifi-eyebrow"><span className="wifi-eyebrow-dot" /> SÃO PAULO CAPITAL E ESTADO</p>
         <h1>Internet pra sua casa.<br /><em>Sem virar uma novela.</em></h1>
-        <p className="wifi-hero-description">Você conta o que precisa. Uma pessoa confere as opções para seu endereço, explica as condições e ajuda a encaminhar o pedido.</p>
+        <p className="wifi-hero-description">Quer instalar internet ou mudar de operadora? Consulte pacotes e promoções para seu endereço com a ajuda de uma pessoa.</p>
         <div className="wifi-hero-actions">
-          <WhatsAppCTA source="hero" interest="Internet para minha casa" category="internet" className="wifi-hero-whatsapp" label="Consultar opções no WhatsApp" fallbackLabel="Atendimento pelo WhatsApp" />
-          <p className="wifi-whatsapp-note">Atendimento de gente. Condições explicadas antes do pedido.</p>
+          <WhatsAppCTA source="hero" interest="Internet para minha casa" category="internet" className="wifi-hero-whatsapp" label="Consultar promoções no WhatsApp" fallbackLabel="Atendimento pelo WhatsApp" />
+          <p className="wifi-whatsapp-note">Atendimento humano. Consulta sem compromisso.</p>
+          <p className="wifi-hero-operators">Claro, Vivo, TIM e provedores regionais, conforme disponibilidade.</p>
           <Link prefetch={false} href="/#como-funciona" className="wifi-text-link">Veja como funciona <ArrowRight size={16} aria-hidden="true" /></Link>
         </div>
       </div></div>

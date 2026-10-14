@@ -9,6 +9,7 @@ import {
 import { WhatsAppCTA } from "./WhatsAppCTA";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { resolveSiteUrl } from "@/lib/site/url";
+import { coverageCopy } from "@/lib/telecom/coverage";
 export function Breadcrumb({
   items,
 }: {
@@ -107,8 +108,8 @@ export function FinalCTA() {
         </div>
         <div className="wifi-final-context">
           <MapPin size={28} aria-hidden="true" />
-          <h3>Atendimento em São Paulo</h3>
-          <p>Por enquanto, atendemos São Paulo. As promoções são temporárias e os valores variam por bairro. Consulte as condições atuais pelo WhatsApp.</p>
+          <h3>Capital e estado de São Paulo</h3>
+          <p>{coverageCopy.detail} Promoções e condições variam conforme a oferta.</p>
         </div>
       </div>
     </section>
@@ -127,7 +128,7 @@ export function TrustStrip() {
       </span>
       <span>
         <BadgeCheck size={20} />
-        São Paulo, por enquanto
+        Capital e estado de São Paulo
       </span>
     </div>
   );
@@ -136,7 +137,7 @@ export function RegionNotice() {
   return (
     <div className="wifi-region-notice">
       <MapPin size={22} aria-hidden="true" />
-      <p><strong>Atendimento em São Paulo, por enquanto.</strong> As promoções mudam e as condições variam por bairro. Pacotes, valores e benefícios são apresentados no WhatsApp.</p>
+      <p><strong>Capital e estado de São Paulo.</strong> {coverageCopy.detail} Pacotes e condições atuais são apresentados na conversa.</p>
     </div>
   );
 }

@@ -8,6 +8,7 @@ import { getPublicPostBySlug, getPublicUrlRedirectTarget, listAllPostParams } fr
 import { JsonLd } from "@/components/seo/JsonLd";
 import { PostToc } from "@/components/site/PostToc";
 import { ArticleNextStep } from "@/components/site/ArticleNextStep";
+import { AuthorCard } from "@/components/site/AuthorCard";
 import { brandConfig } from "@/brand.config";
 import type { PostWithSilo } from "@/lib/types";
 import { resolveContentHtmlForRender } from "@/lib/editor/resolveContentHtml";
@@ -89,21 +90,25 @@ export async function generateMetadata({ params }: { params: Promise<{ silo: str
 
 function buildAuthor(post: PostWithSilo) {
   const fallbackName = post.expert_name || post.author_name || DEFAULT_AUTHOR_PROFILE.name;
-  const collaborator = findCollaboratorByName(fallbackName) ?? DEFAULT_AUTHOR_PROFILE;
-  const author: Record<string, any> = {
-    "@type": fallbackName === DEFAULT_AUTHOR_PROFILE.name ? "Organization" : "Person",
-    name: fallbackName,
+  const collaborator = findCollaboratorByName(fallbackName);
+  const profileUrl = collaborator?.profilePath
+    ? new URL(collaborator.profilePath, resolveSiteUrl()).href
+    : collaboratorsPageUrl;
+  const author: Record<string, unknown> = {
+    "@type": !collaborator && fallbackName === DEFAULT_AUTHOR_PROFILE.name ? "Organization" : "Person",
+    name: collaborator?.name ?? fallbackName,
+    url: profileUrl,
   };
 
-  author.jobTitle = post.expert_role || collaborator.siteRole;
-  author.description = post.expert_bio || collaborator.shortBio;
+  if (collaborator?.profilePath) author["@id"] = profileUrl;
+  author.jobTitle = post.expert_role || collaborator?.siteRole || undefined;
+  author.description = post.expert_bio || collaborator?.shortBio || undefined;
   if (post.expert_credentials) author.honorificSuffix = post.expert_credentials;
-  if (collaborator.professionalName && collaborator.professionalName !== author.name) {
+  if (collaborator?.professionalName && collaborator.professionalName !== author.name) {
     author.alternateName = collaborator.professionalName;
   }
-  if (collaborator.image?.src) author.image = collaborator.image.src;
-  author.url = collaboratorsPageUrl;
-  author.sameAs = Array.from(new Set([collaboratorsPageUrl, ...(collaborator.links?.map((link) => link.href) ?? [])]));
+  if (collaborator?.image?.src) author.image = new URL(collaborator.image.src, resolveSiteUrl()).href;
+  if (collaborator) author.sameAs = collaborator.links.filter(link => link.platform !== "whatsapp").map(link => link.href);
   return author;
 }
 
@@ -403,15 +408,12 @@ export default async function PostPage({ params }: { params: Promise<{ silo: str
   const coverImageAlt = resolvePostCoverAlt(post);
 
   const rawAuthorName = post.expert_name || post.author_name || "";
-  const authorProfile = findCollaboratorByName(rawAuthorName) ?? DEFAULT_AUTHOR_PROFILE;
-  const displayAuthorName = rawAuthorName || authorProfile?.name || DEFAULT_AUTHOR_PROFILE.name;
+  const authorProfile = rawAuthorName ? findCollaboratorByName(rawAuthorName) : DEFAULT_AUTHOR_PROFILE;
+  const displayAuthorName = authorProfile?.name || rawAuthorName || DEFAULT_AUTHOR_PROFILE.name;
   const showReviewer =
     Boolean(post.reviewed_by?.trim()) && normalizeName(post.reviewed_by) !== normalizeName(displayAuthorName);
   const shouldShowTopDisclaimer =
     Boolean(post.disclaimer?.trim()) && !isStandardAffiliateDisclosure(post.disclaimer);
-  const showProfessionalName =
-    Boolean(authorProfile.professionalName) &&
-    normalizeName(authorProfile.professionalName) !== normalizeName(authorProfile.name);
   const allowAutomaticFaqSchema =
     (brandConfig as { allowAutomaticFaqSchema?: boolean }).allowAutomaticFaqSchema ?? true;
   const detectedFaq = faqItems.length
@@ -534,33 +536,7 @@ export default async function PostPage({ params }: { params: Promise<{ silo: str
               </div>
             ) : null}
 
-            {authorProfile ? (
-              <section className="brand-card rounded-2xl p-5 md:p-6">
-                <div className="grid gap-4 sm:grid-cols-[96px_minmax(0,1fr)] sm:items-center">
-                  <img
-                    src={authorProfile.image.src}
-                    alt={authorProfile.image.alt}
-                    width={authorProfile.image.width}
-                    height={authorProfile.image.height}
-                    className="h-24 w-24 rounded-xl border border-(--border) object-cover"
-                    loading="lazy"
-                  />
-                  <div className="space-y-2">
-                    <p className="text-[11px] font-semibold uppercase tracking-wide text-(--muted-2)">Autor / Especialista</p>
-                    <h2 className="text-lg font-semibold text-(--ink)">{authorProfile.name}</h2>
-                    {showProfessionalName ? (
-                      <p className="text-xs font-medium text-(--muted-2)">{authorProfile.professionalName}</p>
-                    ) : null}
-                    <p className="text-sm leading-relaxed text-(--muted)">{authorProfile.expertBoxShort}</p>
-                    <div className="flex flex-wrap gap-3 text-xs">
-                      <Link href="/sobre" className="underline">
-                        Ver metodologia editorial
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            ) : null}
+            {authorProfile ? <AuthorCard profile={authorProfile} /> : null}
           </div>
         </div>
 

@@ -5,15 +5,16 @@ import { getPublicPostsBySilo } from "@/lib/db";
 import { buildPostCanonicalPath } from "@/lib/seo/canonical";
 import { Breadcrumb } from "./Shared";
 import { WhatsAppCTA } from "./WhatsAppCTA";
+import { coverageCopy } from "@/lib/telecom/coverage";
 
 export function CommercialIntro({ path, label, title, children, interest, cta }: {
   path: string; label: string; title: string; children: ReactNode; interest: string; cta: string;
 }) {
   return <div className="wifi-page-tint"><div className="wifi-container">
     <Breadcrumb items={[{ label, href: path }]} />
-    <div className="wifi-page-intro"><p className="wifi-eyebrow">Atendimento humano em São Paulo</p><h1>{title}</h1>
+    <div className="wifi-page-intro"><p className="wifi-eyebrow">{coverageCopy.eyebrow}</p><h1>{title}</h1>
       <p>{children}</p><div className="wifi-page-actions"><WhatsAppCTA source={path.slice(1) + "-intro"} interest={interest} label={cta} /></div>
-      <p className="wifi-small-print">Disponibilidade e condições confirmadas na conversa. Abrir o WhatsApp não contrata o serviço.</p>
+      <p className="wifi-small-print">Atendimento humano. Opções e condições confirmadas para seu endereço.</p>
     </div>
   </div></div>;
 }

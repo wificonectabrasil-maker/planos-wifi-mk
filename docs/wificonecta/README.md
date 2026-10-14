@@ -1,5 +1,7 @@
 # WifiConecta
 
+Refinamento vigente de 14/10/2026: [São Paulo, mobile e metadados](REFINAMENTO-SP-MOBILE-METADADOS.md). Atendimento na capital e em outras cidades do estado, com prioridade para a capital e confirmação por endereço. Esta etapa aprimora a captação pelo clique no contato e os metadados das oito páginas; preserva os dois silos, as 15 pautas e os artigos.
+
 Atualização vigente de 14/10/2026: consulte a [revisão comercial e editorial](REVISAO-2026-10-14.md), os [15 briefings revisados](PLANEJAMENTO-EDITORIAL-2026-10-14.md) e o [CSV](PLANEJAMENTO-EDITORIAL-2026-10-14.csv). Esta revisão substitui as composições históricas por modalidades para consulta, separa Home e /planos e prepara campanhas documentadas, sem ativar preços ou anúncios. Os artigos serão redigidos pelo responsável.
 
 Projeto de consulta de pacotes e promoções de internet, celular e TV pelo WhatsApp, adaptado ao Mini WordPress 3.1. Marca: **WifiConecta**. Domínio: **https://wificonecta.com.br**. A prévia local não publica o domínio.
@@ -11,7 +13,7 @@ Canônicos seguem exclusivamente `https://wificonecta.com.br/{silo}/{slug-do-art
 A decisão do responsável em 04/10/2026 substitui o catálogo e a captura por formulário:
 
 - Atendimento e confirmação de preços e condições pelo WhatsApp **(11) 94884-4107**, atualizado pelo responsável em 05/10/2026.
-- São Paulo é a região atendida por enquanto. Não criar páginas que prometam atendimento nacional ou cobertura por cidade/bairro.
+- A região comercial é o estado de São Paulo, com prioridade para a capital, conforme atualização do responsável em 14/10/2026. Outras cidades, interior e litoral dependem da confirmação por endereço; não prometer cobertura estadual integral ou atendimento nacional.
 - Promoções temporárias e condições que variam por bairro e perfil. Nenhum preço ou oferta permanente é publicado.
 - Em 05/10/2026, o responsável autorizou substituir os interesses genéricos por quatro composições Claro das imagens, com velocidades e benefícios como referências para consulta.
 - Em 05/10/2026, o responsável forneceu o relato do atendente como [base da marca](BASE-DA-MARCA.md): atendimento humano, ajuda para escolher e encaminhamento do pedido com a confirmação do cliente. Informou atuação com Claro, Vivo, TIM e provedores de bairro. Essa atualização substitui a limitação anterior da apresentação institucional a Claro, mantendo os quatro cards comerciais Claro já autorizados e a confirmação de disponibilidade por endereço.
@@ -83,3 +85,17 @@ Google Custom Search respondeu 403 por falta de acesso à API na verificação a
 O vídeo da hero passou em build, TypeScript, lint dos arquivos alterados e dois testes de navegador. Os testes verificam o início da requisição após o atraso, largura e cover, reprodução silenciosa, reinício efetivo ao fim do vídeo, ausência de controles, ausência de deslocamento de layout relevante (CLS < 0,01) e início automático com preferências de movimento e dados ativadas. O ffprobe confirmou uma única faixa de vídeo H.264, sem áudio. Houve inspeção visual em desktop de 1440 px e celular de 390 px.
 
 Mídia da home: [proveniência do vídeo, poster e imagem anterior](IMAGEM-DA-HOME.md).
+
+## Mike — equipe e autoria
+
+Cadastro autorizado pelo responsável em 14/10/2026. Mike é gerente de vendas, integrante da WifiConecta e autor padrão dos novos artigos. O perfil está em lib/telecom/team.ts, registrado em brand.config.ts. A página /sobre#mike apresenta a foto, cargo e canais fornecidos: Instagram @mii_ke7, Facebook Mike Rodrigues e WhatsApp (11) 94884-4107.
+
+A imagem fornecida pelo responsável foi convertida em public/images/team/mike.webp, com 206 × 206 px e 11.250 bytes, sem ampliação. O original permanece no local de origem. Não foram inferidos formação, anos de experiência, certificações ou revisão técnica.
+
+DEFAULT_AUTHOR_PROFILE seleciona o colaborador correspondente ao autor padrão da marca. Assim, os novos rascunhos recebem Mike pelo fluxo existente de resolveDefaultEeat, e artigos sem autor usam esse perfil. A assinatura pública compartilha o componente AuthorCard da página Sobre, com links sociais e link para o perfil. Autores explicitamente diferentes continuam preservados; não houve alteração em massa no banco.
+
+O JSON-LD identifica Mike como Person, com jobTitle Gerente de vendas, foto absoluta, URL e @id https://wificonecta.com.br/sobre#mike. Instagram e Facebook são sameAs; WhatsApp aparece como canal de contato no card. A página Sobre informa a relação worksFor com a WifiConecta. Isso descreve identidade e autoria, sem afirmar pontuação ou garantia de E-E-A-T/posicionamento.
+
+O cadastro está no adaptador da marca, sem migration, conta de login ou nova tabela de autores. Nenhum artigo real foi criado, publicado ou reatribuído nesta etapa.
+
+Validação do perfil: build/TypeScript e ESLint dos arquivos alterados passaram. Sete testes de navegador passaram, incluindo página Sobre em 320/390/1440 px, imagem otimizada, canais sociais, autoria padrão de novo rascunho e identidade Person no artigo publicado em banco isolado. As regressões de silos, metadados e navegação móvel também passaram. Capturas locais em artifacts/mike-about-{320,390,1440}.png. Sem deploy.

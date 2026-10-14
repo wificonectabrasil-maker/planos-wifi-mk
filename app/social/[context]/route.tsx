@@ -11,6 +11,6 @@ export async function GET(_request: Request, { params }: { params: Promise<{ con
     <div style={{ display: "flex", fontSize: 36, color: "#a9d0ff" }}>WifiConecta</div>
     <div style={{ display: "flex", fontSize: 64, fontWeight: 700, lineHeight: 1.15 }}>{copy.title}</div>
     <div style={{ display: "flex", fontSize: 30, color: "#d5e8ff" }}>{copy.description}</div>
-    <div style={{ display: "flex", fontSize: 24, color: "#70e8c8" }}>Atendimento humano em São Paulo · wificonecta.com.br</div>
+    <div style={{ display: "flex", fontSize: 24, color: "#c4d1ed" }}>São Paulo: capital e estado · wificonecta.com.br</div>
   </div>, { width: 1200, height: 630, headers: { "Cache-Control": "public, max-age=86400" } });
 }

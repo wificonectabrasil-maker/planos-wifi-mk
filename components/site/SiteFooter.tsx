@@ -61,8 +61,8 @@ export function SiteFooter(_props: { links?: SiteHeaderLink[] }) {
           <p>
             Plataforma independente. Claro, Vivo, TIM e demais marcas pertencem
             aos respectivos titulares. Sua presença no site não implica vínculo
-            oficial ou disponibilidade de oferta. Atendimento em São Paulo por enquanto.
-            Promoções, valores e benefícios variam por bairro e são apresentados no WhatsApp.
+            oficial ou disponibilidade de oferta. Atendimento na capital e em outras cidades do estado de São Paulo.
+            Disponibilidade, promoções, valores e benefícios variam por endereço e são apresentados no WhatsApp.
           </p>
         </div>
       </div>

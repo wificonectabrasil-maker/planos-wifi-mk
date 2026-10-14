@@ -32,7 +32,7 @@ export default function Page() {
         <h2>Oferta e disponibilidade.</h2>
         <p>
           As condições atuais são confirmadas no WhatsApp. Campanhas publicadas no site precisam de revisão comercial, validade e restrições claras; exemplos antigos não representam ofertas vigentes.
-          Por enquanto, atendemos São Paulo. As promoções são temporárias e os
+          Recebemos solicitações da capital e de outras cidades do estado de São Paulo, conforme a disponibilidade no endereço. As promoções são temporárias e os
           benefícios e condições variam por bairro e perfil do cliente.
           O atendimento confirma as opções antes de uma contratação.
         </p>

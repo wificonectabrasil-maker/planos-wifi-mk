@@ -5,7 +5,7 @@ import { ArrowRight, ClipboardList, Router } from "lucide-react";
 import { getPublicPostsBySilo } from "@/lib/db";
 import { wifiEditorialSilos } from "@/lib/telecom/editorial-plan";
 import { buildPostCanonicalPath } from "@/lib/seo/canonical";
-import { telecomMetadata } from "@/lib/telecom/metadata";
+import { staticPageMetadata } from "@/lib/telecom/metadata";
 import { resolveSiteUrl } from "@/lib/site/url";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumb } from "./Shared";
@@ -24,7 +24,7 @@ export async function editorialHubMetadata(slug: SiloSlug): Promise<Metadata> {
   const silo = definition(slug);
   const posts = await getSiloPosts(slug);
   return {
-    ...telecomMetadata(silo.metaTitle, silo.description, silo.path),
+    ...staticPageMetadata(silo.path),
     robots: { index: posts.length > 0 && publicIndexingAllowed(), follow: true },
   };
 }

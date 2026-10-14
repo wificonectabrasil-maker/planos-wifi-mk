@@ -7,7 +7,7 @@
   color-scheme: light;
   --brand-primary: #1859de;
   --brand-secondary: #ffffff;
-  --brand-accent: #087f65;
+  --brand-accent: #1773ea;
   --brand-hot: #1859de;
   --h3-title: #142943;
   --ink: #142943;
@@ -570,12 +570,12 @@ a {
 }
 
 .cta-button--amazon-secondary {
-  --cta-bg: #1F7A4D;
+  --cta-bg: var(--brand-accent);
   --cta-text: #FFFFFF;
 }
 
 .cta-button--internal {
-  --cta-bg: #0F766E;
+  --cta-bg: var(--brand-accent);
   --cta-text: #FFFFFF;
 }
 

@@ -53,7 +53,7 @@ test("retired capture API rejects submissions without storing personal data", as
 test("WhatsApp opens the chosen subject and records a click without personal data", async ({ page, context }) => {
   await context.route("https://wa.me/**", route => route.fulfill({ contentType: "text/html", body: "<html><body>Destino interceptado no teste.</body></html>" }));
   await page.goto("/");
-  const hero = page.getByRole("link", { name: "Consultar opções no WhatsApp", exact: true });
+  const hero = page.getByRole("link", { name: "Consultar promoções no WhatsApp", exact: true });
   const destination = new URL((await hero.getAttribute("href"))!);
   expect(destination.hostname).toBe("wa.me");
   expect(destination.pathname).toBe("/5511000000000");

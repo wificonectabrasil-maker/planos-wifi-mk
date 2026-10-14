@@ -21,7 +21,7 @@ export default function Image() {
         }}
       >
         <div style={{ fontSize: 72 }}>{brandConfig.name}</div>
-        <div style={{ fontSize: 40, color: brandConfig.visualPalette.emerald }}>
+        <div style={{ fontSize: 40, color: "#c4d1ed" }}>
           {brandConfig.tagline}
         </div>
         <div style={{ fontSize: 28 }}>{brandConfig.description}</div>
