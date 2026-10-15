@@ -106,7 +106,7 @@ test("continuous home background follows the mobile menu and resets on other pag
   await expect(page.locator(".wifi-home")).toHaveCount(0);
   await expect.poll(() => page.locator(".wifi-header").evaluate(element => getComputedStyle(element).backgroundColor)).toBe("rgb(255, 255, 255)");
 
-  await page.getByRole("link", { name: "WifiConecta — Internet que faz sentido pra você — início", exact: true }).click();
+  await page.getByRole("link", { name: /^WifiConecta\s+Internet que faz sentido pra você\s+— início$/ }).click();
   await expect(page).toHaveURL(/\/$/);
   await expect.poll(top).toBeCloseTo(0, 1);
   await expect(page.getByRole("button", { name: "Abrir menu" })).toBeVisible();

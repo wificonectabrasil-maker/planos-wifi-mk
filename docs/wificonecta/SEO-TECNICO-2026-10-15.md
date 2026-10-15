@@ -43,7 +43,7 @@ Após a publicação de `05ca583`, o domínio oficial passou a entregar `index, 
 | LCP na medição posterior | 2,48 s | 0,52 s |
 | CLS | 0 | 0 |
 
-As métricas de desempenho são de laboratório e variam entre execuções; no teste inicial a performance mobile foi 97. Os resultados posteriores não indicam regressão de layout. O diagnóstico adicional de nome da logo foi tratado incluindo marca e slogan no nome acessível, em vez de esconder o slogan de leitores de tela. O teste de navegação mobile pela logo foi repetido e aprovado.
+As métricas de desempenho são de laboratório e variam entre execuções; no teste inicial a performance mobile foi 97. Os resultados posteriores não indicam regressão de layout. O diagnóstico adicional de nome da logo foi corrigido usando o nome nativo do link, com marca e slogan separados por espaço e o ícone decorativo oculto de leitores de tela. Auditorias focais locais de Lighthouse aprovaram esse diagnóstico no celular e no desktop, sem ocorrências. O teste de navegação mobile pela logo foi repetido e aprovado.
 
 Validações: build com TypeScript, 28 testes unitários (incluindo 11 de SEO), fluxos de navegador e checagem do domínio real. As duas expectativas antigas de navegador foram atualizadas para a Home comercial e os contatos próprios do perfil da equipe, preservando os testes de CMS e de substituição do telefone dos CTAs.
 
