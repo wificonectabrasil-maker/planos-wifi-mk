@@ -28,7 +28,7 @@ export default function Home() {
       <HeroVideoBackground />
       <div className="wifi-container wifi-hero-grid wifi-hero-video-layout"><div className="wifi-hero-copy">
         <p className="wifi-eyebrow"><span className="wifi-eyebrow-dot" /> SÃO PAULO CAPITAL E ESTADO</p>
-        <h1>Internet pra sua casa.<br /><em>Sem virar uma novela.</em></h1>
+        <h1>Internet pra sua casa.<br /><em>Sem virar uma novela Mexicana.</em></h1>
         <p className="wifi-hero-description">Quer instalar internet ou mudar de operadora? Consulte pacotes e promoções para seu endereço com a ajuda de uma pessoa.</p>
         <div className="wifi-hero-actions">
           <WhatsAppCTA source="hero" interest="Internet para minha casa" category="internet" className="wifi-hero-whatsapp" label="Consultar promoções no WhatsApp" fallbackLabel="Atendimento pelo WhatsApp" />
