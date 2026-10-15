@@ -63,13 +63,13 @@ export function SiteHeader({ links }: { links?: SiteHeaderLink[] }) {
         </div>
       </div>
       <div className="wifi-header-main wifi-container">
-        <Link prefetch={false} href="/" className="wifi-logo" aria-label="WifiConecta — início">
+        <Link prefetch={false} href="/" className="wifi-logo" aria-label="WifiConecta — Internet que faz sentido pra você — início">
           <span className="wifi-logo-symbol">
             <Wifi size={26} strokeWidth={2.7} />
           </span>
           <span>
             Wifi<span>Conecta</span>
-            <small aria-hidden="true">Internet que faz sentido pra você</small>
+            <small>Internet que faz sentido pra você</small>
           </span>
         </Link>
         <div className="wifi-header-tools">
