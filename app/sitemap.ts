@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { listAllPostSitemapEntries, getPublicSilos } from "@/lib/db";
 import { resolveSiteUrl } from "@/lib/site/url";
 import { commercialPaths } from "@/lib/telecom/catalog";
-import { buildPostCanonicalPath, buildSiloCanonicalPath } from "@/lib/seo/canonical";
+import { buildPublicSitemap } from "@/lib/seo/sitemap";
 
 export const revalidate = 3600;
 
@@ -11,32 +11,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const [silos, posts] = await Promise.all([getPublicSilos(), listAllPostSitemapEntries()]);
 
-  const now = new Date();
-  const silosWithPublishedPosts = new Set(posts.map((post) => post.silo).filter(Boolean));
-
-  const base: MetadataRoute.Sitemap = [
-    { url: `${siteUrl}/`, lastModified: now },
-    { url: `${siteUrl}/sobre`, lastModified: now },
-    { url: `${siteUrl}/colaboradores`, lastModified: now },
-    { url: `${siteUrl}/contato`, lastModified: now },
-    { url: `${siteUrl}/afiliados`, lastModified: now },
-    { url: `${siteUrl}/politica-de-privacidade`, lastModified: now },
-    { url: `${siteUrl}/politica-editorial`, lastModified: now },
-    { url: `${siteUrl}/politica-de-afiliados`, lastModified: now },
-    ...commercialPaths.filter(path => path !== "/consultar").map(path => ({ url: `${siteUrl}${path}`, lastModified: now })),
+  const staticPaths = [
+    "/",
+    "/sobre",
+    "/colaboradores",
+    "/contato",
+    "/afiliados",
+    "/politica-de-privacidade",
+    "/politica-editorial",
+    "/politica-de-afiliados",
+    ...commercialPaths,
   ];
-
-  const siloUrls = silos
-    .filter((s) => silosWithPublishedPosts.has(s.slug))
-    .map((s) => ({
-      url: `${siteUrl}${buildSiloCanonicalPath(s.slug)}`,
-      lastModified: now,
-    }));
-
-  const postUrls = posts.map((p) => ({
-    url: `${siteUrl}${buildPostCanonicalPath(p.silo, p.slug)}`,
-    lastModified: p.lastModified ? new Date(p.lastModified) : now,
-  }));
-
-  return [...base, ...siloUrls, ...postUrls];
+  return buildPublicSitemap({ siteUrl, staticPaths, silos, posts });
 }

@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
 import { BrandBeamCard } from "@/components/site/BrandBeamCard";
-import { AMAZON_AFFILIATE_DISCLOSURE, SITE_NAME, SITE_URL } from "@/lib/site";
+import { AMAZON_AFFILIATE_DISCLOSURE, SITE_NAME } from "@/lib/site";
+import { telecomMetadata } from "@/lib/telecom/metadata";
 
 export const revalidate = 86400;
 
-export const metadata: Metadata = {
-  title: "Afiliados e transparência",
-  description: `Entenda como o ${SITE_NAME} é monetizado por links de afiliado com transparência.`,
-  alternates: {
-    canonical: "/afiliados",
-  },
-  openGraph: {
+const description = `Entenda como o ${SITE_NAME} é monetizado por links de afiliado com transparência.`;
+export const metadata: Metadata = telecomMetadata(
+  "Afiliados e transparência",
+  description,
+  "/afiliados",
+  {
     title: `Afiliados e transparencia | ${SITE_NAME}`,
-    description: `Entenda como o ${SITE_NAME} é monetizado por links de afiliado com transparência.`,
-    url: new URL("/afiliados", SITE_URL).toString(),
+    description,
+    twitterTitle: `Afiliados e transparencia | ${SITE_NAME}`,
   },
-};
+);
 
 const LAST_UPDATED_ISO = "2026-02-18";
 const LAST_UPDATED_LABEL = "18 de fevereiro de 2026";

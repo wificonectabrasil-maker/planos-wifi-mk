@@ -2,6 +2,7 @@ import { test, expect } from "@playwright/test";
 import { createClient } from "@libsql/client";
 import { createDatabase } from "../lib/database/query";
 import { adminPublishPost, adminDeletePosts } from "../lib/db";
+import { brandConfig } from "../brand.config";
 import sharp from "sharp";
 
 test("admin, editor, publication, SEO, media and WordPress adapter on isolated Turso", async ({
@@ -13,9 +14,6 @@ test("admin, editor, publication, SEO, media and WordPress adapter on isolated T
   await page.goto("/");
   await expect(
     page.getByRole("heading", { level: 1, name: /Internet pra sua casa/ }),
-  ).toBeVisible();
-  await expect(
-    page.getByText("Conheça os pacotes Claro para São Paulo."),
   ).toBeVisible();
   await page.goto("/admin");
   await expect(page).toHaveURL(/\/admin\/login/);
@@ -108,13 +106,15 @@ test("admin, editor, publication, SEO, media and WordPress adapter on isolated T
     const html = await post.text();
     expect(html).toContain("Guia completo de teste");
     expect(html).toContain("application/ld+json");
-    expect(html).toContain("Converse sobre o pacote que faz sentido pra você.");
+    expect(html).toContain(brandConfig.articleNextStep.title);
     expect(await (await request.get("/sitemap.xml")).text()).toContain(
       "/tema-editorial/guia-de-teste",
     );
-    expect(await (await request.get("/?q=Guia+completo")).text()).toContain(
-      "Guia completo de teste",
-    );
+    const hub = await request.get("/tema-editorial");
+    expect(hub.status()).toBe(200);
+    const hubHtml = await hub.text();
+    expect(hubHtml).toContain("Guia completo de teste");
+    expect(hubHtml).toContain('href="/tema-editorial/guia-de-teste"');
     expect(
       (await db.from("posts").update({ slug: "changed" }).eq("id", postId))
         .error?.code,

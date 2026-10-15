@@ -69,7 +69,7 @@ export function SiteHeader({ links }: { links?: SiteHeaderLink[] }) {
           </span>
           <span>
             Wifi<span>Conecta</span>
-            <small>Internet que faz sentido pra você</small>
+            <small aria-hidden="true">Internet que faz sentido pra você</small>
           </span>
         </Link>
         <div className="wifi-header-tools">

@@ -15,6 +15,7 @@ import { resolveContentHtmlForRender } from "@/lib/editor/resolveContentHtml";
 import { resolvePostCoverAlt, resolvePostCoverUrl } from "@/lib/site/postCover";
 import { resolveSiteUrl } from "@/lib/site/url";
 import { buildCanonicalUrl, buildPostCanonicalPath, buildSiloCanonicalPath } from "@/lib/seo/canonical";
+import { buildPostContentJsonLd } from "@/lib/seo/post-content-schema";
 import { DEFAULT_AUTHOR_PROFILE, findCollaboratorByName } from "@/lib/site/collaborators";
 import { SITE_DESCRIPTION, SITE_NAME, isStandardAffiliateDisclosure } from "@/lib/site";
 import { getCanonicalSiloSlug, getLegacySiloRedirect } from "@/lib/silo-config";
@@ -136,7 +137,7 @@ function buildArticleJsonLd(post: PostWithSilo, canonical: string) {
       "@type": "WebPage",
       "@id": canonical,
     },
-    headline: post.meta_title ?? post.title,
+    headline: post.title,
     description: post.meta_description ?? undefined,
     datePublished: post.published_at ?? undefined,
     dateModified: post.updated_at,
@@ -147,204 +148,6 @@ function buildArticleJsonLd(post: PostWithSilo, canonical: string) {
       "@type": "Organization",
       name: SITE_NAME,
     },
-  };
-}
-
-function buildProductJsonLd(products: any[] = []) {
-  return products
-    .filter(Boolean)
-    .map((p) => ({
-      "@context": "https://schema.org",
-      "@type": "Product",
-      name: p.title,
-      image: p.image ? [p.image] : undefined,
-      description: Array.isArray(p.features) ? p.features.join(" - ") : undefined,
-      aggregateRating: p.rating
-        ? {
-            "@type": "AggregateRating",
-            ratingValue: p.rating,
-            reviewCount: p.reviewCount ?? 1,
-          }
-        : undefined,
-      offers: p.url
-        ? {
-            "@type": "Offer",
-            url: p.url,
-            priceCurrency: p.currency ?? "BRL",
-            price: p.price ?? undefined,
-            availability: p.availability ?? undefined,
-          }
-        : undefined,
-    }));
-}
-
-function buildReviewJsonLd(post: PostWithSilo, canonical: string) {
-  const products = Array.isArray(post.amazon_products) ? post.amazon_products : [];
-  if (!products.length) return null;
-
-  const primary = products[0];
-  const productName = primary.title || post.title;
-  const coverImage = resolvePostCoverUrl(post);
-  const product = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: productName,
-    image: primary.image ? [primary.image] : coverImage ? [coverImage] : undefined,
-    description: Array.isArray(primary.features) ? primary.features.join(" - ") : post.meta_description ?? undefined,
-    aggregateRating: primary.rating
-      ? {
-          "@type": "AggregateRating",
-          ratingValue: primary.rating,
-          reviewCount: primary.reviewCount ?? 1,
-        }
-      : undefined,
-    offers: primary.url
-      ? {
-          "@type": "Offer",
-          url: primary.url,
-          priceCurrency: primary.currency ?? "BRL",
-          price: primary.price ?? undefined,
-          availability: primary.availability ?? undefined,
-        }
-      : undefined,
-  };
-
-  const review: Record<string, any> = {
-    "@context": "https://schema.org",
-    "@type": "Review",
-    itemReviewed: { "@type": "Product", name: productName },
-    reviewBody: post.meta_description ?? undefined,
-    author: buildAuthor(post),
-    reviewedBy: buildReviewedBy(post),
-    datePublished: post.published_at ?? post.updated_at,
-    url: canonical,
-  };
-
-  if (primary.rating) {
-    review.reviewRating = {
-      "@type": "Rating",
-      ratingValue: primary.rating,
-      bestRating: "5",
-      worstRating: "1",
-    };
-  }
-
-  return [product, review];
-}
-
-function buildFaqJsonLd(faq: Array<{ question: string; answer: string }> = [], canonical: string, post?: PostWithSilo) {
-  if (!faq.length) return null;
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faq.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-    author: post ? buildAuthor(post) : undefined,
-    reviewedBy: post ? buildReviewedBy(post) : undefined,
-    url: canonical,
-  };
-}
-
-function buildHowToJsonLd(steps: Array<{ name: string; text: string }> = [], post: PostWithSilo, canonical: string) {
-  if (!steps.length) return null;
-  return {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: post.title,
-    description: post.meta_description ?? undefined,
-    step: steps.map((item, index) => ({
-      "@type": "HowToStep",
-      name: item.name || `Passo ${index + 1}`,
-      text: item.text,
-    })),
-    author: buildAuthor(post),
-    reviewedBy: buildReviewedBy(post),
-    url: canonical,
-  };
-}
-
-function extractListItemsFromHtml(html: string, limit = 10) {
-  if (!html) return [];
-  const items: string[] = [];
-  const listMatch = html.match(/<(ol|ul)[^>]*>([\s\S]*?)<\/\1>/i);
-  if (!listMatch) return items;
-  const listHtml = listMatch[2] ?? "";
-  const liRegex = /<li[^>]*>([\s\S]*?)<\/li>/gi;
-  let match: RegExpExecArray | null = null;
-  while ((match = liRegex.exec(listHtml)) && items.length < limit) {
-    const raw = match[1] ?? "";
-    const text = raw.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
-    if (text) items.push(text);
-  }
-  return items;
-}
-
-function shouldRenderTopList(post: PostWithSilo) {
-  const title = (post.title || "").toLowerCase();
-  return /top|melhor|melhores|lista|ranking/.test(title);
-}
-
-function buildItemListJsonLd(post: PostWithSilo, canonical: string) {
-  const items = extractListItemsFromHtml(post.content_html ?? "", 10);
-  if (!items.length) return null;
-  return {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    itemListOrder: "https://schema.org/ItemListOrderDescending",
-    name: post.title,
-    url: canonical,
-    itemListElement: items.map((name, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name,
-    })),
-  };
-}
-
-function extractFaqFromHtml(html: string, limit = 8) {
-  if (!html) return [];
-  const faqs: Array<{ question: string; answer: string }> = [];
-  const h2Regex = /<h2[^>]*>([\s\S]*?)<\/h2>\s*<p[^>]*>([\s\S]*?)<\/p>/gi;
-  let match: RegExpExecArray | null = null;
-  while ((match = h2Regex.exec(html)) && faqs.length < limit) {
-    const q = (match[1] ?? "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
-    const a = (match[2] ?? "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
-    if (q.endsWith("?") && a) {
-      faqs.push({ question: q, answer: a });
-    }
-  }
-  return faqs;
-}
-
-function extractYouTubeIdFromHtml(html: string) {
-  if (!html) return null;
-  const iframeMatch = html.match(/<iframe[^>]+src=["']([^"']+)["'][^>]*>/i);
-  const src = iframeMatch?.[1];
-  if (!src) return null;
-  const idMatch = src.match(/(?:youtube\.com\/embed\/|youtube\.com\/watch\?v=|youtu\.be\/)([A-Za-z0-9_-]{6,})/i);
-  return idMatch?.[1] ?? null;
-}
-
-function buildVideoObjectJsonLd(post: PostWithSilo, canonical: string) {
-  const videoId = extractYouTubeIdFromHtml(post.content_html ?? "");
-  if (!videoId) return null;
-  const thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
-  return {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    name: post.meta_title ?? post.title,
-    description: post.meta_description ?? undefined,
-    thumbnailUrl,
-    uploadDate: post.published_at ?? post.updated_at,
-    embedUrl: `https://www.youtube.com/embed/${videoId}`,
-    contentUrl: `https://www.youtube.com/watch?v=${videoId}`,
-    mainEntityOfPage: canonical,
   };
 }
 
@@ -398,11 +201,6 @@ export default async function PostPage({ params }: { params: Promise<{ silo: str
   const canonical = buildCanonicalUrl(siteUrl, canonicalPath);
 
   const articleLd = buildArticleJsonLd(post, canonical);
-  const productLd = Array.isArray(post.amazon_products) ? buildProductJsonLd(post.amazon_products) : [];
-  const reviewLd = post.schema_type === "review" ? buildReviewJsonLd(post, canonical) : null;
-  const faqItems = Array.isArray(post.faq_json) ? post.faq_json : [];
-  const howToItems = Array.isArray(post.howto_json) ? post.howto_json : [];
-
   const contentHtml = resolveContentHtmlForRender(post);
   const coverImage = resolvePostCoverUrl(post);
   const coverImageAlt = resolvePostCoverAlt(post);
@@ -416,25 +214,12 @@ export default async function PostPage({ params }: { params: Promise<{ silo: str
     Boolean(post.disclaimer?.trim()) && !isStandardAffiliateDisclosure(post.disclaimer);
   const allowAutomaticFaqSchema =
     (brandConfig as { allowAutomaticFaqSchema?: boolean }).allowAutomaticFaqSchema ?? true;
-  const detectedFaq = faqItems.length
-    ? faqItems
-    : allowAutomaticFaqSchema
-      ? extractFaqFromHtml(contentHtml)
-      : [];
-  const faqLd = detectedFaq.length ? buildFaqJsonLd(detectedFaq, canonical, post) : null;
-  const howToLd = post.schema_type === "howto" ? buildHowToJsonLd(howToItems, post, canonical) : null;
-  const itemListLd = shouldRenderTopList(post) ? buildItemListJsonLd({ ...post, content_html: contentHtml }, canonical) : null;
-  const videoLd = buildVideoObjectJsonLd({ ...post, content_html: contentHtml }, canonical);
+  const contentLd = buildPostContentJsonLd(post, contentHtml, canonical, { allowAutomaticFaq: allowAutomaticFaqSchema });
   const breadcrumbLd = buildBreadcrumbJsonLd(post, siteUrl, postSiloSlug, canonical);
 
   const schemaBlocks = [
     articleLd,
-    ...productLd,
-    ...(reviewLd ? reviewLd : []),
-    faqLd,
-    howToLd,
-    itemListLd,
-    videoLd,
+    ...contentLd,
     breadcrumbLd,
   ].filter(Boolean);
 

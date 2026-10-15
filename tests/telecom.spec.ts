@@ -11,7 +11,8 @@ test("public site uses WhatsApp only, redirects retired pages and supports mobil
     await page.goto(path);
     await expect(page.locator("main form, main input, main select, main table")).toHaveCount(0);
     await expect(page.locator("main")).not.toContainText(/R\$/);
-    const links = await page.locator('a[href^="https://wa.me/"]').evaluateAll(nodes => nodes.map(node => (node as HTMLAnchorElement).href));
+    // Profile contact links have their own supplied numbers; commercial CTAs use the environment override.
+    const links = await page.locator('a.wifi-whatsapp-button, a.wifi-whatsapp-link, a.wifi-whatsapp-floating').evaluateAll(nodes => nodes.map(node => (node as HTMLAnchorElement).href));
     expect(links.length).toBeGreaterThan(0);
     for (const href of links) expect(new URL(href).pathname).toBe("/5511000000000");
   }

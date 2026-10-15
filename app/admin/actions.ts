@@ -18,6 +18,7 @@ import {
   adminUpsertSiloPost,
 } from "@/lib/db";
 import { requireAdminSession } from "@/lib/admin/auth";
+import { getAdminDatabase } from "@/lib/database";
 import { buildPostCanonicalPath, buildSiloCanonicalPath, normalizeCanonicalPath } from "@/lib/seo/canonical";
 import { isUuid } from "@/lib/uuid";
 import { normalizeSlugInput, SLUG_PATTERN } from "@/lib/slug";
@@ -431,7 +432,19 @@ export async function bulkDeletePosts(formData: FormData) {
   }
 
   let result: Awaited<ReturnType<typeof adminDeletePosts>>;
+  let affectedPosts: Array<{ slug: string; siloSlug: string | null }> = [];
   try {
+    // Capture the URLs before drafts can be hard-deleted. The selection mirrors adminDeletePosts.
+    const affectedQuery = getAdminDatabase().from("posts").select("slug,silos: silo_id (slug)");
+    const { data: affectedRows, error: affectedError } = validIds.length
+      ? await affectedQuery.in("id", validIds)
+      : await affectedQuery.in("slug", confirmedSlugs);
+    if (affectedError) throw affectedError;
+    affectedPosts = (affectedRows ?? []).map((post: any) => ({
+      slug: String(post.slug ?? ""),
+      siloSlug: post.silos?.slug ? String(post.silos.slug) : null,
+    }));
+
     result = await adminDeletePosts(validIds, {
       allowPublicUrlDeletion: true,
       confirmedSlugs,
@@ -450,6 +463,9 @@ export async function bulkDeletePosts(formData: FormData) {
     redirectDeleteError("failed", error);
   }
 
+  for (const post of affectedPosts) revalidateKnownPostPaths(post.siloSlug, post.slug);
+  for (const path of (brandConfig as { editorialResourcePages?: string[] }).editorialResourcePages ?? []) revalidatePath(path);
+  revalidatePath("/pagina-nao-encontrada");
   revalidatePath("/admin");
   revalidatePath("/");
   revalidatePath("/sitemap.xml");

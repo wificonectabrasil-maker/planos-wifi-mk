@@ -6,7 +6,17 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   trailingSlash: false,
   async headers() {
-    return [{ source: "/:path*", has: [{ type: "host", value: ".*\\.vercel\\.app" }], headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] }];
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: ".*\\.vercel\\.app" }],
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
+      ...["/admin/:path*", "/api/:path*", "/wp-json/:path*"].map((source) => ({
+        source,
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" }],
+      })),
+    ];
   },
   async redirects() {
     return wifiEditorialRedirects.map(rule => ({ ...rule, permanent: true }));

@@ -12,6 +12,7 @@
     "lint": "eslint .",
     "google:cse:check": "tsx scripts/check-google-cse.ts",
     "serp:check": "tsx scripts/check-serp.ts",
+    "seo:check": "tsx scripts/check-technical-seo.ts",
     "content-plan:check": "tsx scripts/check-content-plan.ts",
     "turso:check": "tsx scripts/check-turso.ts",
     "test": "playwright test",
