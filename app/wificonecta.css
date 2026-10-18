@@ -1035,6 +1035,30 @@
 .wifi-footer-grid a:hover {
   color: #fff;
 }
+.wifi-site .wifi-footer-socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+.wifi-site .wifi-footer-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid currentColor;
+  border-radius: 10px;
+  color: #b5c7db;
+  transition: color 150ms, background-color 150ms;
+}
+.wifi-site .wifi-footer-socials a:hover {
+  color: #fff;
+  background-color: #ffffff12;
+}
+.wifi-site .wifi-footer-socials a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
 .wifi-footer-bottom {
   display: flex;
   align-items: start;

@@ -11,6 +11,7 @@ export const brandConfig = {
   locale: "pt-BR",
   contactEmail: "",
   whatsappPhone: "",
+  instagramUrl: "",
   logo: "/brand-logo.svg",
   defaultAuthor: "Equipe editorial",
   affiliateDisclosure: "",

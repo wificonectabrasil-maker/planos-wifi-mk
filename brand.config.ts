@@ -17,6 +17,7 @@ export const brandConfig = {
   locale: "pt-BR",
   contactEmail: "",
   whatsappPhone: "5511948844107",
+  instagramUrl: "https://www.instagram.com/wifi_pedeaqui/",
   logo: "/brand-logo.svg",
   defaultAuthor: "Mike",
   affiliateDisclosure:

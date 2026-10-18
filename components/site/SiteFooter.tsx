@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Wifi } from "lucide-react";
+import { Instagram, Wifi } from "lucide-react";
+import { brandConfig } from "@/brand.config";
 import type { SiteHeaderLink } from "./SiteHeader";
 import { commercialLinks } from "@/lib/telecom/navigation";
 import { WhatsAppCTA } from "@/components/telecom/WhatsAppCTA";
@@ -26,6 +27,19 @@ export function SiteFooter(_props: { links?: SiteHeaderLink[] }) {
               A equipe explica as opções e ajuda a encaminhar o serviço que
               você escolher. Atendimento pelo WhatsApp.
             </p>
+            {brandConfig.instagramUrl && (
+              <nav className="wifi-footer-socials" aria-label={`Redes sociais da ${brandConfig.name}`}>
+                <a
+                  href={brandConfig.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Instagram da ${brandConfig.name} (abre em nova aba)`}
+                  title={`Instagram da ${brandConfig.name}`}
+                >
+                  <Instagram size={22} aria-hidden="true" />
+                </a>
+              </nav>
+            )}
           </div>
           <div>
             <h2>Encontre seu plano</h2>
