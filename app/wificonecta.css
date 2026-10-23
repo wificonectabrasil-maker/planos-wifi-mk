@@ -1035,6 +1035,81 @@
 .wifi-footer-grid a:hover {
   color: #fff;
 }
+.wifi-site .wifi-maps-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  max-width: 100%;
+  padding-block: 10px;
+  line-height: 1.5;
+}
+.wifi-site .wifi-maps-link svg {
+  flex-shrink: 0;
+}
+.wifi-site .wifi-maps-link span {
+  overflow-wrap: anywhere;
+}
+.wifi-site .wifi-contact-maps-link {
+  color: var(--wifi-accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.wifi-site .wifi-contact-maps-link:hover {
+  color: var(--wifi-accent-hover);
+}
+.wifi-site .wifi-maps-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+.wifi-site .wifi-footer-map {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 480px);
+  align-items: center;
+  gap: 28px;
+  margin-top: 32px;
+  padding: 24px;
+  border: 1px solid #ffffff24;
+  border-radius: 14px;
+  background: #ffffff04;
+}
+.wifi-site .wifi-footer-map-copy h2 {
+  margin: 0 0 12px;
+  color: #fff;
+  font-size: 21px;
+}
+.wifi-site .wifi-footer-map-copy p {
+  max-width: 430px;
+  margin: 0 0 12px;
+  font-size: 13px;
+  line-height: 1.8;
+}
+.wifi-site .wifi-footer-map-copy .wifi-maps-link {
+  color: #b5c7db;
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.wifi-site .wifi-footer-map-copy .wifi-maps-link:hover {
+  color: #fff;
+}
+.wifi-site .wifi-footer-map iframe {
+  display: block;
+  width: 100%;
+  height: 230px;
+  border: 0;
+  border-radius: 10px;
+  background: #e7edf3;
+}
+@media (max-width: 760px) {
+  .wifi-site .wifi-footer-map {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    padding: 16px;
+  }
+}
 .wifi-site .wifi-footer-socials {
   display: flex;
   gap: 10px;
@@ -1925,23 +2000,36 @@
 .wifi-site .wifi-whatsapp-floating {
   position: fixed;
   z-index: 60;
-  right: 24px;
-  bottom: 24px;
+  right: 20px;
+  bottom: 20px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  min-height: 54px;
+  width: 48px;
+  height: 48px;
+  min-height: 48px;
   max-width: calc(100vw - 32px);
-  padding: 14px 20px;
-  border: 2px solid #fff;
+  padding: 0;
+  border: 0;
   border-radius: 999px;
   background: var(--wifi-accent);
   color: #fff;
-  box-shadow: 0 7px 26px #14294330;
+  box-shadow: 0 3px 10px #1429431a;
   font-size: 13px;
   font-weight: 700;
   line-height: 1.35;
+}
+.wifi-site .wifi-whatsapp-floating span {
+  display: none;
+}
+.wifi-site .wifi-whatsapp-floating svg {
+  width: 20px;
+  height: 20px;
+}
+.wifi-site .wifi-whatsapp-floating:focus-visible {
+  outline: 2px solid var(--wifi-accent);
+  outline-offset: 4px;
+  box-shadow: 0 3px 10px #1429431a;
 }
 .wifi-site .wifi-footer {
   padding-bottom: 92px;
@@ -2136,12 +2224,6 @@
   .wifi-site .wifi-whatsapp-floating {
     right: 16px;
     bottom: 16px;
-    width: 56px;
-    min-height: 56px;
-    padding: 12px;
-  }
-  .wifi-site .wifi-whatsapp-floating span {
-    display: none;
   }
 }
 .wifi-site .wifi-editorial-supports { margin-top: 48px; }

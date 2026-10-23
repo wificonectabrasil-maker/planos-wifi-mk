@@ -9,6 +9,7 @@ import { CampaignSlot } from "@/components/telecom/CampaignSlot";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { resolveSiteUrl } from "@/lib/site/url";
 import { staticPageMetadata } from "@/lib/telecom/metadata";
+import { brandConfig } from "@/brand.config";
 export const revalidate = 3600;
 export const metadata = staticPageMetadata("/");
 const categories = [
@@ -20,7 +21,7 @@ const categories = [
 export default function Home() {
   return <>
     <JsonLd data={{ "@context": "https://schema.org", "@graph": [
-      { "@type": "Organization", "@id": resolveSiteUrl() + "/#organization", name: "WifiConecta", url: resolveSiteUrl(), logo: resolveSiteUrl() + "/brand-logo.svg", areaServed: { "@type": "State", name: "São Paulo" } },
+      { "@type": "Organization", "@id": resolveSiteUrl() + "/#organization", name: "WifiConecta", url: resolveSiteUrl(), logo: resolveSiteUrl() + "/brand-logo.svg", areaServed: { "@type": "State", name: "São Paulo" }, sameAs: [...new Set([brandConfig.instagramUrl, brandConfig.googleMapsUrl].filter(Boolean))] },
       { "@type": "WebSite", name: "WifiConecta", url: resolveSiteUrl(), inLanguage: "pt-BR" },
     ] }} />
     <link rel="preload" as="image" href="/images/hero-claro-poster.webp" fetchPriority="high" />

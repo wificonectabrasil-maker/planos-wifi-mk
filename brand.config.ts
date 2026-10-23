@@ -18,6 +18,7 @@ export const brandConfig = {
   contactEmail: "",
   whatsappPhone: "5511948844107",
   instagramUrl: "https://www.instagram.com/wifi_pedeaqui/",
+  googleMapsUrl: "https://www.google.com/maps?cid=4276303967527817866",
   logo: "/brand-logo.svg",
   defaultAuthor: "Mike",
   affiliateDisclosure:

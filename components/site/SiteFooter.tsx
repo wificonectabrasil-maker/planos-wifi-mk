@@ -4,6 +4,7 @@ import { brandConfig } from "@/brand.config";
 import type { SiteHeaderLink } from "./SiteHeader";
 import { commercialLinks } from "@/lib/telecom/navigation";
 import { WhatsAppCTA } from "@/components/telecom/WhatsAppCTA";
+import { FooterServiceMap } from "./FooterServiceMap";
 export function SiteFooter(_props: { links?: SiteHeaderLink[] }) {
   return (
     <footer className="wifi-footer">
@@ -70,6 +71,7 @@ export function SiteFooter(_props: { links?: SiteHeaderLink[] }) {
             <Link prefetch={false} href="/politica-de-afiliados">Transparência comercial</Link>
           </div>
         </div>
+        <FooterServiceMap />
         <div className="wifi-footer-bottom">
           <span>© {new Date().getFullYear()} WifiConecta.</span>
           <p>

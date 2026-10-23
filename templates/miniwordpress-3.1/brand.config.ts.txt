@@ -12,6 +12,7 @@ export const brandConfig = {
   contactEmail: "",
   whatsappPhone: "",
   instagramUrl: "",
+  googleMapsUrl: "",
   logo: "/brand-logo.svg",
   defaultAuthor: "Equipe editorial",
   affiliateDisclosure: "",
