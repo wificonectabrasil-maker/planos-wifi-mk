@@ -13,7 +13,6 @@ export default function robots(): MetadataRoute.Robots {
         ...(allowIndexing ? { allow: "/", disallow: ["/admin", "/api", "/wp-json"] } : { disallow: "/" }),
       },
     ],
-    host: siteUrl,
     sitemap: `${siteUrl}/sitemap.xml`,
   };
 }

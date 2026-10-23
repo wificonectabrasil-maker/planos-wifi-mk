@@ -53,9 +53,17 @@ Depois de cada publicação, repetir a verificação no domínio real. Variávei
 
 No Google Search Console, verificar a propriedade do domínio, enviar `https://wificonecta.com.br/sitemap.xml` e inspecionar a Home. Isso requer acesso à conta Google do responsável e não foi executado nesta alteração. O robots.txt já informa o sitemap para descoberta por rastreadores.
 
+## Revisão do aviso do Search Console — 23/10/2026
+
+A captura do relatório robots.txt mostra uma busca em 15/10/2026, às 20:54, e o aviso “Regra ignorada pelo Googlebot” na linha `Host:`. Essa diretiva não é suportada pelo Google e foi removida de `app/robots.ts`; o sitemap absoluto, os redirecionamentos e os canônicos continuam definindo a origem oficial. Remover a linha elimina a diretiva ignorada, mas não comprova a resolução de uma URL bloqueada.
+
+Os quatro CSVs exportados em 23/10 registram uma página bloqueada pelo robots.txt, validação não iniciada e último ponto do gráfico em 15/10 (uma não indexada e zero indexadas). São dados agregados e não incluem a URL afetada. Ainda é necessário consultar “Exemplos” dentro do motivo de bloqueio para distinguir uma rota interna intencional de uma página pública ou registro anterior. A checagem pública de 23/10 aprovou as 11 URLs do sitemap; isso verifica a possibilidade de rastreamento e os metadados, não a inclusão efetiva no índice do Google.
+
 ## Referências
 
 - [Google: bloqueio e liberação de indexação](https://developers.google.com/search/docs/crawling-indexing/block-indexing).
+- [Google: campos suportados no robots.txt](https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec).
+- [Google: relatório robots.txt e solicitação de novo rastreamento](https://support.google.com/webmasters/answer/6062598?hl=pt-BR).
 - [Google: URLs canônicas](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls).
 - [Google: sitemap e datas de alteração](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap).
 - [Google: dados estruturados correspondentes ao conteúdo](https://developers.google.com/search/docs/appearance/structured-data/sd-policies).
