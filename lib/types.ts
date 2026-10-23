@@ -86,7 +86,7 @@ export type PostWithSilo = Post & {
 
 export type PublicHomePost = Pick<
   Post,
-  "id" | "title" | "slug" | "target_keyword" | "meta_description" | "hero_image_url" | "hero_image_alt" | "cover_image" | "og_image_url" | "updated_at"
+  "id" | "title" | "slug" | "target_keyword" | "meta_description" | "excerpt" | "hero_image_url" | "hero_image_alt" | "cover_image" | "og_image_url" | "updated_at" | "published_at" | "author_name" | "expert_name"
 > & {
   silo: Pick<Silo, "slug" | "name"> | null;
 };

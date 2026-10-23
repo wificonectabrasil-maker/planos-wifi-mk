@@ -2,7 +2,8 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { cache } from "react";
 import { getPublicPostsBySilo } from "@/lib/db";
-import { buildPostCanonicalPath } from "@/lib/seo/canonical";
+import { PostCard } from "@/components/site/PostCard";
+import { wifiEditorialSilos } from "@/lib/telecom/editorial-plan";
 import { Breadcrumb } from "./Shared";
 import { WhatsAppCTA } from "./WhatsAppCTA";
 import { coverageCopy } from "@/lib/telecom/coverage";
@@ -35,7 +36,8 @@ const publishedArticles = cache(async () => (await Promise.all(["planos-de-inter
 export async function EditorialResources({ slugs }: { slugs: readonly string[] }) {
   const posts = (await publishedArticles()).filter(post => slugs.includes(post.slug));
   if (!posts.length) return null;
-  return <section className="wifi-section wifi-container"><div className="wifi-commercial-copy"><h2>Quer entender um detalhe antes de decidir?</h2>
-    <ul className="wifi-resource-links">{posts.map(post => <li key={post.id}><Link prefetch={false} href={buildPostCanonicalPath(post.siloSlug, post.slug)!}>{post.title}</Link></li>)}</ul>
-  </div></section>;
+  return <section className="wifi-section wifi-container" aria-label="Artigos para orientar sua escolha">
+    <div className="wifi-section-heading"><h2>Quer entender um detalhe antes de decidir?</h2></div>
+    <div className="system-post-card-grid">{posts.map(post => <PostCard key={post.id} post={post} silo={{ slug: post.siloSlug, name: wifiEditorialSilos.find(silo => silo.slug === post.siloSlug)?.name ?? "Guias" }} />)}</div>
+  </section>;
 }

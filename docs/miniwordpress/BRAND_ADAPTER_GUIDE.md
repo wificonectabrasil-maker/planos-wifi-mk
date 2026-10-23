@@ -1,5 +1,7 @@
 # Adaptar a identidade
 
+`useDefaultAuthorForArticles` é opcional. Ative quando a marca designar seu `defaultAuthor` como responsável por todos os artigos. Na WifiConecta, a configuração está ativa para Mike: apresentação pública, schema e padrões do editor usam o cadastro central de `lib/telecom/team.ts`. Não é necessário migrar os registros para mostrar a assinatura; ao salvar no editor, a identidade padrão é persistida pelos campos existentes. Em projetos com vários autores, omita/desative a opção para preservar a escolha individual. CTA e card são componentes do template, sem inserção automática no texto do post.
+
 A copy comercial de localização é compartilhada por lib/telecom/coverage.ts: capital como prioridade e outras cidades do estado sujeitas à confirmação por endereço. lib/telecom/static-page-copy.ts separa títulos/descrições de busca e chamadas sociais nas oito rotas. staticPageMetadata usa título absoluto para evitar duplicação da marca pelo layout raiz e fornece imagens sociais absolutas com dimensões e alt. Essa adaptação não altera o plano editorial ou o schema do CMS. [Revisão aplicada](../wificonecta/REFINAMENTO-SP-MOBILE-METADADOS.md).
 
 A cor de destaque anteriormente verde da WifiConecta foi substituída por #1773ea nos botões, CTAs, ícones e detalhes públicos, conforme a última escolha do responsável. Hover usa #0e5fc9; links sobre o rodapé escuro usam um tom claro da mesma paleta para manter contraste. A chave visualPalette.emerald é preservada por compatibilidade, com o novo valor azul.

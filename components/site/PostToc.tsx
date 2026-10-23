@@ -13,6 +13,7 @@ type TocItem = {
 type PostTocProps = {
   contentSelector?: string;
   title?: string;
+  portalThemeClassName?: string;
 };
 
 function slugify(text: string) {
@@ -37,61 +38,67 @@ function buildUniqueId(base: string, existing: Set<string>) {
   return id;
 }
 
-export function PostToc({ contentSelector = ".content", title = "Índice" }: PostTocProps) {
+export function PostToc({ contentSelector = ".content", title = "Índice", portalThemeClassName = "" }: PostTocProps) {
   const [items, setItems] = useState<TocItem[]>([]);
   const [activeId, setActiveId] = useState<string>("");
   const [isOpen, setIsOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const [isFooterVisible, setIsFooterVisible] = useState(false);
   const desktopListRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    setMounted(true);
-    const container = document.querySelector(contentSelector);
-    if (!container) return;
+    let observer: IntersectionObserver | undefined;
+    // Scan the rendered article after layout; the resulting items also gate the portal on the client.
+    const frame = window.requestAnimationFrame(() => {
+      const container = document.querySelector(contentSelector);
+      if (!container) return;
 
-    // Escanear apenas H2 e H3 conforme solicitado
-    const headings = Array.from(container.querySelectorAll("h2, h3"));
-    const existing = new Set<string>(headings.map((h) => h.id).filter(Boolean));
-    const tocItems: TocItem[] = [];
+      // Escanear apenas H2 e H3 conforme solicitado
+      const headings = Array.from(container.querySelectorAll("h2, h3"));
+      const existing = new Set<string>(headings.map((h) => h.id).filter(Boolean));
+      const tocItems: TocItem[] = [];
 
-    headings.forEach((heading) => {
-      const level = Number(heading.tagName.replace("H", ""));
-      const text = heading.textContent?.trim() ?? "";
-      if (!text) return;
+      headings.forEach((heading) => {
+        const level = Number(heading.tagName.replace("H", ""));
+        const text = heading.textContent?.trim() ?? "";
+        if (!text) return;
 
-      if (!heading.id) {
-        const base = slugify(text);
-        heading.id = buildUniqueId(base, existing);
-      }
-      tocItems.push({ id: heading.id, text, level });
+        if (!heading.id) {
+          const base = slugify(text);
+          heading.id = buildUniqueId(base, existing);
+        }
+        tocItems.push({ id: heading.id, text, level });
+      });
+
+      setItems(tocItems);
+
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveId(entry.target.id);
+            }
+          });
+        },
+        { rootMargin: "0px 0px -80% 0px", threshold: 0.1 }
+      );
+
+      headings.forEach((heading) => observer!.observe(heading));
     });
-
-    setItems(tocItems);
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: "0px 0px -80% 0px", threshold: 0.1 }
-    );
-
-    headings.forEach((heading) => observer.observe(heading));
-    return () => observer.disconnect();
+    return () => {
+      window.cancelAnimationFrame(frame);
+      observer?.disconnect();
+    };
   }, [contentSelector]);
 
   useEffect(() => {
-    if (!mounted) return;
+    if (!items.length) return;
     const footer = document.querySelector("footer");
     if (!footer) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsFooterVisible(entry.isIntersecting);
+        if (entry.isIntersecting) setIsOpen(false);
       },
       {
         root: null,
@@ -102,13 +109,7 @@ export function PostToc({ contentSelector = ".content", title = "Índice" }: Pos
 
     observer.observe(footer);
     return () => observer.disconnect();
-  }, [mounted]);
-
-  useEffect(() => {
-    if (isFooterVisible && isOpen) {
-      setIsOpen(false);
-    }
-  }, [isFooterVisible, isOpen]);
+  }, [items.length]);
 
   const hasItems = items.length > 0;
   const desktopItems = useMemo(() => items, [items]);
@@ -156,8 +157,8 @@ export function PostToc({ contentSelector = ".content", title = "Índice" }: Pos
   return (
     <>
       {/* Mobile: Floating Drawer Trigger (Gaveta Lateral) via Portal */}
-      {mounted && createPortal(
-        <div className="md:hidden">
+      {createPortal(
+        <div className={`${portalThemeClassName} system-post-toc-mobile md:hidden`.trim()}>
           {/* Trigger Button - Always visible fixed tab */}
           <button
             onClick={() => setIsOpen(true)}
@@ -189,6 +190,7 @@ export function PostToc({ contentSelector = ".content", title = "Índice" }: Pos
               </div>
               <button
                 onClick={() => setIsOpen(false)}
+                aria-label="Fechar índice"
                 className="rounded-full p-2 text-(--muted-2) hover:bg-(--surface-muted) hover:text-(--brand-hot)"
               >
                 <X size={20} />
@@ -219,8 +221,8 @@ export function PostToc({ contentSelector = ".content", title = "Índice" }: Pos
       )}
 
       {/* Desktop: Sticky Sidebar */}
-      <aside className="sticky top-3 hidden h-fit w-full max-w-[232px] self-start md:block">
-        <div className="brand-card max-h-[calc(100dvh-1.5rem)] overflow-hidden rounded-2xl px-4 py-4">
+      <aside className="system-post-toc sticky top-3 hidden h-fit w-full max-w-[232px] self-start md:block">
+        <div className="system-post-toc-card max-h-[calc(100dvh-1.5rem)] overflow-hidden rounded-2xl px-4 py-4">
           <div className="mb-3 flex items-center gap-2 border-b border-(--border) pb-2.5">
             <List size={16} className="text-(--brand-accent)" />
             <span className="text-xs font-bold uppercase tracking-wide text-(--muted-2)">{title}</span>

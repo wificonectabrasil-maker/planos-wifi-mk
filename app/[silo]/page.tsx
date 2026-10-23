@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { getPublicPostsBySilo, getPublicSiloBySlug, listAllSiloSlugs } from "@/lib/db";
 import type { Post } from "@/lib/types";
 import { resolveSiteUrl } from "@/lib/site/url";
-import { resolvePostCoverAlt, resolvePostCoverUrl } from "@/lib/site/postCover";
+import { PostCard } from "@/components/site/PostCard";
 import { buildCanonicalUrl, buildSiloCanonicalPath } from "@/lib/seo/canonical";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/site";
 import { getCanonicalSiloSlug, getLegacySiloRedirect } from "@/lib/silo-config";
@@ -57,26 +57,6 @@ function sortHubPosts(a: Post, b: Post): number {
   if (dateA !== dateB) return dateB - dateA;
 
   return (a.title || "").localeCompare(b.title || "", "pt-BR");
-}
-
-function formatPostDate(post: Post): string {
-  const value = post.published_at || post.updated_at;
-  if (!value) return "";
-
-  const parsed = new Date(value);
-  if (Number.isNaN(parsed.getTime())) return "";
-
-  return parsed.toLocaleDateString("pt-BR", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-  });
-}
-
-function resolveSummary(post: Post): string {
-  const summary = post.meta_description || post.excerpt;
-  if (summary && summary.trim().length > 0) return summary.trim();
-  return "Abrir post completo.";
 }
 
 export async function generateStaticParams() {
@@ -209,20 +189,8 @@ export default async function PublicSiloHubPage({ params }: { params: Promise<{ 
           </div>
 
           {pillarPost ? (
-            <aside className="rounded-2xl border border-[rgba(165,119,100,0.26)] bg-white/80 p-5 shadow-[0_12px_30px_rgba(43,44,48,0.08)]">
-              <p className="text-[11px] font-semibold uppercase tracking-wide text-(--muted-2)">Comece por aqui</p>
-              <h2 className="mt-2 text-xl font-semibold text-(--ink)">
-                <Link href={`/${canonicalSiloSlug}/${pillarPost.slug}`} className="hover:text-(--brand-hot)">
-                  {pillarPost.title}
-                </Link>
-              </h2>
-              <p className="mt-2 text-sm text-(--muted)">{resolveSummary(pillarPost)}</p>
-              <Link
-                href={`/${canonicalSiloSlug}/${pillarPost.slug}`}
-                className="mt-4 inline-flex items-center rounded-xl bg-(--brand-hot) px-4 py-2 text-sm font-semibold text-white transition hover:brightness-95"
-              >
-                Ver post
-              </Link>
+            <aside aria-label="Guia principal do tema">
+              <PostCard post={pillarPost} silo={{ slug: canonicalSiloSlug, name: currentSilo.name }} pillar headingLevel={2} />
             </aside>
           ) : null}
         </div>
@@ -235,60 +203,8 @@ export default async function PublicSiloHubPage({ params }: { params: Promise<{ 
       ) : (
         <section className="space-y-4">
           <h2 className="text-2xl font-semibold text-(--ink)">Mais posts deste tema</h2>
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {posts.map((post, index) => {
-              const cover = resolvePostCoverUrl(post);
-              const coverAlt = resolvePostCoverAlt(post);
-
-              return (
-                <article
-                  key={post.id}
-                  className="brand-card group overflow-hidden rounded-2xl border border-[rgba(165,119,100,0.24)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(43,44,48,0.18)]"
-                >
-                  <Link href={`/${canonicalSiloSlug}/${post.slug}`} className="block">
-                    <div className="relative aspect-square overflow-hidden">
-                      {cover ? (
-                        <img
-                          src={cover}
-                          alt={coverAlt}
-                          loading={index < 2 ? "eager" : "lazy"}
-                          fetchPriority={index === 0 ? "high" : "auto"}
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.06]"
-                        />
-                      ) : (
-                        <div className="h-full w-full bg-linear-to-br from-[rgba(241,188,153,0.55)] via-[rgba(255,255,255,0.9)] to-[rgba(19,104,99,0.14)]" />
-                      )}
-                      <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-[rgba(22,22,22,0.34)] via-[rgba(22,22,22,0.04)] to-transparent" />
-
-                      <div className="absolute left-3 top-3 flex items-center gap-2 text-[11px]">
-                        <span className="rounded-full bg-white/90 px-2.5 py-1 font-semibold text-(--ink)">
-                          {isPillar(post) ? "Principal" : "Post"}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="space-y-3 p-4">
-                      <div className="flex items-center justify-between gap-3 text-[11px] text-(--muted-2)">
-                        <span className="truncate">/{canonicalSiloSlug}/{post.slug}</span>
-                        {formatPostDate(post) ? <span className="shrink-0">{formatPostDate(post)}</span> : null}
-                      </div>
-
-                      <h3 className="line-clamp-2 text-lg font-semibold leading-tight text-(--ink) transition-colors group-hover:text-(--brand-hot)">
-                        {post.title}
-                      </h3>
-
-                      <p className="line-clamp-3 text-sm leading-relaxed text-(--muted)">
-                        {resolveSummary(post)}
-                      </p>
-
-                      <span className="inline-flex items-center rounded-lg border border-[rgba(165,119,100,0.28)] bg-white/80 px-3 py-1.5 text-xs font-semibold text-(--ink) transition group-hover:border-(--brand-hot) group-hover:text-(--brand-hot)">
-                        Ver post
-                      </span>
-                    </div>
-                  </Link>
-                </article>
-              );
-            })}
+          <div className="system-post-card-grid">
+            {posts.map(post => <PostCard key={post.id} post={post} silo={{ slug: canonicalSiloSlug, name: currentSilo.name }} pillar={isPillar(post)} />)}
           </div>
         </section>
       )}

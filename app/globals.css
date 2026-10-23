@@ -314,7 +314,7 @@ a {
   color: var(--paper) !important;
 }
 
-.post-page section,
+.post-page section:not(.site-author-card),
 .post-page article,
 .post-page .page-in {
   background-color: transparent !important;

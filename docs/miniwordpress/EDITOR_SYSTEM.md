@@ -1,5 +1,9 @@
 # Editor System
 
+Autoria e encerramento em 23/10/2026: a aba E-E-A-T mostra foto, cargo, biografia, perfil, contato e links de identidade do autor cadastrado, além do CTA padrão da marca. O canvas apresenta `ArticleNextStep` e `AuthorCard` fora do conteúdo editável; esses blocos não entram no JSON/HTML do artigo. A opção `useDefaultAuthorForArticles` mantém os dados de autoria do adaptador tanto em rascunhos antigos quanto em novos, sem preencher revisão ou credenciais fictícias. Na WifiConecta, a opção está ativa para Mike; os campos de identidade são exibidos como dados da marca. Revisão permanece opcional e editável.
+
+Preview externo em 23/10/2026: `/admin/preview/[postId]` mantém autenticação e `noindex`, mas usa o mesmo `PostArticle` da rota pública. O admin continua escuro; o preview do artigo recebe o tema público da marca e não recria cabeçalho/rodapé. Os testes usam somente publicações descartáveis em banco local isolado; o rascunho real não é publicado. [Detalhes](../wificonecta/ARTIGO-PREVIEW-2026-10-23.md).
+
 Este documento define o editor de posts do Mini WordPress.
 
 O editor e a principal estacao de trabalho do sistema. Ele mistura uma area publica da marca, onde o artigo e editado/visualizado, com paineis administrativos do Mini WordPress. Essa separacao e obrigatoria.

@@ -51,6 +51,8 @@ export const DEFAULT_AUTHOR_PROFILE: CollaboratorProfile = brandConfig.collabora
   aliases: [],
 };
 export const COLLABORATORS: CollaboratorProfile[] = brandConfig.collaborators;
+export const USE_DEFAULT_ARTICLE_AUTHOR =
+  (brandConfig as { useDefaultAuthorForArticles?: boolean }).useDefaultAuthorForArticles === true;
 function normalizeName(value: string) {
   return value
     .normalize("NFD")
@@ -82,3 +84,9 @@ export const EDITOR_AUTHOR_OPTIONS = Array.from(
     ...COLLABORATORS.map((person) => person.name),
   ]),
 );
+
+/** Brands can assign their articles to the configured author, including legacy posts. */
+export function resolveArticleAuthorProfile(name: string | null | undefined) {
+  if (USE_DEFAULT_ARTICLE_AUTHOR || !name?.trim()) return DEFAULT_AUTHOR_PROFILE;
+  return findCollaboratorByName(name);
+}

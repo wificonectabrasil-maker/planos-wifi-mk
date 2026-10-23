@@ -21,6 +21,7 @@ export const brandConfig = {
   googleMapsUrl: "https://www.google.com/maps?cid=4276303967527817866",
   logo: "/brand-logo.svg",
   defaultAuthor: "Mike",
+  useDefaultAuthorForArticles: true,
   affiliateDisclosure:
     "A WifiConecta é uma plataforma independente. Marcas e serviços pertencem às respectivas operadoras. Consulte disponibilidade e condições antes de contratar.",
   niche:

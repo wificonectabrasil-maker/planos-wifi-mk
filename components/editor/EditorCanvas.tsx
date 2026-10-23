@@ -20,6 +20,9 @@ import { ArticleFindDialog } from "@/components/editor/ArticleFindDialog";
 import { FixedToolbar } from "@/components/editor/FixedToolbar";
 import { useEditorContext } from "@/components/editor/EditorContext";
 import { getBpAttrs } from "@/lib/editor/responsive";
+import { ArticleNextStep } from "@/components/site/ArticleNextStep";
+import { AuthorCard } from "@/components/site/AuthorCard";
+import { resolveArticleAuthorProfile } from "@/lib/site/collaborators";
 
 type PreviewMode = "desktop" | "tablet" | "mobile";
 
@@ -367,6 +370,7 @@ export function EditorCanvas() {
     () => pickFirstText(meta.expertName, meta.authorName, "Equipe projeto"),
     [meta.authorName, meta.expertName]
   );
+  const authorProfile = resolveArticleAuthorProfile(meta.expertName || meta.authorName);
   const reviewerName = useMemo(() => pickFirstText(meta.reviewedBy), [meta.reviewedBy]);
   const showReviewer = Boolean(
     reviewerName && normalizeComparable(reviewerName) !== normalizeComparable(displayAuthor)
@@ -642,6 +646,10 @@ export function EditorCanvas() {
                 <div className="mx-auto max-w-[920px]">
                   <div className="content">
                     <EditorContent editor={editor} className="editor-content content" />
+                  </div>
+                  <div className="wifi-site system-editor-article-footer mt-8" aria-label="Encerramento automático do artigo">
+                    <ArticleNextStep />
+                    {authorProfile ? <AuthorCard profile={authorProfile} /> : null}
                   </div>
                 </div>
               </article>

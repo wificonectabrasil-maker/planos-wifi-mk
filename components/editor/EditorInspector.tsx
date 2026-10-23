@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useMemo, useState, type DragEvent } from "react";
+import Image from "next/image";
+import { brandConfig } from "@/brand.config";
 import { CalendarClock, CheckCircle2, Info, ShieldCheck, UserRound } from "lucide-react";
 import { useEditorContext } from "@/components/editor/EditorContext";
-import { EDITOR_AUTHOR_OPTIONS } from "@/lib/site/collaborators";
+import { EDITOR_AUTHOR_OPTIONS, resolveArticleAuthorProfile, USE_DEFAULT_ARTICLE_AUTHOR } from "@/lib/site/collaborators";
 import { buildPostCanonicalPath, buildSiloCanonicalPath } from "@/lib/seo/canonical";
 import { normalizeSlugInput } from "@/lib/slug";
 import { ReviewPanel } from "@/components/editor/ReviewPanel";
@@ -63,6 +65,8 @@ export function EditorInspector() {
   const [siloSummaryError, setSiloSummaryError] = useState<string | null>(null);
 
   const seoTitleCount = meta.metaTitle.length;
+  const authorProfile = resolveArticleAuthorProfile(meta.expertName || meta.authorName);
+  const articleNextStep = (brandConfig as { articleNextStep?: { title: string; description: string; href: string; label: string } }).articleNextStep;
   const seoDescCount = meta.metaDescription.length;
   const siloSlug = useMemo(() => {
     if (!meta.siloId) return "";
@@ -447,6 +451,7 @@ export function EditorInspector() {
             <Field label="Autor">
               <select
                 value={meta.authorName}
+                disabled={USE_DEFAULT_ARTICLE_AUTHOR}
                 onChange={(event) => setMeta({ authorName: event.target.value })}
                 className="w-full rounded-md border border-(--border) bg-(--surface) px-3 py-2 text-sm outline-none"
               >
@@ -459,15 +464,38 @@ export function EditorInspector() {
               </select>
             </Field>
 
+            {authorProfile ? (
+              <section className="admin-subpane space-y-2 p-3 text-xs" aria-label="Dados do autor">
+                <div className="flex items-center gap-3">
+                  <Image src={authorProfile.image.src} alt={authorProfile.image.alt} width={48} height={48} className="h-12 w-12 rounded-full object-cover" />
+                  <div><p className="font-semibold text-(--text)">{authorProfile.name}</p><p className="text-(--muted)">{authorProfile.siteRole}</p></div>
+                </div>
+                <p className="leading-relaxed text-(--muted)">{authorProfile.shortBio}</p>
+                <a className="inline-block py-2 text-(--brand-accent) underline" href={authorProfile.profilePath ?? "/sobre"} target="_blank" rel="noopener noreferrer">Ver perfil do autor (nova aba)</a>
+                {authorProfile.links.filter(link => link.platform === "whatsapp").map(link => <a key={link.href} className="block break-words py-2 text-(--brand-accent) underline" href={link.href} target="_blank" rel="noopener noreferrer">{link.label} (nova aba)</a>)}
+                <p className="text-[11px] text-(--muted)">O card de autoria aparece automaticamente no final do artigo, junto ao CTA.</p>
+              </section>
+            ) : null}
+
             <Field label="Links sameAs (1 por linha)">
               <textarea
                 rows={3}
                 value={meta.authorLinks.join("\n")}
+                readOnly={USE_DEFAULT_ARTICLE_AUTHOR}
                 onChange={(event) => setMeta({ authorLinks: event.target.value.split(/\n+/).map((s) => s.trim()).filter(Boolean) })}
                 className="w-full resize-none rounded-md border border-(--border) bg-(--surface) px-3 py-2 text-sm outline-none"
                 placeholder="https://linkedin.com/..."
               />
             </Field>
+
+            {articleNextStep ? (
+              <section className="admin-subpane space-y-2 p-3 text-xs" aria-label="CTA padrão do artigo">
+                <h3 className="font-semibold uppercase text-(--text)">CTA padrão do artigo</h3>
+                <p className="font-semibold text-(--text)">{articleNextStep.title}</p>
+                <p className="leading-relaxed text-(--muted)">{articleNextStep.description}</p>
+                <a className="inline-block break-words py-2 text-(--brand-accent) underline" href={articleNextStep.href} target="_blank" rel="noopener noreferrer">{articleNextStep.label} (nova aba)</a>
+              </section>
+            ) : null}
 
             <div className="grid grid-cols-2 gap-3">
               <Field label="Revisado por">
@@ -493,8 +521,9 @@ export function EditorInspector() {
               </p>
               <Check label="Autor preenchido" ok={Boolean(meta.authorName)} />
               <Check label="Links sameAs" ok={meta.authorLinks.length > 0} />
-              <Check label="Revisão preenchida" ok={Boolean(meta.reviewedAt)} />
+              <Check label="Revisão informada (opcional)" ok={Boolean(meta.reviewedBy && meta.reviewedAt)} />
             </div>
+            <p className="text-[11px] leading-relaxed text-(--muted)">Preencha revisor e data apenas quando houver uma revisão real. O cargo de autor não implica revisão técnica.</p>
           </div>
         ) : null}
 

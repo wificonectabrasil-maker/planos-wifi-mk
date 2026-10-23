@@ -8,8 +8,8 @@ import { buildPostCanonicalPath } from "@/lib/seo/canonical";
 import { staticPageMetadata } from "@/lib/telecom/metadata";
 import { resolveSiteUrl } from "@/lib/site/url";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { PostCard } from "@/components/site/PostCard";
 import { Breadcrumb } from "./Shared";
-import { WhatsAppCTA } from "./WhatsAppCTA";
 import type { Post } from "@/lib/types";
 import briefs from "@/lib/telecom/editorial-briefs";
 import { publicIndexingAllowed } from "@/lib/site/indexing";
@@ -78,10 +78,9 @@ export async function EditorialSiloHub({ slug }: { slug: SiloSlug }) {
             <p>As publicações deste tema aparecerão aqui assim que estiverem prontas.</p>
           </div>
         )}
-        <div className="wifi-editorial-next">
+        <nav className="wifi-editorial-next" aria-label="Continuar explorando os temas">
           <Link prefetch={false} href={other.path} className="wifi-text-link">Explorar {other.name} <ArrowRight size={16} aria-hidden="true" /></Link>
-          <div><p>Já sabe o que precisa para sua casa em São Paulo?</p><Link prefetch={false} className="wifi-text-link" href="/planos">Ver modalidades e consultar opções</Link><WhatsAppCTA source="editorial-hub" label="Consultar pelo WhatsApp" /></div>
-        </div>
+        </nav>
       </section>
       <JsonLd data={{
         "@context": "https://schema.org",
@@ -97,11 +96,5 @@ export async function EditorialSiloHub({ slug }: { slug: SiloSlug }) {
 }
 
 function SiloPostCard({ post, slug, pillar = false }: { post: Post; slug: SiloSlug; pillar?: boolean }) {
-  const href = buildPostCanonicalPath(slug, post.slug)!;
-  return <article className="wifi-guide-card">
-    <p className="wifi-eyebrow">{pillar ? "Guia principal" : "Guia complementar"}</p>
-    <h3><Link prefetch={false} href={href}>{post.title}</Link></h3>
-    {post.meta_description || post.excerpt ? <p>{post.meta_description || post.excerpt}</p> : null}
-    <Link prefetch={false} className="wifi-text-link" href={href}>Ler artigo <ArrowRight size={16} aria-hidden="true" /></Link>
-  </article>;
+  return <PostCard post={post} silo={{ slug, name: definition(slug).name }} pillar={pillar} />;
 }

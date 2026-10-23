@@ -1,22 +1,9 @@
-import Link from "next/link";
-import { buildPostCanonicalPath } from "@/lib/seo/canonical";
+import { PostCard } from "./PostCard";
 import type { PublicHomePost } from "@/lib/types";
 function Articles({ posts }: { posts: PublicHomePost[] }) {
   return (
-    <div className="mt-4 grid gap-4 md:grid-cols-3">
-      {posts.map((post) => (
-        <Link
-          key={post.id}
-          href={buildPostCanonicalPath(post.silo?.slug, post.slug) ?? `/${post.slug}`}
-          className="brand-card rounded-2xl p-5"
-        >
-          <p className="text-xs text-(--muted-2)">{post.silo?.name}</p>
-          <h3 className="mt-2 font-semibold">{post.title}</h3>
-          <p className="mt-3 text-sm text-(--muted-2)">
-            {post.meta_description}
-          </p>
-        </Link>
-      ))}
+    <div className="system-post-card-grid mt-4">
+      {posts.map(post => <PostCard key={post.id} post={post} />)}
     </div>
   );
 }

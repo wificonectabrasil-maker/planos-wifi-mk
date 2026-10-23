@@ -24,6 +24,7 @@ export function SiteChrome({
   const isHome = segments.length === 0;
   const fullWidth =
     isHome ||
+    (segments[0] === "admin" && segments[1] === "preview") ||
     [
       "planos",
       "operadoras",

@@ -1,16 +1,16 @@
 import { SITE_URL } from "@/lib/site";
-import { DEFAULT_AUTHOR_PROFILE } from "@/lib/site/collaborators";
+import { DEFAULT_AUTHOR_PROFILE, USE_DEFAULT_ARTICLE_AUTHOR } from "@/lib/site/collaborators";
 
 export const DEFAULT_EEAT_AUTHOR = {
   authorName: DEFAULT_AUTHOR_PROFILE.name,
-  expertName: "",
-  expertRole: "",
-  expertBio: "",
+  expertName: USE_DEFAULT_ARTICLE_AUTHOR ? DEFAULT_AUTHOR_PROFILE.name : "",
+  expertRole: USE_DEFAULT_ARTICLE_AUTHOR ? DEFAULT_AUTHOR_PROFILE.siteRole : "",
+  expertBio: USE_DEFAULT_ARTICLE_AUTHOR ? DEFAULT_AUTHOR_PROFILE.shortBio : "",
   expertCredentials: "",
   reviewedBy: "",
   authorLinks: [
-    ...DEFAULT_AUTHOR_PROFILE.links.map((link) => link.href),
-    `${SITE_URL}/sobre`,
+    ...DEFAULT_AUTHOR_PROFILE.links.filter((link) => link.platform !== "whatsapp").map((link) => link.href),
+    new URL(DEFAULT_AUTHOR_PROFILE.profilePath ?? "/sobre", SITE_URL).href,
   ],
 } as const;
 
@@ -34,6 +34,13 @@ export function resolveDefaultEeat(input: {
   reviewedBy?: string | null;
   authorLinks?: string[] | null;
 }) {
+  if (USE_DEFAULT_ARTICLE_AUTHOR) {
+    return {
+      ...DEFAULT_EEAT_AUTHOR,
+      reviewedBy: normalizeText(input.reviewedBy),
+      authorLinks: [...DEFAULT_EEAT_AUTHOR.authorLinks],
+    };
+  }
   const authorName =
     normalizeText(input.authorName) || DEFAULT_EEAT_AUTHOR.authorName;
   const expertName =

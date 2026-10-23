@@ -257,7 +257,7 @@ export async function listLatestPublicPosts(limit = 8): Promise<Array<PublicHome
   if (!hasPublicEnv()) return [];
   const database = getPublicDatabase();
   const columns =
-    "id,title,slug,target_keyword,meta_description,hero_image_url,hero_image_alt,cover_image,og_image_url,updated_at,silos: silo_id (slug, name)";
+    "id,title,slug,target_keyword,meta_description,excerpt,hero_image_url,hero_image_alt,cover_image,og_image_url,updated_at,published_at,author_name,expert_name,silos: silo_id (slug, name)";
 
   let { data, error } = await database
     .from("posts")
@@ -287,6 +287,10 @@ export async function listLatestPublicPosts(limit = 8): Promise<Array<PublicHome
     slug: row.slug,
     target_keyword: row.target_keyword,
     meta_description: row.meta_description,
+    excerpt: row.excerpt,
+    published_at: row.published_at,
+    author_name: row.author_name,
+    expert_name: row.expert_name,
     hero_image_url: row.hero_image_url,
     hero_image_alt: row.hero_image_alt,
     cover_image: row.cover_image,
@@ -331,7 +335,7 @@ export async function listWeeklyPopularPublicPosts(limit = 3): Promise<Array<Pub
   if (!rankedIds.length) return listLatestPublicPosts(limit);
 
   const columns =
-    "id,title,slug,target_keyword,meta_description,hero_image_url,hero_image_alt,cover_image,og_image_url,updated_at,silos: silo_id (slug, name)";
+    "id,title,slug,target_keyword,meta_description,excerpt,hero_image_url,hero_image_alt,cover_image,og_image_url,updated_at,published_at,author_name,expert_name,silos: silo_id (slug, name)";
 
   let { data, error } = await database
     .from("posts")
@@ -365,6 +369,10 @@ export async function listWeeklyPopularPublicPosts(limit = 3): Promise<Array<Pub
         slug: row.slug,
         target_keyword: row.target_keyword,
         meta_description: row.meta_description,
+        excerpt: row.excerpt,
+        published_at: row.published_at,
+        author_name: row.author_name,
+        expert_name: row.expert_name,
         hero_image_url: row.hero_image_url,
         hero_image_alt: row.hero_image_alt,
         cover_image: row.cover_image,
