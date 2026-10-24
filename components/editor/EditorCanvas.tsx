@@ -1,4 +1,5 @@
 "use client";
+import { isAmazonUrl } from "@/lib/links/classification";
 
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
@@ -165,10 +166,11 @@ function enhanceResponsiveTablePreview(table: HTMLTableElement, mode: PreviewMod
       const hasImage = Boolean(cell.querySelector("img"));
       const hasCta = Boolean(
         cell.querySelector(
-          '[data-type="cta-button"], .cta-button, [data-type="affiliate-cta"], a[rel*="sponsored"], a[href*="amazon."], a[href*="a.co"], a[href*="amzn.to"]'
+          '[data-type="cta-button"], .cta-button, [data-type="affiliate-cta"], a[rel*="sponsored"]'
         )
       );
-      const kind = hasCta ? "cta" : hasImage ? "media" : "text";
+      const hasAmazonLink = Array.from(cell.querySelectorAll("a[href]")).some(link => isAmazonUrl(link.getAttribute("href") || ""));
+      const kind = hasCta || hasAmazonLink ? "cta" : hasImage ? "media" : "text";
       if (isTd) {
         cell.setAttribute("data-cell-kind", kind);
       }

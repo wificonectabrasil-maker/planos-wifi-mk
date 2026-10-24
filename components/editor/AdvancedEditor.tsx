@@ -1,4 +1,7 @@
 "use client";
+import { inferEditorLinkType, isAmazonUrl, isInternalSiteHref } from "@/lib/links/classification";
+import { SITE_URL } from "@/lib/site";
+
 
 import { startTransition, useCallback, useEffect, useMemo, useReducer, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -390,17 +393,8 @@ function extractOutline(editor: Editor | null): OutlineItem[] {
   return items;
 }
 
-function resolveLinkType(attrs: Record<string, any>, href: string): LinkItem["type"] {
-  const rel = String(attrs.rel ?? "");
-  const entity = attrs["data-entity-type"] ?? attrs["data-entity"];
-  if (entity === "about" || rel.includes("about")) return "about";
-  if (entity === "mention" || rel.includes("mention")) return "mention";
-
-  const explicit = attrs["data-link-type"] as LinkItem["type"] | undefined;
-  if (explicit) return explicit;
-  if (rel.includes("sponsored")) return "affiliate";
-  if (href.startsWith("/")) return "internal";
-  return "external";
+function resolveLinkType(attrs: Record<string, unknown>, href: string): LinkItem["type"] {
+  return inferEditorLinkType(attrs, href, SITE_URL);
 }
 
 function extractLinks(editor: Editor | null): LinkItem[] {
@@ -432,13 +426,11 @@ function extractLinks(editor: Editor | null): LinkItem[] {
       const href = attrs.href ?? attrs.url ?? "";
       if (!href) return true;
       const variant = String(attrs.variant ?? "");
-      const isInternal = href.startsWith("/");
+      const isInternal = isInternalSiteHref(href, SITE_URL);
       const isAmazon =
         variant.startsWith("amazon") ||
         String(attrs.rel ?? "").includes("sponsored") ||
-        href.includes("amazon.") ||
-        href.includes("amzn.to") ||
-        href.includes("a.co");
+        isAmazonUrl(href);
       items.push({
         id: `${pos}-cta`,
         href,

@@ -1,5 +1,7 @@
 # Silos and SEO System
 
+Classificação de links (23/10/2026): internos/externos são determinados pelo destino, separadamente da marcação About/Mention. A detecção Amazon é compartilhada em lib/links/classification.ts e confere o hostname, evitando falsos afiliados no domínio WifiConecta. [Correção e testes](LINK_CLASSIFICATION_FIX_2026-10-23.md).
+
 Auditoria WifiConecta de 15/10/2026: o sitemap consolida URLs canônicas duplicadas, mantém hubs vazios fora da lista e usa datas reais do CMS para artigos e hubs. Páginas estáticas deixam de receber `lastmod` inventado a cada revalidação. A página de colaboradores tem canonical e metadados sociais próprios. [Detalhes e validação](../wificonecta/SEO-SITEMAP-E-METADADOS-2026-10-15.md).
 
 Revisão WifiConecta de 14/10/2026: os 15 briefs passaram a delimitar escolha, custo, operadoras, cobertura, velocidade, combos de celular e TV, instalação, tecnologias e qualidade. O pilar técnico usa intenção comparativa, e a contratação local pertence a /planos. O planejamento inclui links contextuais entre suportes e entre silos quando pertinentes; nenhum artigo é publicado automaticamente. Ver [planejamento revisado](../wificonecta/PLANEJAMENTO-EDITORIAL-2026-10-14.md).

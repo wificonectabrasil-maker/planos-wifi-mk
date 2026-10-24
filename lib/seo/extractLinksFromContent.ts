@@ -1,3 +1,4 @@
+import { isAmazonUrl } from "@/lib/links/classification";
 ﻿import { buildSiloCanonicalPath } from "@/lib/seo/canonical";
 import * as cheerio from "cheerio";
 
@@ -31,7 +32,6 @@ type RawLink = Omit<ExtractedLink, "positionBucket"> & {
   _positionEnd?: number;
 };
 
-const AMAZON_HINTS = ["amazon.", "amzn.to", "a.co"];
 const IGNORE_PREFIXES = ["mailto:", "tel:", "javascript:"];
 
 function normalizeHost(host: string) {
@@ -85,7 +85,7 @@ function parseRel(relValue: string | null | undefined): LinkRelFlags {
 }
 
 function getPathFromHref(href: string, siteHost: string | null) {
-  if (href.startsWith("/")) return normalizePath(href);
+  if (href.startsWith("/") && !href.startsWith("//")) return normalizePath(href);
   if (href.startsWith("//")) {
     try {
       const url = new URL(`https:${href}`);
@@ -109,18 +109,6 @@ function getPathFromHref(href: string, siteHost: string | null) {
   return normalizePath(href);
 }
 
-function isAmazonHref(href: string) {
-  if (/^https?:\/\//i.test(href) || href.startsWith("//")) {
-    try {
-      const url = href.startsWith("//") ? new URL(`https:${href}`) : new URL(href);
-      const host = normalizeHost(url.hostname);
-      return AMAZON_HINTS.some((hint) => host.includes(hint));
-    } catch {
-      return false;
-    }
-  }
-  return false;
-}
 
 function buildLink(params: {
   href: string;
@@ -144,7 +132,7 @@ function buildLink(params: {
     anchorText: params.anchorText,
     isInternal,
     isSiloInternal,
-    isAmazon: isAmazonHref(safe),
+    isAmazon: isAmazonUrl(safe),
     rel: params.rel,
     targetBlank: params.targetBlank,
   } satisfies Omit<ExtractedLink, "positionBucket">;

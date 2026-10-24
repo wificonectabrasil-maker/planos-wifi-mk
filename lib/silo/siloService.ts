@@ -1,3 +1,4 @@
+import { isAmazonUrl } from "@/lib/links/classification";
 import { buildPostCanonicalPath } from "@/lib/seo/canonical";
 import { resolveSiteUrl } from "@/lib/site/url";
 import * as cheerio from "cheerio";
@@ -29,7 +30,6 @@ type LinkOccurrence = {
     is_blank: boolean;
 };
 
-const AMAZON_HOST_HINTS = ["amazon.", "amzn.to", "a.co"];
 const IGNORE_PREFIXES = ["mailto:", "tel:", "javascript:"];
 
 const normalizeHost = (host: string) => host.trim().toLowerCase().replace(/^www\./, "");
@@ -150,7 +150,7 @@ function resolveHref(href: string, siteHost: string | null) {
         try {
             const url = new URL(`https:${trimmed}`);
             const host = normalizeHost(url.hostname);
-            isAmazon = AMAZON_HOST_HINTS.some((hint) => host.includes(hint));
+            isAmazon = isAmazonUrl(trimmed);
             isSameHost = siteHost ? host === siteHost : false;
             path = normalizePath(url.pathname);
             normalizedHref = `${url.origin}${path ?? ""}`;
@@ -164,7 +164,7 @@ function resolveHref(href: string, siteHost: string | null) {
         try {
             const url = new URL(trimmed);
             const host = normalizeHost(url.hostname);
-            isAmazon = AMAZON_HOST_HINTS.some((hint) => host.includes(hint));
+            isAmazon = isAmazonUrl(trimmed);
             isSameHost = siteHost ? host === siteHost : false;
             path = normalizePath(url.pathname);
             normalizedHref = `${url.origin}${path ?? ""}`;

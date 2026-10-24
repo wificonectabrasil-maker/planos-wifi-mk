@@ -1,5 +1,7 @@
 # Editor System
 
+Correção de links em 23/10/2026: a detecção de Amazon usa hostname, não trechos da URL. Super Link reconhece internos absolutos, limpa atributos de afiliação ao mudar de tipo e preserva Mention externo até o HTML público. EntityLink não reinsere target/nofollow removidos. [Causa e validação](LINK_CLASSIFICATION_FIX_2026-10-23.md).
+
 Autoria e encerramento em 23/10/2026: a aba E-E-A-T mostra foto, cargo, biografia, perfil, contato e links de identidade do autor cadastrado, além do CTA padrão da marca. O canvas apresenta `ArticleNextStep` e `AuthorCard` fora do conteúdo editável; esses blocos não entram no JSON/HTML do artigo. A opção `useDefaultAuthorForArticles` mantém os dados de autoria do adaptador tanto em rascunhos antigos quanto em novos, sem preencher revisão ou credenciais fictícias. Na WifiConecta, a opção está ativa para Mike; os campos de identidade são exibidos como dados da marca. Revisão permanece opcional e editável.
 
 Preview externo em 23/10/2026: `/admin/preview/[postId]` mantém autenticação e `noindex`, mas usa o mesmo `PostArticle` da rota pública. O admin continua escuro; o preview do artigo recebe o tema público da marca e não recria cabeçalho/rodapé. Os testes usam somente publicações descartáveis em banco local isolado; o rascunho real não é publicado. [Detalhes](../wificonecta/ARTIGO-PREVIEW-2026-10-23.md).

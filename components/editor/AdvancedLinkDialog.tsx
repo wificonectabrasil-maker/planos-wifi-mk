@@ -1,4 +1,6 @@
 "use client";
+import { inferEditorLinkType, isAmazonUrl, isInternalSiteHref } from "@/lib/links/classification";
+import { SITE_URL } from "@/lib/site";
 import { buildPostCanonicalPath } from "@/lib/seo/canonical";
 
 import { useEffect, useMemo, useState } from "react";
@@ -61,12 +63,8 @@ export function AdvancedLinkDialog({ open, onClose }: Props) {
   const [searching, setSearching] = useState(false);
 
   const selectedText = useMemo(() => currentSelection(editor), [editor, open]);
-  const isAmazon = useMemo(() => {
-    const lower = url.toLowerCase();
-    return lower.includes("amazon.") || lower.includes("amzn.to") || lower.includes("a.co");
-  }, [url]);
+  const isAmazon = isAmazonUrl(url);
   const isInternal = linkType === "internal";
-  const isInternalSilo = isInternal && internalScope === "silo" && Boolean(meta.siloId);
   const isAffiliate = linkType === "affiliate" || isAmazon;
   const showRelationshipPanel = !isInternal && !isAffiliate;
 
@@ -101,46 +99,22 @@ export function AdvancedLinkDialog({ open, onClose }: Props) {
     const attrs = editor.getAttributes("link") as any;
     const rel = parseRel(attrs.rel);
     const href = attrs.href ?? "";
-    const type = (attrs["data-link-type"] as LinkType | undefined) ?? "";
+    const initialType = inferEditorLinkType(attrs, href, SITE_URL);
+    const internal = initialType === "internal";
     const entity = attrs["data-entity"] ?? attrs["data-entity-type"];
-
     setUrl(href);
     setText(selectedText);
-    setOpenInNewTab(attrs.target === "_blank");
-    setNofollow(rel.has("nofollow"));
-    setSponsored(rel.has("sponsored"));
-    setAboutEntity(rel.has("about") || entity === "about");
-    setMentionEntity(rel.has("mention") || entity === "mention");
+    setOpenInNewTab(internal ? false : attrs.target === "_blank");
+    setNofollow(!internal && rel.has("nofollow"));
+    setSponsored(!internal && rel.has("sponsored"));
+    setAboutEntity(!internal && (rel.has("about") || entity === "about"));
+    setMentionEntity(!internal && (rel.has("mention") || entity === "mention"));
     setPostId(attrs["data-post-id"] ?? null);
-
-    if (type) {
-      setLinkType(type);
-      if (type === "internal") setInternalScope("silo");
-    } else if (entity === "about" || rel.has("about")) {
-      setLinkType("about");
-    } else if (entity === "mention" || rel.has("mention")) {
-      setLinkType("mention");
-    } else if (rel.has("sponsored")) {
-      setLinkType("affiliate");
-    } else if (href.startsWith("/")) {
-      setLinkType("internal");
-      setInternalScope("silo");
-    } else {
-      setLinkType("external");
-    }
+    setLinkType(initialType);
+    if (internal) setInternalScope("silo");
   }, [editor, open, selectedText]);
 
-  useEffect(() => {
-    if (!open) return;
-    if (isAmazon && linkType !== "affiliate") {
-      setLinkType("affiliate");
-      setSponsored(true);
-      setNofollow(true);
-      setOpenInNewTab(true);
-      setAboutEntity(false);
-      setMentionEntity(false);
-    }
-  }, [isAmazon, linkType, open]);
+
 
   useEffect(() => {
     if (!open) return;
@@ -201,6 +175,12 @@ export function AdvancedLinkDialog({ open, onClose }: Props) {
 
   function handleTypeChange(next: LinkType) {
     setLinkType(next);
+    if (next !== "affiliate") {
+      setNofollow(false);
+      setSponsored(false);
+      setAboutEntity(false);
+      setMentionEntity(false);
+    }
     if (next === "affiliate") {
       setSponsored(true);
       setNofollow(true);
@@ -220,14 +200,13 @@ export function AdvancedLinkDialog({ open, onClose }: Props) {
       setInternalScope("silo");
     }
     if (next === "about") {
-      setUrl("/sobre");
       setAboutEntity(true);
       setMentionEntity(false);
     }
     if (next === "mention") {
       setMentionEntity(true);
       setAboutEntity(false);
-      setOpenInNewTab(false);
+      setOpenInNewTab(!isInternalSiteHref(url, SITE_URL));
     }
   }
 
@@ -235,7 +214,6 @@ export function AdvancedLinkDialog({ open, onClose }: Props) {
     href: string;
     displayText: string;
     nextLinkType: LinkType;
-    forceInternalSilo?: boolean;
     nextPostId?: string | null;
   }) {
     if (!editor) return;
@@ -247,9 +225,8 @@ export function AdvancedLinkDialog({ open, onClose }: Props) {
       return;
     }
 
-    const forceInternal = options.nextLinkType === "internal" || Boolean(options.forceInternalSilo);
-    const isAmazonTarget = /amazon\.|amzn\.to|a\.co/i.test(href);
-    const effectiveLinkType = isAmazonTarget ? "affiliate" : options.nextLinkType;
+    const effectiveLinkType = inferEditorLinkType({ "data-link-type": options.nextLinkType }, href, SITE_URL);
+    const forceInternal = effectiveLinkType === "internal";
     const forceAffiliate = effectiveLinkType === "affiliate";
     const effectiveOpenInNewTab = forceInternal ? false : forceAffiliate ? true : openInNewTab;
     const effectiveNofollow = forceInternal ? false : forceAffiliate ? true : nofollow;
@@ -305,7 +282,6 @@ export function AdvancedLinkDialog({ open, onClose }: Props) {
       href: url,
       displayText: text,
       nextLinkType: linkType,
-      forceInternalSilo: isInternal,
       nextPostId: postId,
     });
   }
@@ -313,8 +289,8 @@ export function AdvancedLinkDialog({ open, onClose }: Props) {
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-[80] flex items-center justify-center bg-black/50 p-4">
-      <div className="w-full max-w-xl overflow-hidden rounded-lg border border-(--border) bg-(--surface) shadow-2xl">
+    <div role="dialog" aria-modal="true" aria-label="Super Link" className="fixed inset-0 z-[80] flex items-center justify-center bg-black/50 p-4">
+      <div className="flex max-h-[calc(100dvh-2rem)] w-full max-w-xl flex-col overflow-hidden rounded-lg border border-(--border) bg-(--surface) shadow-2xl">
         <div className="flex items-center justify-between border-b border-(--border) px-4 py-3">
           <div className="flex items-center gap-2 text-sm font-semibold text-(--text)">
             <LinkIcon size={16} />
@@ -325,11 +301,13 @@ export function AdvancedLinkDialog({ open, onClose }: Props) {
           </button>
         </div>
 
-        <div className="space-y-3 px-4 py-3">
+        <div className="min-h-0 space-y-3 overflow-y-auto px-4 py-3">
           <div>
-            <label className="text-xs font-semibold uppercase text-(--muted-2)">Tipo do link</label>
+            <label className="text-xs font-semibold uppercase text-(--muted-2)" htmlFor="advanced-link-type">Tipo do link</label>
             <select
-              value={linkType}
+              id="advanced-link-type"
+              value={isAmazon ? "affiliate" : linkType}
+              disabled={isAmazon}
               onChange={(event) => handleTypeChange(event.target.value as LinkType)}
               className="admin-select mt-2"
             >
@@ -342,23 +320,23 @@ export function AdvancedLinkDialog({ open, onClose }: Props) {
           </div>
 
           <div className="grid grid-cols-1 gap-3">
-            {!isInternalSilo && (
-              <div>
-                <label className="text-xs font-semibold uppercase text-(--muted-2)">URL</label>
+            <div>
+                <label className="text-xs font-semibold uppercase text-(--muted-2)" htmlFor="advanced-link-url">URL</label>
                 <input
+                  id="advanced-link-url"
                   value={url}
                   onChange={(event) => setUrl(event.target.value)}
                   className="admin-input mt-2"
                   placeholder="https://..."
                   autoFocus
                 />
-              </div>
-            )}
+            </div>
 
             <div>
-              <label className="text-xs font-semibold uppercase text-(--muted-2)">Texto do link</label>
+              <label className="text-xs font-semibold uppercase text-(--muted-2)" htmlFor="advanced-link-text">Texto do link</label>
               <input
-                value={text}
+                id="advanced-link-text"
+                  value={text}
                 onChange={(event) => setText(event.target.value)}
                 className="admin-input mt-2"
                 placeholder={selectedText || "Texto visivel"}
@@ -391,7 +369,7 @@ export function AdvancedLinkDialog({ open, onClose }: Props) {
 
           {isInternal && (
             <div className="rounded-md border border-emerald-200 bg-emerald-50 p-3 text-xs text-emerald-700">
-              Links internos sao sempre dofollow e indexaveis. Opções de relacionamento ficam ocultas.
+              Links internos abrem na mesma aba, sem nofollow ou sponsored. A indexação depende da página de destino.
             </div>
           )}
 
@@ -450,7 +428,6 @@ export function AdvancedLinkDialog({ open, onClose }: Props) {
                             href: page.href,
                             displayText: selectedText || page.title,
                             nextLinkType: "internal",
-                            forceInternalSilo: true,
                           });
                         }}
                         className="rounded-md border border-(--border) px-3 py-2 text-left text-[11px] font-medium text-(--muted) hover:bg-(--surface-muted)"
@@ -494,7 +471,6 @@ export function AdvancedLinkDialog({ open, onClose }: Props) {
                               href,
                               displayText: selectedText || item.title,
                               nextLinkType: "internal",
-                              forceInternalSilo: true,
                               nextPostId: item.id,
                             });
                           }}

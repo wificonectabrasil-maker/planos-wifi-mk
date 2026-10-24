@@ -114,6 +114,7 @@ export const EntityLink = Link.extend({
 
   // Ensure it renders as an <a> tag
   renderHTML({ HTMLAttributes }) {
-    return ["a", mergeAttributes(this.options.HTMLAttributes, HTMLAttributes), 0];
+    // Link's built-in _blank/nofollow defaults must not reappear when a user clears them.
+    return ["a", mergeAttributes(this.options.HTMLAttributes, { target: null, rel: null }, HTMLAttributes), 0];
   },
 });

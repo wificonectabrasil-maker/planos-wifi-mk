@@ -1,3 +1,4 @@
+import { isAmazonUrl } from "@/lib/links/classification";
 import {
   getBpAttrs,
   getResponsiveValue,
@@ -545,9 +546,7 @@ function cellKindFromNode(cellNode: any) {
       const rel = String(mark?.attrs?.rel ?? "");
       return (
         rel.includes("sponsored") ||
-        href.includes("amazon.") ||
-        href.includes("a.co") ||
-        href.includes("amzn.to")
+        isAmazonUrl(href)
       );
     });
   });

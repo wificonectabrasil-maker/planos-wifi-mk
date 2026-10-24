@@ -1,4 +1,6 @@
 "use client";
+import { isAmazonUrl, isInternalSiteHref } from "@/lib/links/classification";
+import { SITE_URL } from "@/lib/site";
 import { buildPostCanonicalPath } from "@/lib/seo/canonical";
 
 
@@ -449,9 +451,9 @@ export function LinkHygienePanel() {
     // Link Metrics
     const metrics = useMemo(() => {
         const total = links.length;
-        const internal = links.filter(l => ["internal", "mention", "about"].includes(l.type));
-        const external = links.filter(l => l.type === "external" || l.type === "affiliate");
-        const amazon = external.filter(l => l.href.includes("amazon") || l.href.includes("amzn"));
+        const internal = links.filter(l => isInternalSiteHref(l.href, SITE_URL));
+        const external = links.filter(l => !isInternalSiteHref(l.href, SITE_URL));
+        const amazon = external.filter(l => isAmazonUrl(l.href));
         const amazonWithoutSponsored = amazon.filter(l => !(l.rel || "").includes("sponsored"));
         const withBlank = links.filter(l => l.target === "_blank");
         const withNofollow = links.filter(l => (l.rel || "").includes("nofollow"));
@@ -521,10 +523,10 @@ export function LinkHygienePanel() {
     };
 
     const LinkRow = ({ link }: { link: any }) => {
-        const isExternal = link.type === "external" || link.type === "affiliate";
-        const isAmazon = link.href.includes("amazon") || link.href.includes("amzn");
+        const isExternal = !isInternalSiteHref(link.href, SITE_URL);
+        const isAmazon = isAmazonUrl(link.href);
         const isAffiliate = link.type === "affiliate";
-        const isInternal = link.type === "internal";
+        const isInternal = isInternalSiteHref(link.href, SITE_URL);
         const isEntity = link.type === "about" || link.type === "mention";
         const isLocked = isInternal || isAffiliate || isAmazon;
         const hasIssue = isAmazon && !(link.rel || "").includes("sponsored");

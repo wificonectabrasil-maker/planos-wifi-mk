@@ -1,4 +1,6 @@
 "use client";
+import { SITE_URL } from "@/lib/site";
+import { isAmazonUrl, isInternalSiteHref } from "@/lib/links/classification";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CheckSquare, Link2, Search, Square, WandSparkles, X, Loader2 } from "lucide-react";
@@ -43,10 +45,7 @@ function buildSnippet(value: string, maxChars: number) {
   return `...${text.slice(Math.max(0, text.length - maxChars)).trim()}`;
 }
 
-function isAmazonLike(url: string) {
-  const lower = url.toLowerCase();
-  return lower.includes("amazon.") || lower.includes("amzn.to") || lower.includes("a.co");
-}
+const isAmazonLike = isAmazonUrl;
 
 function collectLinkInfo(
   editor: Editor,
@@ -81,7 +80,7 @@ function buildLinkAttrs(options: {
 }) {
   const href = options.url.trim();
   const amazonLike = isAmazonLike(href);
-  const effectiveType = amazonLike ? "affiliate" : options.linkType;
+  const effectiveType = amazonLike ? "affiliate" : isInternalSiteHref(href, SITE_URL) ? "internal" : options.linkType;
   const internal = effectiveType === "internal";
   const affiliate = effectiveType === "affiliate";
   const shouldOpenInNewTab = internal ? false : affiliate ? true : options.openInNewTab;

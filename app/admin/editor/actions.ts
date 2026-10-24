@@ -1,4 +1,6 @@
 "use server";
+import { inferEditorLinkType, isAmazonUrl, isInternalSiteHref } from "@/lib/links/classification";
+import { SITE_URL } from "@/lib/site";
 import { resolveSiteUrl } from "@/lib/site/url";
 
 import { z } from "zod";
@@ -813,7 +815,7 @@ function walkNode(node: any, activeMarks: any[], links: ExtractedLink[], ctx: { 
         target_post_id: null,
         target_url: href,
         anchor_text: String(label),
-        link_type: isAffiliate ? "affiliate" : href.startsWith("/") ? "internal" : "external",
+        link_type: isInternalSiteHref(href, SITE_URL) ? "internal" : isAffiliate || isAmazonUrl(href) ? "affiliate" : "external",
         rel_flags: relFlags.length ? relFlags : isAffiliate ? ["sponsored"] : [],
         is_blank: node.attrs?.target === "_blank",
       });
@@ -838,10 +840,7 @@ function walkNode(node: any, activeMarks: any[], links: ExtractedLink[], ctx: { 
           .split(/\s+/)
           .map((r) => r.trim())
           .filter(Boolean);
-        const isAffiliate = relFlags.includes("sponsored");
-        const linkType: ExtractedLink["link_type"] =
-          attrs["data-link-type"] ??
-          (attrs["data-entity-type"] === "about" ? "about" : isAffiliate ? "affiliate" : href.startsWith("/") ? "internal" : "external");
+        const linkType: ExtractedLink["link_type"] = inferEditorLinkType(attrs, href, SITE_URL);
         const targetPostId = attrs["data-post-id"] ?? null;
         links.push({
           target_post_id: targetPostId || null,

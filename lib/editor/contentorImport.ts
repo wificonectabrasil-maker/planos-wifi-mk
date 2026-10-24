@@ -1,3 +1,5 @@
+import { inferEditorLinkType, isAmazonUrl, isInternalSiteHref } from "@/lib/links/classification";
+import { SITE_URL } from "@/lib/site";
 import * as cheerio from "cheerio";
 
 type CheerioNode = any;
@@ -158,10 +160,6 @@ function textMatchesCta(label: string) {
   return null;
 }
 
-function isAmazonUrl(url: string) {
-  const lower = url.toLowerCase();
-  return lower.includes("amazon.") || lower.includes("amzn.to") || lower.includes("a.co");
-}
 
 function normalizeUrlForMatch(value: string) {
   if (!value) return "";
@@ -348,22 +346,22 @@ function buildLinkMark(el: CheerioNode) {
 
   const rel = typeof attribs.rel === "string" ? attribs.rel : null;
   const target = typeof attribs.target === "string" ? attribs.target : null;
-  const dataLinkType = attribs["data-link-type"] || null;
   const dataEntityType = attribs["data-entity-type"] || attribs["data-entity"] || null;
   const dataPostId = attribs["data-post-id"] || null;
 
   const isAffiliate = rel?.includes("sponsored") || isAmazonUrl(href);
-  const inferredType = dataLinkType || (isAffiliate ? "affiliate" : href.startsWith("/") ? "internal" : "external");
+  const inferredType = inferEditorLinkType(attribs, href, SITE_URL);
+  const internal = isInternalSiteHref(href, SITE_URL);
 
   const mark: Mark = {
     type: "link",
     attrs: {
       href,
-      rel: rel ?? (isAffiliate ? "sponsored" : null),
-      target,
+      rel: internal ? null : rel ?? (isAffiliate ? "sponsored" : null),
+      target: internal ? null : target,
       "data-link-type": inferredType,
-      "data-entity-type": dataEntityType,
-      "data-entity": dataEntityType,
+      "data-entity-type": internal ? null : dataEntityType,
+      "data-entity": internal ? null : dataEntityType,
       "data-post-id": dataPostId,
     },
   };
