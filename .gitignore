@@ -19,3 +19,4 @@ cloudflared.log
 *.db-shm
 *.tsbuildinfo
 artifacts
+.env.exemplo
