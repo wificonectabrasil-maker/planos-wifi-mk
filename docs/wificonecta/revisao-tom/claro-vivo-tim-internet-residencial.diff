@@ -1,0 +1,31 @@
+diff --git a/docs/wificonecta/revisao-tom/claro-vivo-tim-internet-residencial-antes.txt b/docs/wificonecta/revisao-tom/claro-vivo-tim-internet-residencial-depois.txt
+index 3070c73..775bda8 100644
+--- a/docs/wificonecta/revisao-tom/claro-vivo-tim-internet-residencial-antes.txt
++++ b/docs/wificonecta/revisao-tom/claro-vivo-tim-internet-residencial-depois.txt
+@@ -84,7 +84,7 @@ A dúvida “tim claro ou vivo” só começa a ser respondida quando você colo
+ 
+ Informe CEP, número e complemento à equipe da WifiConecta pelo WhatsApp. Se morar em prédio, acrescente bloco e apartamento. A equipe consulta as alternativas acessíveis, e a prestadora responsável confirma a viabilidade técnica para o imóvel.
+ 
+-CEP indica uma região. Não garante uma instalação.
++O CEP aponta a região; o endereço completo permite consultar a instalação.
+ 
+ Em um condomínio, por exemplo, uma operadora pode ter rede passando pela rua, mas ainda precisar confirmar a infraestrutura interna e a disponibilidade de atendimento ao apartamento.
+ 
+@@ -110,7 +110,7 @@ Os resultados podem ser consultados por prestadora e, nos painéis de dados, por
+ 
+ A pesquisa oficial de Satisfação e Qualidade Percebida da Anatel ajuda a entender como os consumidores avaliam as empresas. Mas use a informação do jeito certo.
+ 
+-Uma nota nacional não garante que a instalação, a estabilidade ou o atendimento serão iguais no seu bairro. Ela é uma evidência para a decisão, não um certificado de que você jamais terá problemas.
++Use a nota nacional para conhecer a avaliação da prestadora e consulte também os dados do seu estado. A experiência no bairro depende da rede e do atendimento local.
+ 
+ Também é importante comparar o mesmo serviço. Uma nota de telefonia móvel não deve ser usada como prova de qualidade da banda larga fixa.
+ 
+@@ -142,7 +142,7 @@ Para quem envia arquivos grandes ou faz transmissões, o upload informado na pro
+ 
+ Contrato, preço e fidelidade: o que comparar além da promoção
+ 
+-A oferta mais barata do anúncio nem sempre é a mais barata do contrato.
++O preço do anúncio abre a conversa. O custo do contrato fecha a conta.
+ 
+ Depois de confirmar cobertura e comparar a qualidade, chega a hora de olhar para o bolso. E aqui não basta descobrir a mensalidade do primeiro mês.
+ 

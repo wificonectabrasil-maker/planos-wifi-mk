@@ -1,0 +1,238 @@
+diff --git a/docs/wificonecta/lote-1-seo/final/barata-antes.md b/docs/wificonecta/lote-1-seo/final/barata-final.md
+index b82ab97..49ed121 100644
+--- a/docs/wificonecta/lote-1-seo/final/barata-antes.md
++++ b/docs/wificonecta/lote-1-seo/final/barata-final.md
+@@ -2,9 +2,7 @@
+ 
+ Você encontra uma oferta por R$ 79,90, vê que a velocidade atende à sua casa e pensa: pronto, resolvido. Só que a mensalidade promocional tem prazo. A instalação pode ter cobrança. E aquele benefício anunciado como gratuito talvez não dure o contrato inteiro.
+ 
+-**O anúncio mostra o preço que chama sua atenção. O contrato mostra quanto você vai pagar.**
+-
+-A diferença aparece quando você soma as despesas dos primeiros 12 meses.
++**O anúncio mostra o preço que chama sua atenção. O contrato mostra quanto você vai pagar.** A diferença aparece quando você soma as despesas dos primeiros 12 meses.
+ 
+ É essa conta que ajuda a identificar uma oferta realmente econômica, sem precisar escolher no escuro entre mensalidades, velocidades e benefícios que parecem melhores do que são.
+ 
+@@ -16,7 +14,7 @@ Na WifiConecta, uma pessoa ajuda você a consultar os preços e condições das
+ 
+ Para aplicar a conta às propostas que receber, some as mensalidades de cada fase do desconto, as taxas iniciais e os serviços adicionais que você realmente contratar. Compare o mesmo período e serviços equivalentes. Se a troca exigir cancelamento antecipado, verifique à parte se há multa aplicável antes de calcular a economia.
+ 
+-Quem pesquisa por **“preço internet residencial”** geralmente encontra uma coleção de anúncios com valores e velocidades diferentes. O problema é que nem todos apresentam as condições comerciais com o mesmo destaque.
++Ao comparar **preços de internet residencial**, você encontra anúncios com valores e velocidades diferentes. Para saber quanto vai sair do bolso, confira as condições que acompanham cada preço.
+ 
+ Em uma comparação de **preço de internet residencial**, o que interessa é saber quanto sai do bolso durante todo o período considerado.
+ 
+@@ -28,31 +26,12 @@ Uma oferta com mensalidade inicial menor pode terminar o ano custando mais. Por
+ 
+ A pergunta que precisa acompanhar qualquer anúncio é simples: **por quanto tempo vou pagar esse valor?**
+ 
+-Imagine duas propostas fictícias, usadas apenas para demonstrar a comparação.
+-
+-O **Plano A** oferece três meses por R$ 79,90. Depois, a mensalidade passa para R$ 109,90. A instalação custa R$ 99.
+-
+-O **Plano B** custa R$ 99,90 durante os 12 meses, sem cobrança de instalação.
+-
+-O Plano A chama mais atenção na propaganda. Afinal, R$ 79,90 parece uma economia imediata diante de R$ 99,90.
+-
+-Mas vamos fazer a conta.
+-
+-**Plano A:**
+-
+-3 meses × R$ 79,90 = R$ 239,70.
++A promoção parecia ótima. Até chegar o quarto mês. Imagine duas ofertas fictícias: o **Plano A** cobra R$ 79,90 nos três primeiros meses, R$ 109,90 nos nove seguintes e R$ 99 de instalação. O **Plano B** custa R$ 99,90 por mês durante os 12 meses considerados, sem instalação.
+ 
+-9 meses × R$ 109,90 = R$ 989,10.
++**Plano A:** 3 × R$ 79,90 + 9 × R$ 109,90 + R$ 99 = **R$ 1.327,80** no primeiro ano.
++**Plano B:** 12 × R$ 99,90 = **R$ 1.198,80** no primeiro ano.
+ 
+-Instalação = R$ 99.
+-
+-**Custo dos primeiros 12 meses: R$ 1.327,80.**
+-
+-**Plano B:**
+-
+-12 meses × R$ 99,90 = **R$ 1.198,80**.
+-
+-Resultado: **o plano com a menor mensalidade promocional custa R$ 129 a mais no primeiro ano.**
++A oferta com a menor mensalidade inicial custa **R$ 129 a mais** no primeiro ano. O desconto fez uma participação especial. A mensalidade ficou para a temporada inteira.
+ 
+ Os valores são exclusivamente ilustrativos, não representam ofertas disponíveis para contratação.
+ 
+@@ -78,17 +57,13 @@ Para os serviços de telecomunicações, a Anatel estabelece, em regra, um inter
+ 
+ Antes de contratar, procure identificar três informações: quanto tempo dura o desconto, qual será o preço depois e quais são as condições de reajuste previstas no contrato.
+ 
+-No cálculo dos primeiros 12 meses, use os valores efetivamente previstos para cada etapa da oferta.
+-
+-Se você pretende permanecer com o serviço por mais tempo, vale observar também a data-base e o índice contratual de reajuste.
++No cálculo dos primeiros 12 meses, use os valores efetivamente previstos para cada etapa da oferta. Se você pretende permanecer com o serviço por mais tempo, vale observar também a data-base e o índice contratual de reajuste.
+ 
+ **Uma promoção pode acabar antes do primeiro ano. Isso não autoriza confundir o término do desconto com um reajuste anual.**
+ 
+ ### Instalação e taxas iniciais
+ 
+-O preço mensal pode caber perfeitamente no orçamento. A primeira fatura, nem tanto.
+-
+-Dependendo da oferta, a contratação pode envolver instalação, ativação, entrega de equipamentos ou outras cobranças iniciais.
++O preço mensal pode caber perfeitamente no orçamento. A primeira fatura, nem tanto. Dependendo da oferta, a contratação pode envolver instalação, ativação, entrega de equipamentos ou outras cobranças iniciais.
+ 
+ Algumas operadoras oferecem instalação gratuita. Outras cobram um valor fixo ou permitem parcelamento. Também existem condições promocionais em que a gratuidade depende de determinados requisitos.
+ 
+@@ -136,23 +111,19 @@ Uma casa com poucos dispositivos conectados tem necessidades diferentes de outra
+ 
+ O desafio é encontrar uma oferta que faça sentido para esse uso e que continue cabendo no orçamento depois que a promoção terminar.
+ 
+-### Escolha seu plano
++### Como escolher a velocidade sem gastar à toa
+ 
+ Se você procura o **plano de internet residencial mais barato**, comece identificando o que realmente acontece dentro da sua casa.
+ 
+ Quantas pessoas utilizam a conexão ao mesmo tempo? A televisão costuma ficar ligada enquanto alguém trabalha no notebook? Há chamadas de vídeo durante o dia? O videogame e os celulares também utilizam a rede?
+ 
+-Essas situações ajudam a entender a necessidade de conexão.
+-
+-O número de megas é importante, mas **não diz sozinho como será a experiência com o Wi-Fi dentro de casa**.
++Essas situações ajudam a entender a necessidade de conexão. O número de megas é importante, mas **não diz sozinho como será a experiência com o Wi-Fi dentro de casa**.
+ 
+ Uma família pode contratar uma velocidade alta e continuar enfrentando dificuldades se o roteador estiver mal posicionado ou não atender adequadamente aos ambientes.
+ 
+-Da mesma forma, contratar uma velocidade muito inferior à necessária pode comprometer atividades simultâneas.
++Da mesma forma, contratar uma velocidade muito inferior à necessária pode comprometer atividades simultâneas. A análise do [uso simultâneo dos aparelhos](/planos-de-internet/quantos-mega-de-internet-preciso) ajuda a evitar essas duas situações.
+ 
+-A análise do [uso simultâneo dos aparelhos](/planos-de-internet/quantos-mega-de-internet-preciso) ajuda a evitar essas duas situações.
+-
+-Quem digita **“planos de internet residencial barato”** no Google está tentando resolver um problema concreto: reduzir o gasto sem ficar com uma conexão insuficiente.
++O desafio é encontrar um **plano de internet residencial barato** que dê conta da rotina da casa.
+ 
+ Essa decisão deve considerar o uso da casa, mas também a mensalidade posterior à promoção, os equipamentos incluídos e as condições comerciais.
+ 
+@@ -162,9 +133,7 @@ A primeira entrega uma velocidade maior, mas custa R$ 30 a mais por mês. A segu
+ 
+ Se essa capacidade realmente atende à rotina, a diferença de R$ 30 representa **R$ 360 ao longo de 12 meses**.
+ 
+-Por outro lado, se a casa precisa da capacidade adicional, escolher apenas pelo preço também pode ser uma decisão ruim.
+-
+-**Economizar não é contratar o mínimo possível. É pagar pelo que a casa realmente precisa.**
++Por outro lado, se a casa precisa da capacidade adicional, escolher apenas pelo preço também pode ser uma decisão ruim. **Economizar não é contratar o mínimo possível. É pagar pelo que a casa realmente precisa.**
+ 
+ Esse equilíbrio entre necessidade, tecnologia e condições de contratação faz parte dos [critérios para comparar ofertas](/planos-de-internet/como-escolher-plano-internet-residencial).
+ 
+@@ -172,9 +141,7 @@ Esse equilíbrio entre necessidade, tecnologia e condições de contratação fa
+ 
+ Um pacote combinado compensa quando reúne serviços que você realmente utiliza e apresenta um custo interessante em comparação com as contratações separadas.
+ 
+-Suponha que você já pague internet residencial e tenha uma linha de celular com plano mensal.
+-
+-Nesse caso, uma oferta que reúna [conexão e celular juntos](/planos-de-internet/combo-internet-e-celular) merece atenção.
++Suponha que você já pague internet residencial e tenha uma linha de celular com plano mensal. Nesse caso, uma oferta que reúna [conexão e celular juntos](/planos-de-internet/combo-internet-e-celular) merece atenção.
+ 
+ Mas existe uma condição: **a soma do pacote precisa fazer sentido diante do que você já paga e utiliza**.
+ 
+@@ -188,15 +155,11 @@ Também confira se os benefícios permanecem durante todo o contrato ou se possu
+ 
+ O telefone fixo segue a mesma lógica. Se alguém na casa utiliza o serviço, ele pode entrar na comparação. Caso contrário, não faz sentido aceitar um pacote mais caro apenas para receber algo que ficará parado.
+ 
+-**Combo bom é aquele que reduz ou organiza despesas que você já teria.**
+-
+-Uma lista maior de serviços não significa, necessariamente, maior economia.
++**Combo bom é aquele que reduz ou organiza despesas que você já teria.** Uma lista maior de serviços não significa, necessariamente, maior economia.
+ 
+-### Mude seu plano
++### Quando trocar ou renegociar o plano
+ 
+-Quem já tem internet instalada também pode encontrar oportunidades de reduzir gastos.
+-
+-É comum continuar pagando uma mensalidade antiga por comodidade, mesmo depois de mudar a rotina de utilização da casa.
++Quem já tem internet instalada também pode encontrar oportunidades de reduzir gastos. É comum continuar pagando uma mensalidade antiga por comodidade, mesmo depois de mudar a rotina de utilização da casa.
+ 
+ Talvez exista uma oferta mais adequada na própria operadora. Talvez outra prestadora tenha condições comerciais interessantes para o endereço.
+ 
+@@ -216,25 +179,19 @@ Mudar de plano vale a pena quando a nova condição melhora a relação entre cu
+ 
+ ### Qual a diferença real entre Wi-Fi 5 e Wi-Fi 6 no meu plano?
+ 
+-**Wi-Fi 5 e Wi-Fi 6 são gerações de tecnologia utilizadas na rede sem fio dentro de casa.** Elas não representam, por si só, a velocidade contratada com a operadora.
+-
+-O Wi-Fi 6 possui recursos que podem melhorar a comunicação com vários dispositivos, especialmente em ambientes com uso simultâneo intenso e aparelhos compatíveis.
+-
+-Isso não significa que um roteador Wi-Fi 6 transforme uma conexão de 300 Mega em uma conexão contratada de 600 Mega.
++O roteador oferecido no plano entra na conta. Compare o modelo, a cobrança pelo equipamento e as condições para troca antes de pagar mais por Wi-Fi 5 ou Wi-Fi 6.
+ 
+-Também não significa que toda residência precise substituir imediatamente um roteador Wi-Fi 5.
++O Wi-Fi 6 pode beneficiar o uso simultâneo com aparelhos compatíveis. Para saber se o custo extra compensa, considere os equipamentos que você já tem e os ambientes onde usa a rede.
+ 
+ A experiência depende de fatores como posicionamento do aparelho, obstáculos físicos, distância, interferência e características dos dispositivos conectados.
+ 
+ Mas existe uma pergunta importante para quem está comparando preços: **quanto custa ter o equipamento oferecido em cada plano?**
+ 
+-Se você pesquisou **“internet residencial wifi barata”**, provavelmente quer uma mensalidade acessível e uma rede sem fio que funcione bem em casa.
++Uma **internet residencial com Wi-Fi barata** precisa caber no orçamento e funcionar nos ambientes que sua família usa.
+ 
+ Nesse caso, confira se o roteador está incluído, se existe cobrança mensal pelo equipamento e se algum modelo diferente exige pagamento adicional.
+ 
+-“Wi-Fi grátis” em um anúncio pode indicar que o equipamento ou o recurso de rede sem fio está incluído nas condições da oferta. **Não significa que o acesso à internet seja gratuito.**
+-
+-Também não é necessário pagar mais por uma tecnologia apenas porque o nome parece mais moderno.
++Se o anúncio destaca “Wi-Fi grátis”, confira se o roteador está incluído e quais condições se aplicam ao equipamento. Também não é necessário pagar mais por uma tecnologia apenas porque o nome parece mais moderno.
+ 
+ O equipamento precisa acompanhar o uso da casa. Se houver uma cobrança específica por ele, esse valor deve entrar na comparação dos primeiros 12 meses.
+ 
+@@ -258,33 +215,23 @@ Isso é especialmente importante em São Paulo, onde a disponibilidade pode vari
+ 
+ **Uma operadora atender determinada região não significa que tenha infraestrutura disponível para todos os imóveis daquele local.**
+ 
+-A consulta começa pelo CEP, mas pode exigir endereço completo, número, bloco e apartamento.
+-
+-Também é necessário confirmar a tecnologia oferecida naquele imóvel.
++A consulta começa pelo CEP, mas pode exigir endereço completo, número, bloco e apartamento. Também é necessário confirmar a tecnologia oferecida naquele imóvel.
+ 
+ Uma propaganda pode destacar uma conexão de fibra com determinada velocidade, mas as condições disponíveis para o endereço consultado precisam ser verificadas separadamente.
+ 
+-Antes de escolher pelo menor preço, confira a [disponibilidade no endereço](/planos-de-internet/operadoras-internet-no-meu-cep).
+-
+-Depois, solicite os valores correspondentes à oferta realmente disponível.
++Antes de escolher pelo menor preço, confira a [disponibilidade no endereço](/planos-de-internet/operadoras-internet-no-meu-cep). Depois, solicite os valores correspondentes à oferta realmente disponível.
+ 
+ **Não faz sentido comparar uma mensalidade promocional que não pode ser contratada na sua casa.**
+ 
+ ### Leia a fidelidade e a multa
+ 
+-A fidelidade é um compromisso de permanência que pode ser oferecido pela operadora em troca de um benefício.
+-
+-Para consumidores pessoas físicas, as regras da Anatel estabelecem, em geral, um prazo máximo de 12 meses.
++A fidelidade é um compromisso de permanência que pode ser oferecido pela operadora em troca de um benefício. Para consumidores pessoas físicas, as regras da Anatel estabelecem, em geral, um prazo máximo de 12 meses.
+ 
+ Se houver cancelamento antes do fim desse período, poderá existir multa contratual. Ela deve respeitar as regras aplicáveis, incluindo a proporcionalidade ao tempo restante e o limite relacionado ao benefício concedido.
+ 
+-Mas existe uma diferença importante.
++Mas existe uma diferença importante. **A multa de cancelamento não deve ser somada automaticamente ao custo dos 12 meses como se fosse uma mensalidade obrigatória.**
+ 
+-**A multa de cancelamento não deve ser somada automaticamente ao custo dos 12 meses como se fosse uma mensalidade obrigatória.**
+-
+-Se você permanece durante o período contratado, não há uma multa por cancelamento antecipado a acrescentar à conta.
+-
+-O cenário muda quando existe a possibilidade de encerrar o serviço antes do prazo.
++Se você permanece durante o período contratado, não há uma multa por cancelamento antecipado a acrescentar à conta. O cenário muda quando existe a possibilidade de encerrar o serviço antes do prazo.
+ 
+ Imagine uma pessoa que pretende mudar de imóvel em poucos meses. Uma oferta com mensalidade atrativa e condições de permanência mais rígidas pode ser menos interessante para essa situação.
+ 
+@@ -302,9 +249,7 @@ A oferta deve permitir identificar suas condições, incluindo valores, serviço
+ 
+ Peça o contrato e a Etiqueta Padrão da oferta, documento utilizado para apresentar de maneira organizada suas principais condições.
+ 
+-Com essas informações, fica mais fácil comparar propostas.
+-
+-**A conta dos primeiros 12 meses deve incluir:**
++Com essas informações, fica mais fácil comparar propostas. **A conta dos primeiros 12 meses deve incluir:**
+ 
+ O valor das mensalidades durante a promoção, o preço previsto depois do desconto, eventuais cobranças de instalação e os serviços adicionais que você decidir contratar.
+ 
+@@ -316,7 +261,7 @@ E, quando uma condição depender de determinado meio de pagamento, pacote combi
+ 
+ **O preço que importa é aquele que você efetivamente poderá contratar e pagar.**
+ 
+-Ao avaliar as [opções para sua casa](https://wificonecta.com.br/planos-de-internet), coloque lado a lado propostas disponíveis no mesmo endereço e adequadas ao mesmo tipo de utilização.
++Ao avaliar as [modalidades para sua casa](/planos), coloque lado a lado propostas disponíveis no mesmo endereço e adequadas ao mesmo tipo de utilização.
+ 
+ Dessa forma, a comparação deixa de ser uma disputa entre números de propaganda e passa a considerar despesas reais.
+ 

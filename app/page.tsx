@@ -29,8 +29,8 @@ export default function Home() {
       <HeroVideoBackground />
       <div className="wifi-container wifi-hero-grid wifi-hero-video-layout"><div className="wifi-hero-copy">
         <p className="wifi-eyebrow"><span className="wifi-eyebrow-dot" /> SÃO PAULO CAPITAL E ESTADO</p>
-        <h1>Internet pra sua casa.<br /><em>Sem virar uma novela Mexicana.</em></h1>
-        <p className="wifi-hero-description">Quer instalar internet ou mudar de operadora? Consulte pacotes e promoções para seu endereço com a ajuda de uma pessoa.</p>
+        <h1>Internet pra sua casa.<br /><em>Sem virar uma novela mexicana.</em></h1>
+        <p className="wifi-hero-description">Vai instalar internet ou trocar de plano? Conta pra gente onde mora e o que precisa. A equipe procura opções para seu endereço, explica as condições e ajuda a fazer o pedido. Tudo pelo WhatsApp, com atendimento de verdade.</p>
         <div className="wifi-hero-actions">
           <WhatsAppCTA source="hero" interest="Internet para minha casa" category="internet" className="wifi-hero-whatsapp" label="Consultar promoções no WhatsApp" fallbackLabel="Atendimento pelo WhatsApp" />
           <p className="wifi-whatsapp-note">Atendimento humano. Consulta sem compromisso.</p>
@@ -45,7 +45,7 @@ export default function Home() {
       <div className="wifi-category-grid">{categories.map(c => <Link prefetch={false} href={c.href} key={c.href} className="wifi-category-card"><span><c.icon size={25} aria-hidden="true" /></span><div><h3>{c.title}</h3><p>{c.text}</p></div><ArrowRight size={17} aria-hidden="true" /></Link>)}</div>
       <div className="wifi-home-business"><Link prefetch={false} href="/internet-empresarial">Internet para sua empresa <ArrowRight size={16} aria-hidden="true" /></Link><Link prefetch={false} href="/internet-para-condominios">Atendimento para condomínios <ArrowRight size={16} aria-hidden="true" /></Link></div>
     </section>
-    <ContentSection title="A gente não escolhe só pelo número de Mega"><p>São tantos anúncios, preços diferentes e letras miúdas que pedir internet vira mais uma tarefa na agenda. A WifiConecta começa pela sua necessidade e pela disponibilidade do endereço.</p><p>Trabalhamos com opções de Claro, Vivo, TIM e provedores de bairro, conforme disponibilidade. Uma pessoa ajuda a conferir mensalidade, benefícios e regras entre as opções comercializadas. Você decide com as informações em mãos.</p><Link prefetch={false} href="/planos" className="wifi-text-link">Conhecer as modalidades e consultar pacotes <ArrowRight size={16} aria-hidden="true" /></Link></ContentSection>
+    <ContentSection title="Você escolhe a internet. A gente cuida da parte chata."><p>Promoção pra cá, oferta pra lá, um monte de números e letras miúdas. Quando você só quer colocar internet em casa, comparar tudo isso vira mais uma tarefa na sua lista.</p><p>Na WifiConecta, você conta o que procura. A gente consulta opções de Claro, Vivo, TIM e provedores regionais, conforme a disponibilidade do endereço. Depois explica o que vem no pacote, as condições e os próximos passos.</p><p>Você tira as dúvidas, escolhe com calma e, com sua confirmação, a equipe encaminha o pedido à prestadora responsável.</p><Link prefetch={false} href="/planos" className="wifi-text-link">Conhecer os pacotes que posso consultar <ArrowRight size={16} aria-hidden="true" /></Link></ContentSection>
     <CampaignSlot placement="home" />
     <ContractProcess />
     <ContentSection title="As promoções mudam. A explicação vem antes do pedido."><p>O benefício dura quanto tempo? Tem taxa de instalação? Quando chega a primeira cobrança? Essas respostas fazem parte da conversa, antes de solicitar o serviço.</p><p>Algumas ofertas elegíveis podem ter instalação gratuita e cobrança inicial aproximadamente um mês após a instalação. A equipe confirma a regra da proposta e do contrato para o seu caso.</p><TransparencyNote /></ContentSection>

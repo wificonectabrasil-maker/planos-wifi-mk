@@ -47,6 +47,7 @@ export function WhatsAppCTA({
   hideWhenUnavailable = false,
   category = "internet",
   campaignId,
+  message,
 }: {
   source: string;
   interest?: string;
@@ -57,12 +58,13 @@ export function WhatsAppCTA({
   hideWhenUnavailable?: boolean;
   category?: string;
   campaignId?: string;
+  message?: string;
 }) {
   const phone = useContext(WhatsAppContext);
   const pathname = usePathname();
   const context =
     interest || pageInterests[pathname] || "Internet, celular, TV ou combos";
-  const url = buildWhatsAppUrl(phone, buildWhatsAppInquiry(context));
+  const url = buildWhatsAppUrl(phone, message ?? buildWhatsAppInquiry(context));
   if (!url && hideWhenUnavailable)
     return null;
   const classes = `wifi-whatsapp-${variant} ${className}`.trim();

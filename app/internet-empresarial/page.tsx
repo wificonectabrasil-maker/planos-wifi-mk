@@ -5,7 +5,7 @@ export const revalidate = 3600;
 export const metadata = staticPageMetadata("/internet-empresarial");
 export default function Page() {
   return <>
-    <CommercialIntro path="/internet-empresarial" label="Internet empresarial" title="Internet empresarial em São Paulo: opções para a rotina do seu negócio" interest="Internet empresarial para CNPJ" cta="Consultar internet para minha empresa">Quando a conexão cai, a reunião trava, o pagamento demora e a equipe fica esperando. Conte como sua empresa usa a internet. A WifiConecta consulta opções para CNPJ na capital e em outras cidades paulistas, conforme a disponibilidade no endereço.</CommercialIntro>
+    <CommercialIntro path="/internet-empresarial" label="Internet empresarial" title="Internet empresarial em São Paulo: opções para a rotina do seu negócio" interest="Internet empresarial para CNPJ" cta="Consultar internet para minha empresa">Quando a internet cai, a maquininha trava, os pedidos atrasam e o cliente espera. E quem está cuidando do negócio ainda precisa resolver a conexão. Conte o que não pode parar na sua empresa. Nossa equipe consulta opções para CNPJ em São Paulo e ajuda a conferir cobertura, velocidade, upload, suporte e condições antes do pedido.</CommercialIntro>
     <ContentSection title="O que precisa continuar funcionando?"><div className="wifi-commercial-grid">
       <div><h3>Atendimento e vendas</h3><p>Caixa, maquininha, pedidos, agendamentos e sistemas na nuvem. Explique quais tarefas dependem da conexão ao longo do expediente.</p></div>
       <div><h3>Reuniões e arquivos</h3><p>Videochamadas, envio de documentos e backup. O upload e o uso simultâneo precisam entrar na consulta, junto com o download.</p></div>

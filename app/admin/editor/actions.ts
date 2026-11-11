@@ -592,7 +592,10 @@ export async function saveEditorPost(payload: unknown) {
       reviewed_at: reviewedAt,
       sources: data.sources ?? [],
       scheduled_at: scheduledAt,
-      status: data.status ?? undefined,
+      status:
+        data.status === (post.status ?? (post.published ? "published" : "draft"))
+          ? undefined
+          : data.status ?? undefined,
       content_json: hydratedContentJson,
       content_html: data.content_html,
       amazon_products: data.amazon_products ?? null,

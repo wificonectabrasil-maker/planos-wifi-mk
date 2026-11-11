@@ -2328,6 +2328,9 @@
 .wifi-site .system-post-content ol { list-style: decimal; }
 .wifi-site .system-post-content li { margin-block: 8px; line-height: 1.8; }
 .wifi-site .system-post-content a:not(.cta-button__button):not(.affiliate-cta__button) { color: var(--wifi-accent-hover); text-decoration: underline; text-decoration-color: currentColor; }
+.wifi-site .system-post-content .wifi-article-consultation { margin-block: 18px 28px; }
+.wifi-site .system-post-content .wifi-article-consultation .wifi-whatsapp-button { background-color: var(--wifi-accent) !important; color: #fff !important; text-decoration: none; }
+.wifi-site .system-post-content .wifi-article-consultation .wifi-whatsapp-button:hover { background-color: var(--wifi-accent-hover) !important; }
 .wifi-site .system-post-content blockquote { margin-block: 24px; padding-left: 20px; border-left: 3px solid var(--wifi-accent); color: var(--wifi-muted); }
 .wifi-site .system-post-disclaimer { color: var(--wifi-muted); font-size: 13px; font-style: italic; }
 .wifi-site .system-post-sources { padding: 20px; border: 1px solid var(--wifi-line); border-radius: 12px; color: var(--wifi-muted); font-size: 14px; overflow-wrap: anywhere; }

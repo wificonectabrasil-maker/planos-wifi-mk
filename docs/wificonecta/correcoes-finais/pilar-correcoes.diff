@@ -1,0 +1,18 @@
+--- integral-aprovado
++++ correcoes-finais
+@@ -232,5 +232,5 @@
+ </p>
+ <p>Na hora de examinar as 
+-<a class="text-blue-600 underline cursor-pointer transition-colors" href="https://wificonecta.com.br/planos-de-internet" data-link-type="internal">propostas disponíveis
++<a class="text-blue-600 underline cursor-pointer transition-colors" href="/planos" data-link-type="internal">modalidades de pacote
+ </a>, compare os mesmos elementos: mensalidade prevista, duração do desconto, cobranças iniciais e serviços efetivamente incluídos.
+ </p>
+@@ -409,5 +409,5 @@
+ </p>
+ <p>
+-<strong>Quer descobrir quais opções fazem sentido para sua casa? Consulte os planos disponíveis para seu CEP e peça uma comparação das condições antes de contratar.
+-</strong>
+-</p>
++<strong>Com os critérios em mãos, conte à equipe da WifiConecta o que sua casa precisa. Pelo WhatsApp, ajudamos você a consultar os planos, preços e promoções disponíveis para o endereço e a entender as condições antes de decidir.
++</strong>
++</p>

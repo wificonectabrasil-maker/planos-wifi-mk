@@ -1,0 +1,31 @@
+diff --git a/docs/wificonecta/revisao-tom/quantos-mega-de-internet-preciso-snapshot-antes.txt b/docs/wificonecta/revisao-tom/quantos-mega-de-internet-preciso-proposta.txt
+index a2a995f..afa895b 100644
+--- a/docs/wificonecta/revisao-tom/quantos-mega-de-internet-preciso-snapshot-antes.txt
++++ b/docs/wificonecta/revisao-tom/quantos-mega-de-internet-preciso-proposta.txt
+@@ -90,7 +90,7 @@ A conta ficaria:
+ 
+ 30 Mbps × 1,30 = 39 Mbps.
+ 
+-Isso não significa que você deva procurar obrigatoriamente um plano de 39 Mega. Significa que, nesse exemplo, a atividade simultânea considerada exige muito menos que 300 Mega de download.
++Nesse exemplo, as atividades simultâneas consideradas exigem cerca de 39 Mega de download. Compare esse uso com os planos disponíveis para o endereço.
+ 
+ E aqui aparece um detalhe que as propagandas de velocidades enormes raramente destacam:
+ 
+@@ -204,7 +204,7 @@ Na publicidade de internet residencial, Mega e Giga indicam escalas diferentes d
+ 
+ Um plano de 1 Giga anuncia uma capacidade nominal maior que um plano de 500 Mega.
+ 
+-Mas dobrar a velocidade contratada não significa que todas as atividades ficarão duas vezes mais rápidas.
++Ao comparar planos, considere quais atividades realmente aproveitam a velocidade adicional.
+ 
+ Uma página simples pode abrir praticamente da mesma maneira nas duas conexões.
+ 
+@@ -272,7 +272,7 @@ Uma oferta pode combinar conexão residencial, TV e serviços de streaming, mas
+ 
+ Se pretende contratar tudo junto, vale conferir como funciona o acesso aos aplicativos antes de decidir.
+ 
+-Ter um aplicativo incluído na mensalidade não significa precisar automaticamente de um plano de 1 Giga.
++A presença de um aplicativo no pacote entra na comparação de benefícios e preço; escolha a velocidade pelo uso da casa.
+ 
+ Como saber a conta da sua casa antes de fechar
+ 

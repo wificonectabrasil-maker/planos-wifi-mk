@@ -1,0 +1,116 @@
+--- integral-aprovado
++++ correcoes-finais
+@@ -11,5 +11,5 @@
+ </strong> Ela ajuda a começar a busca, mas a confirmação depende das informações que cada prestadora consegue verificar sobre o imóvel.
+ </p>
+-<p>O caminho é simples: descobrir as empresas que podem atender sua região, consultar cada uma com o endereço completo e separar apenas as opções realmente disponíveis para contratação.
++<p>O caminho é simples: informe o endereço completo à equipe da WifiConecta pelo WhatsApp. A equipe consulta as operadoras e os provedores acessíveis para o imóvel e ajuda você a identificar as opções disponíveis para contratação.
+ </p>
+ <p>
+@@ -25,21 +25,21 @@
+ <ol>
+ <li>
+-<p>Informe o CEP da residência.
+-</p>
+-</li>
+-<li>
+-<p>Verifique quais prestadoras ou ofertas aparecem na consulta.
+-</p>
+-</li>
+-<li>
+-<p>Selecione as operadoras que deseja avaliar.
+-</p>
+-</li>
+-<li>
+-<p>Informe o número do imóvel e o complemento, quando solicitado.
+-</p>
+-</li>
+-<li>
+-<p>Confirme a tecnologia disponível e se ainda existe alguma verificação técnica pendente.
++<p>Informe o CEP e o endereço completo no WhatsApp da WifiConecta.
++</p>
++</li>
++<li>
++<p>Conte à equipe o que você precisa para sua casa.
++</p>
++</li>
++<li>
++<p>A equipe consulta as operadoras e os provedores acessíveis para o endereço.
++</p>
++</li>
++<li>
++<p>Confira os planos, preços e promoções apresentados para o imóvel.
++</p>
++</li>
++<li>
++<p>Confirme a tecnologia e pergunte se ainda existe alguma verificação técnica pendente.
+ </p>
+ </li>
+@@ -53,5 +53,5 @@
+ <p>Ótimo, agora existe um ponto de partida. Mas isso ainda não confirma que as três conseguem atender o seu endereço.
+ </p>
+-<p>Se a consulta apresentar mais de uma opção, guarde os nomes e avance para a verificação individual.
++<p>Se aparecer mais de uma opção, a equipe ajuda você a comparar as propostas e verifica com as prestadoras o que ainda depende de confirmação.
+ </p>
+ <p>É assim que uma busca por 
+@@ -97,5 +97,5 @@
+ <p>Por isso, não trate uma consulta isolada como sentença definitiva.
+ </p>
+-<p>Se encontrou uma proposta interessante, confirme diretamente com quem fará a contratação e solicite a verificação do número do imóvel.
++<p>Se encontrou uma proposta interessante, peça à equipe da WifiConecta que confirme as condições e verifique com a prestadora o atendimento para o número do imóvel.
+ </p>
+ <img src="/media/planos-de-internet/83405f33-d166-4fd6-8d44-7d6bb5f609de/1792821688567-internet-no-meu-cep-como-saber-quais-operadoras-chegam-a-sua-rua-imagem.webp" alt="Internet no meu CEP: como saber quais operadoras chegam à sua rua imagem" title="" width="600" height="600" data-id="upload-1792821687754-9r5k0z" data-align="center" data-tablet-align="center" data-mobile-align="center" widthmode="content" wrap="wrap-left" spacingy="md" visibledesktop="true" visibletablet="true" visiblemobile="true" data-responsive-image="true" data-width-mode="content" data-wrap="wrap-left" data-spacing-y="md" data-visible-desktop="true" data-visible-tablet="true" data-visible-mobile="true" style="--img-width: auto; --img-maxw: 100%; --img-float: left; --img-ml: 0; --img-mr: 16px; --img-spacing-y: 16px; --img-width-tablet: auto; --img-maxw-tablet: 100%; --img-float-tablet: left; --img-ml-tablet: 0; --img-mr-tablet: 16px; --img-spacing-y-tablet: 16px; --img-width-mobile: auto; --img-maxw-mobile: 100%; --img-float-mobile: left; --img-ml-mobile: 0; --img-mr-mobile: 16px; --img-spacing-y-mobile: 16px;">
+@@ -152,15 +152,15 @@
+ <p>Imagine dois edifícios lado a lado.
+ </p>
++<p>No primeiro, uma operadora já possui infraestrutura interna adequada e consegue atender apartamentos disponíveis.
++</p>
++<p>No segundo, pode ser necessária uma avaliação adicional da estrutura do condomínio ou da ligação até o edifício.
++</p>
++<p>
++<strong>Os prédios estão na mesma rua. A situação de instalação não é necessariamente a mesma.
++</strong>
++</p>
+ <p>Isso também pode acontecer entre apartamentos do mesmo prédio. Um vizinho já pode estar conectado enquanto a instalação de outra unidade depende de avaliação. A infraestrutura interna, a capacidade de atendimento, a passagem dos cabos e o acesso aos espaços técnicos são exemplos de condições que podem influenciar a resposta.
+ </p>
+ <p>Ter um vizinho atendido é uma boa referência, mas não substitui a confirmação para sua unidade. Com os dados do imóvel, a equipe da WifiConecta ajuda a consultar alternativas antes de você comparar preços e promoções.
+-</p>
+-<p>No primeiro, uma operadora já possui infraestrutura interna adequada e consegue atender apartamentos disponíveis.
+-</p>
+-<p>No segundo, pode ser necessária uma avaliação adicional da estrutura do condomínio ou da ligação até o edifício.
+-</p>
+-<p>
+-<strong>Os prédios estão na mesma rua. A situação de instalação não é necessariamente a mesma.
+-</strong>
+ </p>
+ <p>Também pode acontecer de uma rede passar em frente a uma casa, mas não existir uma condição técnica imediatamente disponível para realizar a conexão.
+@@ -236,5 +236,5 @@
+ <p>Você não consegue identificar com segurança qual empresa pode instalar um serviço no imóvel apenas observando a fiação da rua.
+ </p>
+-<p>A maneira adequada é consultar a prestadora e confirmar a disponibilidade para o endereço.
++<p>A equipe da WifiConecta pode consultar as opções para o endereço; a prestadora responsável confirma a viabilidade da instalação.
+ </p>
+ <p>Quem pesquisa “internet fibra no meu CEP” precisa, na verdade, responder a uma pergunta mais específica:
+@@ -433,5 +433,5 @@
+ <p>Depois, peça à equipe da WifiConecta que verifique outras operadoras e provedores regionais acessíveis para o endereço.
+ </p>
+-<p>Vale verificar se o sistema aceita o número e o complemento do imóvel. Em alguns casos, a busca inicial pode não fornecer informações suficientes.
++<p>Informe também o número e o complemento à equipe. Em alguns casos, a consulta inicial pode não fornecer informações suficientes para confirmar o imóvel.
+ </p>
+ <p>
+@@ -439,5 +439,5 @@
+ </strong>
+ </p>
+-<p>Se a operadora informar que não há cobertura, pergunte se essa resposta se refere à tecnologia desejada ou a todos os serviços residenciais oferecidos por ela.
++<p>Se a prestadora informar que não há cobertura, a equipe pode esclarecer se a resposta se refere à tecnologia desejada ou a todos os serviços residenciais oferecidos por ela.
+ </p>
+ <p>É possível que determinada modalidade não esteja disponível, enquanto outra alternativa mereça avaliação.
+@@ -517,7 +517,5 @@
+ </strong>
+ </p>
+-<p>Na WifiConecta, esse é o ponto de partida para analisar as 
+-<a class="text-blue-600 underline cursor-pointer transition-colors" href="https://wificonecta.com.br/planos-de-internet" data-link-type="internal">opções de contratação
+-</a>: consultar o local, verificar a disponibilidade e então comparar as condições oferecidas.
++<p>Na WifiConecta, esse é o ponto de partida para consultar a disponibilidade, os planos e as condições para o imóvel com a equipe pelo WhatsApp.
+ </p>
+ <p>

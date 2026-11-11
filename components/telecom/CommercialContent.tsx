@@ -28,7 +28,7 @@ export function CommercialQuestions({ title = "Antes de pedir, tire estas dúvid
   </div></section>;
 }
 export function TransparencyNote() {
-  return <p className="wifi-commercial-transparency">A WifiConecta é uma plataforma independente de orientação e intermediação. A operadora ou o provedor contratado presta o serviço, instala e fatura. Mencionar uma marca não significa ser seu site oficial. <Link prefetch={false} href="/politica-de-afiliados">Entenda nossa atuação</Link>.</p>;
+  return <p className="wifi-commercial-transparency">A WifiConecta é uma plataforma independente de orientação e intermediação. A operadora ou o provedor contratado presta o serviço, instala e fatura. As marcas citadas pertencem às respectivas empresas. <Link prefetch={false} href="/politica-de-afiliados">Entenda nossa atuação</Link>.</p>;
 }
 const publishedArticles = cache(async () => (await Promise.all(["planos-de-internet", "wifi-e-fibra"].map(async silo =>
   (await getPublicPostsBySilo(silo)).map(post => ({ ...post, siloSlug: silo })),

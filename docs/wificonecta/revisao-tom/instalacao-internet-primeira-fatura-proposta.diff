@@ -1,0 +1,31 @@
+diff --git a/docs/wificonecta/revisao-tom/instalacao-internet-primeira-fatura-snapshot-antes.txt b/docs/wificonecta/revisao-tom/instalacao-internet-primeira-fatura-proposta.txt
+index 0bfc320..dbd4497 100644
+--- a/docs/wificonecta/revisao-tom/instalacao-internet-primeira-fatura-snapshot-antes.txt
++++ b/docs/wificonecta/revisao-tom/instalacao-internet-primeira-fatura-proposta.txt
+@@ -14,7 +14,7 @@ Não basta um anúncio dizer que determinada região tem fibra óptica. A conex
+ 
+ Viabilidade por CEP e por prédio
+ 
+-O CEP é o começo da consulta, mas nem sempre encerra a questão.
++O CEP abre a consulta; o número e a unidade ajudam a confirmar a viabilidade no imóvel.
+ 
+ Imagine dois apartamentos na mesma rua de São Paulo. Um condomínio já tem infraestrutura preparada para receber determinada operadora. O outro ainda depende de avaliação técnica ou de uma condição específica de acesso.
+ 
+@@ -56,7 +56,7 @@ Quando a instalação não é possível
+ 
+ Uma visita pode terminar sem ativação. Pode faltar infraestrutura, haver impedimento de acesso, problema na passagem do cabo ou outra dificuldade técnica encontrada no local.
+ 
+-Isso não significa, automaticamente, que alguém fez algo errado. Consulta de cobertura e instalação concluída não são a mesma coisa.
++A consulta de cobertura vem primeiro. A instalação depende da avaliação e das condições do imóvel.
+ 
+ Se o técnico identificar um impedimento, peça que o motivo seja registrado no atendimento. Descubra se existe uma solução, se será necessária outra visita e qual será o próximo passo.
+ 
+@@ -210,7 +210,7 @@ Fidelidade e multa de cancelamento
+ 
+ Fidelidade significa assumir um compromisso de permanência por determinado período em troca de um benefício oferecido pela prestadora.
+ 
+-Esse benefício pode estar relacionado a condições comerciais da oferta. Não presuma que instalação gratuita seja, por si só, a mesma coisa que contrato sem fidelidade.
++Confira as condições da instalação gratuita e a existência de fidelidade na proposta.
+ 
+ Nas regras atuais de contratação para consumidores residenciais, a Anatel estabelece limite de 12 meses para esse prazo de permanência. A multa por cancelamento antecipado, quando cabível, deve considerar o benefício concedido e o período restante.
+ 

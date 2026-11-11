@@ -1,0 +1,42 @@
+diff --git a/docs/wificonecta/lote-1-seo/encerramento/barata-antes.md b/docs/wificonecta/lote-1-seo/encerramento/barata-depois.md
+index 49ed121..71dda59 100644
+--- a/docs/wificonecta/lote-1-seo/encerramento/barata-antes.md
++++ b/docs/wificonecta/lote-1-seo/encerramento/barata-depois.md
+@@ -14,9 +14,7 @@ Na WifiConecta, uma pessoa ajuda você a consultar os preços e condições das
+ 
+ Para aplicar a conta às propostas que receber, some as mensalidades de cada fase do desconto, as taxas iniciais e os serviços adicionais que você realmente contratar. Compare o mesmo período e serviços equivalentes. Se a troca exigir cancelamento antecipado, verifique à parte se há multa aplicável antes de calcular a economia.
+ 
+-Ao comparar **preços de internet residencial**, você encontra anúncios com valores e velocidades diferentes. Para saber quanto vai sair do bolso, confira as condições que acompanham cada preço.
+-
+-Em uma comparação de **preço de internet residencial**, o que interessa é saber quanto sai do bolso durante todo o período considerado.
++Ao comparar **preços de internet residencial**, confira as condições de cada oferta e quanto vai sair do bolso durante todo o período considerado.
+ 
+ Uma oferta com mensalidade inicial menor pode terminar o ano custando mais. Por isso, vale entender a [conta completa do plano](/planos-de-internet/como-escolher-plano-internet-residencial) antes de tomar uma decisão.
+ 
+@@ -155,7 +153,7 @@ Também confira se os benefícios permanecem durante todo o contrato ou se possu
+ 
+ O telefone fixo segue a mesma lógica. Se alguém na casa utiliza o serviço, ele pode entrar na comparação. Caso contrário, não faz sentido aceitar um pacote mais caro apenas para receber algo que ficará parado.
+ 
+-**Combo bom é aquele que reduz ou organiza despesas que você já teria.** Uma lista maior de serviços não significa, necessariamente, maior economia.
++**Combo bom é aquele que reduz ou organiza despesas que você já teria.** Confira o preço total e os serviços que você realmente usa.
+ 
+ ### Quando trocar ou renegociar o plano
+ 
+@@ -177,7 +175,7 @@ Uma mensalidade menor durante três meses pode chamar atenção. Mas, se depois
+ 
+ Mudar de plano vale a pena quando a nova condição melhora a relação entre custo e necessidade, considerando o período inteiro.
+ 
+-### Qual a diferença real entre Wi-Fi 5 e Wi-Fi 6 no meu plano?
++### Roteador incluído ou cobrado à parte?
+ 
+ O roteador oferecido no plano entra na conta. Compare o modelo, a cobrança pelo equipamento e as condições para troca antes de pagar mais por Wi-Fi 5 ou Wi-Fi 6.
+ 
+@@ -213,7 +211,7 @@ Uma oferta só entra na comparação quando pode ser contratada no imóvel onde
+ 
+ Isso é especialmente importante em São Paulo, onde a disponibilidade pode variar entre ruas, edifícios e até unidades de um mesmo condomínio.
+ 
+-**Uma operadora atender determinada região não significa que tenha infraestrutura disponível para todos os imóveis daquele local.**
++**A infraestrutura disponível no imóvel define quais ofertas podem ser instaladas naquele endereço.**
+ 
+ A consulta começa pelo CEP, mas pode exigir endereço completo, número, bloco e apartamento. Também é necessário confirmar a tecnologia oferecida naquele imóvel.
+ 

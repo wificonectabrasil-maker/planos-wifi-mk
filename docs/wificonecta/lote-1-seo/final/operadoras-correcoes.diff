@@ -1,0 +1,157 @@
+diff --git a/docs/wificonecta/lote-1-seo/final/operadoras-antes.md b/docs/wificonecta/lote-1-seo/final/operadoras-final.md
+index 9fa4cf4..eed6a4d 100644
+--- a/docs/wificonecta/lote-1-seo/final/operadoras-antes.md
++++ b/docs/wificonecta/lote-1-seo/final/operadoras-final.md
+@@ -36,9 +36,7 @@ Quem procura por “claro residencial internet” deve esclarecer três pontos a
+ 
+ Imagine duas ofertas de 500 Mega. No anúncio, parecem equivalentes. Só que podem ter tecnologias, velocidades de envio de dados e condições comerciais diferentes.
+ 
+-**O número grande da propaganda conta apenas uma parte da história.**
+-
+-Se você trabalha de casa, faz reuniões por vídeo ou envia arquivos pesados, vale prestar atenção especialmente ao upload.
++**O número grande da propaganda conta apenas uma parte da história.** Se você trabalha de casa, faz reuniões por vídeo ou envia arquivos pesados, vale prestar atenção especialmente ao upload.
+ 
+ ### Vivo: internet e fibra por região
+ 
+@@ -60,9 +58,7 @@ Se a Vivo Fibra estiver disponível no seu imóvel, compare a proposta com as al
+ - Condições de instalação.
+ - Mensalidade durante e depois da promoção.
+ 
+-Um detalhe importante: **Wi-Fi 6 não é sinônimo de uma internet externa mais rápida**. Ele é uma tecnologia de rede sem fio dentro de casa. Pode melhorar a distribuição da conexão em determinadas condições, mas não transforma uma oferta de 300 Mega em uma de 600 Mega.
+-
+-Vale conferir o equipamento, claro. Só não deixe que o nome do roteador distraia você do restante do contrato.
++Se a proposta destaca Wi-Fi 6, confira o roteador incluído, os aparelhos da casa que aproveitam seus recursos e qualquer cobrança pelo equipamento. O nome do roteador entra na conta junto com a mensalidade e a instalação.
+ 
+ ### TIM Ultrafibra: quando faz sentido
+ 
+@@ -80,6 +76,14 @@ A TIM pode ser uma boa candidata em um endereço e nem aparecer entre as opçõe
+ 
+ E, se uma operadora regional também atender o imóvel, não descarte essa alternativa só porque o nome não aparece nos comerciais de televisão. **O serviço entregue na sua rua importa mais que a fama nacional da marca.**
+ 
++### O que entra no pacote e quanto custa de verdade?
++
++Duas propostas para o mesmo endereço anunciam 500 Mega. Uma reúne internet e celular; outra oferece internet e streaming. Confira quais linhas, assinaturas e benefícios entram na mensalidade e por quanto tempo ficam incluídos. O pacote mais cheio só compensa quando você aproveita o que está pagando.
++
++**Some o preço promocional, a mensalidade depois do desconto e a instalação** para comparar o mesmo período. Confira também o equipamento incluído, a fidelidade e os canais de suporte. A promoção pode ter data para sair de cena; a conta continua chegando.
++
++Para quem envia arquivos grandes, vale comparar o upload informado nas propostas. A tecnologia e a possibilidade de instalação são confirmadas para o endereço pela prestadora. A equipe da WifiConecta reúne as opções acessíveis e ajuda a esclarecer as condições pelo WhatsApp.
++
+ ### Como saber se a operadora atende o seu CEP
+ 
+ A dúvida “tim claro ou vivo” só começa a ser respondida quando você coloca as três operadoras diante do mesmo endereço.
+@@ -106,17 +110,13 @@ Se mais de uma operadora atender seu imóvel, ótimo. Aí você pode avançar pa
+ 
+ E atenção: a experiência de um cliente em outra cidade não representa necessariamente o que você encontrará no seu endereço.
+ 
+-Para uma comparação justa, peça as propostas para o mesmo imóvel e registre o que cada uma confirma: tecnologia, download e upload, equipamento, preço durante e depois do desconto, instalação, fidelidade e canais de suporte. Marque o que ainda depende de avaliação técnica.
+-
+ ### Notas da Anatel por estado
+ 
+ A Agência Nacional de Telecomunicações, a **Anatel**, realiza pesquisas de satisfação e qualidade percebida dos serviços de telecomunicações, incluindo internet fixa.
+ 
+ Os resultados podem ser consultados por prestadora e, nos painéis de dados, por estado. Isso permite uma comparação mais relevante do que depender apenas de comentários soltos nas redes sociais.
+ 
+-A pesquisa oficial de [Satisfação e Qualidade Percebida da Anatel](https://www.gov.br/anatel/pt-br/consumidor/compare-as-prestadoras/pesquisa-de-satisfacao-e-qualidade/satisfacao-e-qualidade-percebida) ajuda a entender como os consumidores avaliam as empresas.
+-
+-Mas use a informação do jeito certo.
++A pesquisa oficial de [Satisfação e Qualidade Percebida da Anatel](https://www.gov.br/anatel/pt-br/consumidor/compare-as-prestadoras/pesquisa-de-satisfacao-e-qualidade/satisfacao-e-qualidade-percebida) ajuda a entender como os consumidores avaliam as empresas. Mas use a informação do jeito certo.
+ 
+ **Uma nota nacional não garante que a instalação, a estabilidade ou o atendimento serão iguais no seu bairro.** Ela é uma evidência para a decisão, não um certificado de que você jamais terá problemas.
+ 
+@@ -139,9 +139,7 @@ Considere um exemplo ilustrativo, sem relação com os resultados reais das trê
+ 
+ A operadora A respondeu 98% das reclamações registradas em determinado canal, mas os consumidores consideraram resolvidos 65% dos casos avaliados.
+ 
+-A operadora B respondeu 94%, com solução registrada em 82% dos casos.
+-
+-**Qual delas parece mais interessante para alguém que valoriza a resolução do problema?**
++A operadora B respondeu 94%, com solução registrada em 82% dos casos. **Qual delas parece mais interessante para alguém que valoriza a resolução do problema?**
+ 
+ Os números do exemplo são fictícios, mas a pergunta é real. Atendimento eficiente não é apenas aquele que responde rápido. É o que consegue encaminhar a solução.
+ 
+@@ -149,9 +147,7 @@ Além disso, observe o período analisado e a quantidade de reclamações. Uma a
+ 
+ ### Velocidade medida, não prometida
+ 
+-Uma oferta de 600 Mega chama atenção. Principalmente quando está ao lado de outra de 500 Mega.
+-
+-Mas a diferença anunciada não explica, sozinha, qual serviço funcionará melhor na sua casa.
++Uma oferta de 600 Mega chama atenção. Principalmente quando está ao lado de outra de 500 Mega. Mas a diferença anunciada não explica, sozinha, qual serviço funcionará melhor na sua casa.
+ 
+ **Velocidade contratada, desempenho da rede e qualidade do Wi-Fi são coisas diferentes.**
+ 
+@@ -183,13 +179,9 @@ A primeira anuncia **R$ 89,90 por mês durante três meses**, passando depois pa
+ 
+ A segunda custa **R$ 109,90 por mês**, sem essa mudança promocional no período considerado.
+ 
+-Se você olhar somente para a primeira mensalidade, a escolha parece óbvia. Mas a conta muda quando entram os meses seguintes.
+-
+-Esses valores são apenas ilustrativos, não representam ofertas atuais de Claro, Vivo ou TIM.
+-
+-**Preço promocional é uma condição temporária. O custo de contratação precisa considerar o período inteiro.**
++Se você olhar somente para a primeira mensalidade, a escolha parece óbvia. Mas a conta muda quando entram os meses seguintes. Esses valores são apenas ilustrativos, não representam ofertas atuais de Claro, Vivo ou TIM.
+ 
+-Também confira se há cobrança de instalação, serviços adicionais, equipamentos ou outros itens previstos na oferta.
++**Preço promocional é uma condição temporária. O custo de contratação precisa considerar o período inteiro.** Também confira se há cobrança de instalação, serviços adicionais, equipamentos ou outros itens previstos na oferta.
+ 
+ A [conta completa da promoção](/planos-de-internet/internet-residencial-barato) ajuda a enxergar a diferença entre pagar menos no começo e gastar menos ao longo do contrato.
+ 
+@@ -203,9 +195,7 @@ A fidelidade é um dos pontos que mais merecem atenção porque costuma ser igno
+ 
+ Para consumidores pessoas físicas, as regras da Anatel estabelecem prazo máximo de permanência de 12 meses. Quando houver multa por cancelamento antecipado, ela deve respeitar a proporcionalidade prevista nas regras aplicáveis e o benefício concedido.
+ 
+-Isso não significa que todo contrato tenha fidelidade ou que toda troca de operadora gere uma multa.
+-
+-Antes de aceitar a proposta, confirme:
++Isso não significa que todo contrato tenha fidelidade ou que toda troca de operadora gere uma multa. Antes de aceitar a proposta, confirme:
+ 
+ - Se existe permanência mínima.
+ - Qual benefício está associado a ela.
+@@ -218,9 +208,7 @@ E, se pretende mudar de endereço em breve, redobre a atenção à cobertura no
+ 
+ ### Combo com linha móvel
+ 
+-Para quem também paga uma conta de celular, contratar internet fixa junto com uma linha móvel pode fazer sentido.
+-
+-O problema é comparar um pacote combinado com outro que oferece apenas conexão residencial.
++Para quem também paga uma conta de celular, contratar internet fixa junto com uma linha móvel pode fazer sentido. O problema é comparar um pacote combinado com outro que oferece apenas conexão residencial.
+ 
+ **Você precisa comparar serviços equivalentes e o gasto total que teria contratando cada um separadamente.**
+ 
+@@ -236,17 +224,13 @@ Não faz sentido pagar por três serviços só porque alguém chamou o conjunto
+ 
+ ## Como fechar com segurança: contrate sabendo o que verificar
+ 
+-Chegou a hora de decidir? Então segure a ansiedade por mais alguns minutos.
+-
+-**Antes de contratar, confirme o endereço, o valor depois da promoção, as condições de fidelidade e a instalação por escrito.**
++Chegou a hora de decidir? Então segure a ansiedade por mais alguns minutos. **Antes de contratar, confirme o endereço, o valor depois da promoção, as condições de fidelidade e a instalação por escrito.**
+ 
+ É menos emocionante que clicar no botão de uma oferta relâmpago. Também é muito mais útil se surgir alguma divergência depois.
+ 
+ ### Verifique o endereço antes de contratar
+ 
+-Faça a consulta usando o endereço completo e confirme qual tecnologia está disponível.
+-
+-Se morar em prédio, informe bloco e apartamento quando necessário. Se for casa, confirme o número e possíveis complementos.
++Faça a consulta usando o endereço completo e confirme qual tecnologia está disponível. Se morar em prédio, informe bloco e apartamento quando necessário. Se for casa, confirme o número e possíveis complementos.
+ 
+ **Não confunda “tem cobertura na região” com “a instalação está confirmada”.**
+ 
+@@ -266,7 +250,7 @@ Preste atenção ao nome do plano, velocidade, valor promocional, mensalidade po
+ 
+ Guarde os documentos, a identificação da oferta e os comprovantes disponibilizados. Isso ajuda a esclarecer eventuais divergências de cobrança ou instalação.
+ 
+-Também vale consultar a reputação do atendimento. No [perfil da TIM no](https://www.consumidor.gov.br/pages/empresa/20140206000001301/perfil) [Consumidor.gov.br](http://Consumidor.gov.br), por exemplo, a plataforma apresenta indicadores relacionados às reclamações registradas naquele canal.
++Também vale consultar a reputação do atendimento. No [perfil da TIM no Consumidor.gov.br](https://www.consumidor.gov.br/pages/empresa/20140206000001301/perfil), por exemplo, a plataforma apresenta indicadores relacionados às reclamações registradas naquele canal.
+ 
+ O importante é compreender o alcance desses dados: eles mostram o tratamento dos casos registrados na plataforma, não representam todos os clientes da operadora.
+ 
+@@ -294,6 +278,6 @@ No fim, não existe uma resposta honesta do tipo “Claro ganha”, “Vivo é s
+ 
+ Você não precisa virar especialista em telecomunicações para tomar essa decisão. Precisa saber quais perguntas fazer e ter as condições certas para comparar.
+ 
+-Na WifiConecta, o caminho é começar pelo seu endereço, conferir as alternativas disponíveis e analisar as condições de cada proposta. É assim que as [opções de internet para casa](https://wificonecta.com.br/planos-de-internet) passam a fazer sentido para quem realmente vai pagar a conta.
++Na WifiConecta, o caminho é começar pelo seu endereço, conferir as alternativas disponíveis e analisar as condições de cada proposta. É assim que as [modalidades de internet para casa](/planos) passam a fazer sentido para quem realmente vai pagar a conta.
+ 
+ **Quer comparar as opções sem ficar pulando de promoção em promoção? Informe seu endereço à WifiConecta para consultar planos, preços e condições das operadoras e provedores acessíveis para o imóvel.**

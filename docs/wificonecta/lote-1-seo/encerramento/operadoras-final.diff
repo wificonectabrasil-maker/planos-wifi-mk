@@ -1,0 +1,74 @@
+diff --git a/docs/wificonecta/lote-1-seo/encerramento/operadoras-antes.md b/docs/wificonecta/lote-1-seo/encerramento/operadoras-depois.md
+index eed6a4d..cda427a 100644
+--- a/docs/wificonecta/lote-1-seo/encerramento/operadoras-antes.md
++++ b/docs/wificonecta/lote-1-seo/encerramento/operadoras-depois.md
+@@ -14,7 +14,7 @@ Na WifiConecta, uma pessoa ajuda você a comparar as opções acessíveis para s
+ 
+ ## Qual operadora atende o seu endereço com fibra
+ 
+-**A melhor escolha começa pelo endereço, não pela marca.** Claro, Vivo e TIM têm redes, tecnologias e áreas de atendimento diferentes. Estar presente em São Paulo, por exemplo, não significa conseguir instalar em todos os edifícios, casas e ruas da cidade.
++**A melhor escolha começa pelo endereço.** Claro, Vivo e TIM têm redes, tecnologias e áreas de atendimento diferentes. Em São Paulo, a instalação depende da infraestrutura disponível em cada edifício, casa ou rua.
+ 
+ O que importa não é apenas a operadora dizer que atende seu bairro. É confirmar **qual serviço consegue entregar no número do seu imóvel**.
+ 
+@@ -26,7 +26,7 @@ Mas tem um detalhe que muita gente ignora: **nem toda conexão comercializada co
+ 
+ Dependendo da localidade, a Claro pode utilizar fibra até uma parte da rede e cabo coaxial no trecho final. Em outros endereços, a fibra chega diretamente ao imóvel.
+ 
+-Isso não significa que uma instalação será necessariamente ruim e a outra, boa. Significa que **você precisa saber o que está contratando**.
++**Confira qual tecnologia será instalada no imóvel** e considere as condições da proposta junto com o preço.
+ 
+ Quem procura por “claro residencial internet” deve esclarecer três pontos antes de comparar a proposta com a das concorrentes:
+ 
+@@ -68,7 +68,7 @@ Quem pesquisa **“tim residencial internet”** geralmente quer descobrir se a
+ 
+ A resposta depende da cobertura da rede fixa no endereço.
+ 
+-**Ter sinal de celular da TIM não significa ter TIM Ultrafibra disponível no imóvel.** São serviços com verificações de cobertura diferentes.
++**A cobertura da TIM Ultrafibra é consultada para o endereço da internet fixa.** O sinal de celular segue uma rede de cobertura diferente.
+ 
+ Quando houver possibilidade de instalação, avalie a tecnologia oferecida, a velocidade de envio e recebimento de dados, as condições de suporte e o custo do contrato.
+ 
+@@ -124,7 +124,7 @@ Também é importante comparar o mesmo serviço. Uma nota de telefonia móvel n
+ 
+ ### Reclamações respondidas e solução
+ 
+-Aqui existe uma diferença que costuma passar despercebida: **responder uma reclamação não significa resolver o problema**.
++**Responder uma reclamação e resolver o problema são etapas diferentes.** Os indicadores de solução ajudam a enxergar o resultado do atendimento.
+ 
+ Uma operadora pode responder dentro do prazo e ainda deixar o cliente insatisfeito. Por isso, não se impressione apenas com o percentual de respostas.
+ 
+@@ -145,21 +145,11 @@ Os números do exemplo são fictícios, mas a pergunta é real. Atendimento efic
+ 
+ Além disso, observe o período analisado e a quantidade de reclamações. Uma amostra pequena pode produzir percentuais que parecem impressionantes, mas dizem pouco sobre a experiência geral.
+ 
+-### Velocidade medida, não prometida
++### O que você recebe pela mensalidade?
+ 
+-Uma oferta de 600 Mega chama atenção. Principalmente quando está ao lado de outra de 500 Mega. Mas a diferença anunciada não explica, sozinha, qual serviço funcionará melhor na sua casa.
++Duas ofertas para o mesmo endereço podem anunciar velocidades diferentes e incluir pacotes bem distintos. Compare o preço durante e depois da promoção, a instalação e o roteador, além de serviços como celular ou streaming que entrem na mensalidade.
+ 
+-**Velocidade contratada, desempenho da rede e qualidade do Wi-Fi são coisas diferentes.**
+-
+-O resultado percebido também depende do equipamento, da distância até o roteador, das interferências dentro do imóvel e do número de aparelhos conectados.
+-
+-Por isso, não misture a qualidade da rede da operadora com um problema de sinal no último quarto da casa.
+-
+-Se duas propostas oferecem velocidades altas, considere o uso real antes de pagar por um pacote maior. A [capacidade necessária para sua rotina](/planos-de-internet/quantos-mega-de-internet-preciso) depende das atividades simultâneas, não apenas da quantidade de pessoas que moram no endereço.
+-
+-Quem só assiste a vídeos e navega pode ter necessidades diferentes de quem faz transmissões ao vivo ou envia arquivos grandes todos os dias.
+-
+-**Mais megas podem ajudar. Mas contratar velocidade sem entender o uso pode significar pagar por algo que você não aproveita.**
++Para quem envia arquivos grandes ou faz transmissões, o upload informado na proposta também pesa na escolha. Confira a [capacidade necessária para sua rotina](/planos-de-internet/quantos-mega-de-internet-preciso) para decidir se a velocidade oferecida atende ao uso da casa. Mais megas no anúncio só compensam quando fazem diferença na sua rotina e no valor que você paga.
+ 
+ [Imagem: Claro, Vivo ou TIM internet residencial: como escolher sem perder dinheiro com a internet errada imagem](/media/planos-de-internet/0d110fea-1a46-4d53-87f9-fd2ee4fdd116/1792815747484-claro-vivo-ou-tim-internet-residencial-como-escolher-sem-perder-dinheiro-com-a-internet-errada-imagem.webp)
+ 
+@@ -195,7 +185,7 @@ A fidelidade é um dos pontos que mais merecem atenção porque costuma ser igno
+ 
+ Para consumidores pessoas físicas, as regras da Anatel estabelecem prazo máximo de permanência de 12 meses. Quando houver multa por cancelamento antecipado, ela deve respeitar a proporcionalidade prevista nas regras aplicáveis e o benefício concedido.
+ 
+-Isso não significa que todo contrato tenha fidelidade ou que toda troca de operadora gere uma multa. Antes de aceitar a proposta, confirme:
++Antes de aceitar a proposta, confirme:
+ 
+ - Se existe permanência mínima.
+ - Qual benefício está associado a ela.

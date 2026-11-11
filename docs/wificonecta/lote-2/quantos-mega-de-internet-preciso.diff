@@ -1,0 +1,36 @@
+diff --git a/docs/wificonecta/lote-2/quantos-mega-de-internet-preciso-antes.md b/docs/wificonecta/lote-2/quantos-mega-de-internet-preciso-depois.md
+index 8ed5e1c..e08c123 100644
+--- a/docs/wificonecta/lote-2/quantos-mega-de-internet-preciso-antes.md
++++ b/docs/wificonecta/lote-2/quantos-mega-de-internet-preciso-depois.md
+@@ -106,13 +106,15 @@ Um aparelho assistindo a vídeo HD
+ 
+ Os valores foram escolhidos para demonstrar o cálculo. **Não são requisitos universais nem medições de uma residência real.**
+ 
++Para o **download**, a [Netflix recomenda 15 Mbps ou mais para uma reprodução em 4K](https://help.netflix.com/pt/node/306). No Zoom, uma chamada em 1080p tem recomendação de **3 Mbps de download e 3,8 Mbps de upload**; confira os [requisitos do Zoom](https://support.zoom.com/hc/pb/article?id=zm_kb&sysparm_article=KB0060756). Some o download das atividades simultâneas e avalie separadamente o upload necessário para enviar o vídeo.
++
+ Para dar alguma folga às variações de uso, poderíamos acrescentar aproximadamente 30% à demanda ilustrativa.
+ 
+ A conta ficaria:
+ 
+ **30 Mbps × 1,30 = 39 Mbps.**
+ 
+-Isso não significa que você deva procurar obrigatoriamente um plano de 39 Mega. Significa que, nesse exemplo, a atividade simultânea considerada exige muito menos que 300 Mega de download.
++Nesse exemplo, as atividades simultâneas consideradas somam 39 Mbps com a margem escolhida. Compare essa estimativa com os planos e preços disponíveis para sua casa.
+ 
+ E aqui aparece um detalhe que as propagandas de velocidades enormes raramente destacam:
+ 
+@@ -324,12 +326,12 @@ Se estiver comparando duas velocidades, utilize o mesmo período para calcular o
+ 
+ O [valor após a promoção](/planos-de-internet/internet-residencial-barato) pode mudar a conclusão sobre qual delas compensa.
+ 
+-E, se você também paga uma linha móvel, vale avaliar se [contratar os serviços juntos](/planos-de-internet/melhor-internet-tv-streaming) realmente reduz suas despesas.
++E, se você também paga uma linha móvel, vale avaliar se [contratar os serviços juntos](/planos-de-internet/combo-internet-e-celular) realmente reduz suas despesas.
+ 
+ A escolha não precisa ser complicada.
+ 
+ **Primeiro, descubra a demanda da sua casa. Depois, confirme a cobertura. Por último, compare o custo total das opções disponíveis.**
+ 
+-Na WifiConecta, você pode partir dessa estimativa para avaliar as [ofertas residenciais](https://wificonecta.com.br/planos-de-internet) de acordo com seu endereço e sua rotina.
++Na WifiConecta, você pode partir dessa estimativa para avaliar as [ofertas residenciais](/planos) de acordo com seu endereço e sua rotina.
+ 
+ **Quer saber se 300, 500, 600 Mega ou 1 Giga fazem sentido para sua casa? Informe seu CEP e conte quantas pessoas e aparelhos utilizam a internet ao mesmo tempo. A WifiConecta pode ajudar a comparar as alternativas disponíveis sem fazer você pagar por velocidade apenas porque o número é maior.**

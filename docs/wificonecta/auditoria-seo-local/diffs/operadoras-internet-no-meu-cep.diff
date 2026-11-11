@@ -1,0 +1,15 @@
+--- original/operadoras-internet-no-meu-cep
++++ revisado/operadoras-internet-no-meu-cep
+@@ -14,6 +14,12 @@
+ </strong>
+ </p>
+ <p>A boa notícia é que dá para reduzir bastante essa incerteza. Você precisa consultar a região, informar o endereço completo e confirmar a tecnologia e a viabilidade antes de escolher a oferta.
++</p>
++<h2>O CEP mostra cobertura. A internet chega ao meu imóvel?
++</h2>
++<p>O CEP é um filtro inicial, não uma confirmação de instalação. Primeiro consulte a região; depois informe rua, número e, em prédios, bloco e unidade. A prestadora precisa confirmar a viabilidade técnica para esse ponto.
++</p>
++<p>Se um vizinho já usa o serviço, isso indica que vale consultar, mas não garante instalação no seu imóvel. Se a resposta for negativa, pergunte o motivo e se existe previsão; considere outros provedores que atendam a região. Não há consulta automática neste site.
+ </p>
+ <h2>Como verificar a disponibilidade pelo CEP
+ </h2>

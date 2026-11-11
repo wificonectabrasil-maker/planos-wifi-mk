@@ -1994,8 +1994,8 @@ export function AdvancedEditor({ post, silos: initialSilos = [] }: Props) {
         canonical_path: canonicalPath,
         entities: metaRef.current.entities ?? [],
         schema_type: metaRef.current.schemaType,
-        faq_json: metaRef.current.faq ?? [],
-        howto_json: metaRef.current.howto ?? [],
+        faq_json: post.faq_json == null && !(metaRef.current.faq?.length) ? null : (metaRef.current.faq ?? []),
+        howto_json: post.howto_json == null && !(metaRef.current.howto?.length) ? null : (metaRef.current.howto ?? []),
         hero_image_url: metaRef.current.heroImageUrl || null,
         hero_image_alt: metaRef.current.heroImageAlt || null,
         og_image_url: metaRef.current.ogImageUrl || null,
@@ -2057,7 +2057,7 @@ export function AdvancedEditor({ post, silos: initialSilos = [] }: Props) {
         setSaving(false);
       }
     },
-    [docHtml, docJson, editor, post.id, post.silo_id, router, siloSlug]
+    [docHtml, docJson, editor, post.faq_json, post.howto_json, post.id, post.silo_id, router, siloSlug]
   );
 
   const onSave = useCallback(

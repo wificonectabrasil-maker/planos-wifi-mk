@@ -1,0 +1,31 @@
+diff --git a/docs/wificonecta/lote-3/instalacao-internet-primeira-fatura-antes.md b/docs/wificonecta/lote-3/instalacao-internet-primeira-fatura-depois.md
+index 4c61ec9..4a3236d 100644
+--- a/docs/wificonecta/lote-3/instalacao-internet-primeira-fatura-antes.md
++++ b/docs/wificonecta/lote-3/instalacao-internet-primeira-fatura-depois.md
+@@ -28,7 +28,7 @@ Um resultado positivo na consulta inicial indica possibilidade de atendimento. A
+ 
+ ### Quem confirma o endereço antes do agendamento
+ 
+-A verificação começa no canal em que você solicita a contratação. A operadora ou seu representante coleta os dados necessários e consulta a disponibilidade do serviço.
++Na WifiConecta, a consulta começa pelo WhatsApp. A equipe reúne os dados do imóvel e busca as alternativas comerciais; a prestadora confirma a viabilidade técnica para a instalação.
+ 
+ **Confira se o endereço foi registrado corretamente.** Parece detalhe bobo até o técnico aparecer na rua certa, mas no prédio errado.
+ 
+@@ -189,7 +189,7 @@ Imagine que sua internet comece a funcionar no meio do mês. Não presuma que o
+ 
+ Também não confunda a data em que a conta é emitida com o dia em que precisa ser paga.
+ 
+-Para serviços pós-pagos, a regulamentação da Anatel determina que a fatura esteja disponível com antecedência mínima de cinco dias em relação ao vencimento. A conta também deve identificar os itens cobrados, inclusive valores de instalação e ativação quando aplicáveis.
++Para serviços pós-pagos, a [Anatel determina que a conta esteja disponível com pelo menos cinco dias de antecedência](https://www.gov.br/anatel/pt-br/consumidor/consumidor-novo/conheca-seus-direitos/cobranca) do vencimento. Confira o período cobrado e os itens de instalação ou ativação informados na fatura.
+ 
+ ### Cobrança proporcional nos primeiros dias
+ 
+@@ -369,7 +369,7 @@ O principal é evitar agendar um serviço cujas condições você ainda não ent
+ 
+ Se ainda houver dúvida sobre cobertura, custo e necessidade de uso, vale retomar os [critérios para decidir a contratação](/planos-de-internet/como-escolher-plano-internet-residencial) antes de confirmar o pedido.
+ 
+-A página que reúne as [alternativas para contratar conexão em casa](https://wificonecta.com.br/planos-de-internet) também ajuda a localizar os assuntos relacionados à escolha de uma oferta.
++Na página de [planos para sua casa](/planos), você encontra as modalidades comerciais e pode consultar as condições pelo WhatsApp.
+ 
+ ### Confirmar a janela de visita
+ 

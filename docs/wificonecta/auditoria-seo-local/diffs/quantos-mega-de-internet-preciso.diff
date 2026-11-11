@@ -1,0 +1,33 @@
+--- original/quantos-mega-de-internet-preciso
++++ revisado/quantos-mega-de-internet-preciso
+@@ -38,6 +38,12 @@
+ </li>
+ </ul>
+ <p>Vamos fazer essa conta sem transformar a contratação de internet em uma aula complicada de engenharia.
++</p>
++<h2>Como estimar a demanda simultânea da casa
++</h2>
++<p>Liste o que acontece ao mesmo tempo no horário mais movimentado: chamadas, vídeos, downloads e dispositivos conectados. Some as necessidades aproximadas dos serviços usados simultaneamente e deixe margem para variações e outras tarefas. Os requisitos variam por qualidade de vídeo e aplicativo; não existe um número universal por pessoa.
++</p>
++<p>Compare download para receber dados e upload para enviar arquivos ou fazer chamadas. Se a lentidão aparece apenas longe do roteador, teste perto dele e, quando possível, por cabo compatível antes de concluir que é necessário contratar mais velocidade.
+ </p>
+ <h2>Como medir sua velocidade real no dia a dia
+ </h2>
+@@ -317,7 +323,7 @@
+ </strong>
+ </p>
+ <img src="/media/planos-de-internet/2ec9bc2b-3b23-45b6-8b3e-ea6015a3047a/1792881688245-quantos-mega-de-internet-preciso-como-dimensionar-para-a-sua-casa-sem-pagar-a-mais-imagem.webp" alt="A velocidade desejada precisa estar disponível para instalação no imóvel" title="" width="600" height="600" data-id="upload-1792881687662-u63o66" data-align="center" data-tablet-align="center" data-mobile-align="center" widthmode="content" wrap="wrap-left" spacingy="md" visibledesktop="true" visibletablet="true" visiblemobile="true" data-responsive-image="true" data-width-mode="content" data-wrap="wrap-left" data-spacing-y="md" data-visible-desktop="true" data-visible-tablet="true" data-visible-mobile="true" style="--img-width: auto; --img-maxw: 100%; --img-float: left; --img-ml: 0; --img-mr: 16px; --img-spacing-y: 16px; --img-width-tablet: auto; --img-maxw-tablet: 100%; --img-float-tablet: left; --img-ml-tablet: 0; --img-mr-tablet: 16px; --img-spacing-y-tablet: 16px; --img-width-mobile: auto; --img-maxw-mobile: 100%; --img-float-mobile: left; --img-ml-mobile: 0; --img-mr-mobile: 16px; --img-spacing-y-mobile: 16px;">
+-<h2>Por que contratar 1 Giga com Wi-Fi 6
++<h2>Quando 1 Giga com Wi-Fi 6 pode fazer sentido
+ </h2>
+ <p>
+ <strong>1 Giga pode fazer sentido quando existe demanda para uma conexão de alta capacidade e os equipamentos conseguem aproveitá-la.
+@@ -325,7 +331,7 @@
+ </p>
+ <p>São duas coisas diferentes que podem trabalhar juntas.
+ </p>
+-<h3>O que explica contratar 1 Giga com Wi-Fi 6?
++<h3>O que avaliar antes de escolher 1 Giga?
+ </h3>
+ <p>Um plano de 1 Giga oferece uma capacidade nominal de aproximadamente 1.000 Mbps de download.
+ </p>

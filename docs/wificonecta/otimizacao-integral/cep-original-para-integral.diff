@@ -1,0 +1,63 @@
+--- original
++++ integral
+@@ -1,14 +1,12 @@
+ # Internet no meu CEP: como saber quais operadoras chegam à sua rua
+ 
+-**Para descobrir quais operadoras de internet atendem sua casa, comece pelo CEP, mas confirme a disponibilidade pelo número do imóvel.** Uma consulta pode mostrar que determinada empresa trabalha na região sem garantir que ela consiga instalar o serviço na sua residência.
+-
+-É justamente essa a pegadinha de pesquisar **internet no meu CEP**: você encontra uma oferta interessante, escolhe a velocidade, gosta do preço e, na hora de contratar, descobre que a conexão não chega à sua porta.
+-
+-E não precisa morar longe de tudo para isso acontecer. Em São Paulo, por exemplo, dois prédios da mesma rua podem ter condições de instalação diferentes.
+-
+-**Ter cobertura no bairro não é a mesma coisa que ter internet disponível no apartamento.**
+-
+-A boa notícia é que dá para reduzir bastante essa incerteza. Você precisa consultar a região, informar o endereço completo e confirmar a tecnologia e a viabilidade antes de escolher a oferta.
++Quer saber quais operadoras de internet atendem seu CEP? A WifiConecta ajuda você a consultar as opções para seu endereço, incluindo planos de operadoras nacionais e provedores regionais acessíveis à equipe.
++
++O CEP é o ponto de partida. Para verificar a possibilidade de instalação, também pode ser necessário informar rua, número e complemento. Se você mora em apartamento, o bloco e a unidade podem fazer diferença.
++
++Com esses dados, nossa equipe consulta as possibilidades e ajuda você a entender planos, preços e promoções antes de decidir. A cobertura da região é apenas o começo: a prestadora precisa confirmar a viabilidade no imóvel.
++
++**[Botão: Consultar cobertura e promoções no WhatsApp]**
+ 
+ ## Como verificar a disponibilidade pelo CEP
+ 
+@@ -16,9 +14,11 @@
+ 
+ O caminho é simples: descobrir as empresas que podem atender sua região, consultar cada uma com o endereço completo e separar apenas as opções realmente disponíveis para contratação.
+ 
++**Como interpretar a consulta:** se a região aparece como atendida, confirme o número e o complemento. Se a viabilidade estiver pendente, pergunte qual avaliação falta. Se a instalação não for liberada, peça o motivo e o protocolo quando houver, e confirme se existe previsão, sem presumir uma data.
++
+ ### Passo a passo da consulta por CEP
+ 
+-Comece localizando o CEP correto da residência. Depois, utilize os canais de consulta de cobertura das operadoras ou uma ferramenta que apresente ofertas conforme a localização.
++Comece localizando o CEP correto e separe o endereço completo. No WhatsApp, a equipe da WifiConecta pode consultar as operadoras e os provedores acessíveis para aquela localidade e ajudar a conferir as condições de cada opção.
+ 
+ Em geral, o processo envolve estas etapas:
+ 
+@@ -101,6 +101,10 @@
+ ### Prédio e número: onde a cobertura muda
+ 
+ Imagine dois edifícios lado a lado.
++
++Isso também pode acontecer entre apartamentos do mesmo prédio. Um vizinho já pode estar conectado enquanto a instalação de outra unidade depende de avaliação. A infraestrutura interna, a capacidade de atendimento, a passagem dos cabos e o acesso aos espaços técnicos são exemplos de condições que podem influenciar a resposta.
++
++Ter um vizinho atendido é uma boa referência, mas não substitui a confirmação para sua unidade. Com os dados do imóvel, a equipe da WifiConecta ajuda a consultar alternativas antes de você comparar preços e promoções.
+ 
+ No primeiro, uma operadora já possui infraestrutura interna adequada e consegue atender apartamentos disponíveis.
+ 
+@@ -282,7 +286,7 @@
+ 
+ Antes de desistir, confira se o CEP foi digitado corretamente e se o endereço está completo.
+ 
+-Depois, tente consultar as prestadoras que atuam na região.
++Depois, peça à equipe da WifiConecta que verifique outras operadoras e provedores regionais acessíveis para o endereço.
+ 
+ Vale verificar se o sistema aceita o número e o complemento do imóvel. Em alguns casos, a busca inicial pode não fornecer informações suficientes.
+ 
+@@ -338,3 +342,5 @@
+ Na WifiConecta, esse é o ponto de partida para analisar as [opções de contratação](https://wificonecta.com.br/planos-de-internet): consultar o local, verificar a disponibilidade e então comparar as condições oferecidas.
+ 
+ **Quer descobrir quais operadoras podem instalar internet na sua casa? Informe seu CEP, número e complemento à WifiConecta. A partir desses dados, podemos consultar as alternativas disponíveis para o seu endereço e ajudar você a escolher entre as ofertas confirmadas.**
++
++**[Botão de conclusão: Consultar cobertura e promoções no WhatsApp]**

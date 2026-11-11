@@ -1,0 +1,41 @@
+--- publicado
++++ proposta-local
+@@ -14,4 +14,38 @@
+ </p>
+ <p>A boa notícia é que dá para reduzir bastante essa incerteza. Você precisa consultar a região, informar o endereço completo e confirmar a tecnologia e a viabilidade antes de escolher a oferta.
++</p>
++<h2>O que significa o resultado da consulta?
++</h2>
++<ul>
++<li>
++<p>
++<strong>A operadora aparece no seu CEP:
++</strong> é um bom começo, mas ainda precisa confirmar a viabilidade no número do imóvel.
++</p>
++</li>
++<li>
++<p>
++<strong>Seu vizinho já tem internet:
++</strong> isso não garante que a mesma prestadora consiga instalar na sua residência.
++</p>
++</li>
++<li>
++<p>
++<strong>Você mora em apartamento:
++</strong> informe prédio, bloco e unidade. A infraestrutura e as condições de acesso podem fazer diferença.
++</p>
++</li>
++<li>
++<p>
++<strong>A instalação não foi liberada:
++</strong> pergunte o motivo, solicite o protocolo quando disponível e confirme se existe alguma previsão. Não presuma que haverá uma data.
++</p>
++</li>
++</ul>
++<p>Depois de confirmar a disponibilidade, confira o pacote, a instalação e as condições antes de solicitar o serviço.
++</p>
++<p>
++<a href="/planos">Saiba como consultar as opções para seu endereço.
++</a>
+ </p>
+ <h2>Como verificar a disponibilidade pelo CEP

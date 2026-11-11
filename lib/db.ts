@@ -1097,8 +1097,8 @@ export async function adminUpdatePost(args: {
   if (typeof args.meta_description !== "undefined") update.meta_description = args.meta_description;
   if (typeof args.canonical_path !== "undefined") update.canonical_path = args.canonical_path;
   if (typeof args.entities !== "undefined") update.entities = args.entities;
-  if (typeof args.faq_json !== "undefined") update.faq_json = args.faq_json ?? [];
-  if (typeof args.howto_json !== "undefined") update.howto_json = args.howto_json ?? [];
+  if (typeof args.faq_json !== "undefined") update.faq_json = args.faq_json;
+  if (typeof args.howto_json !== "undefined") update.howto_json = args.howto_json;
   if (typeof args.schema_type !== "undefined") update.schema_type = args.schema_type;
   if (typeof args.cover_image !== "undefined") update.cover_image = args.cover_image;
   if (typeof args.hero_image_url !== "undefined") update.hero_image_url = args.hero_image_url;

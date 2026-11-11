@@ -1,0 +1,660 @@
+{
+  "type": "doc",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Para saber quais operadoras podem atender sua casa, consulte o CEP e confirme o endereço completo com cada prestadora. Informe o número e, se morar em prédio, o bloco e a unidade. Depois, pergunte se a resposta já confirma a viabilidade técnica ou se ainda depende de avaliação."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Se a consulta não for conclusiva, peça o motivo da pendência e o protocolo, quando houver. Consulte também outras prestadoras e provedores regionais: uma ferramenta pode não mostrar todas as opções da região."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "attrs": {
+        "level": 2
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Como consultar internet para o seu endereço"
+        }
+      ]
+    },
+    {
+      "type": "orderedList",
+      "attrs": {
+        "start": 1,
+        "type": null
+      },
+      "content": [
+        {
+          "type": "listItem",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "text": "Confira o CEP."
+                },
+                {
+                  "type": "text",
+                  "text": " Separe também rua, número e complemento. Um CEP pode identificar uma área maior ou um endereço específico, mas não substitui a confirmação da infraestrutura."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "text": "Descubra quem atende a região."
+                },
+                {
+                  "type": "text",
+                  "text": " Consulte os canais das prestadoras e procure provedores locais. Uma lista por CEP é um ponto de partida, não uma lista garantida de instalações."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "text": "Peça a confirmação do imóvel."
+                },
+                {
+                  "type": "text",
+                  "text": " Informe os dados completos e pergunte qual tecnologia está disponível e se falta avaliação técnica ou autorização de acesso."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "text": "Compare apenas as propostas viáveis."
+                },
+                {
+                  "type": "text",
+                  "text": " Confira serviços incluídos, mensalidade após a promoção, instalação e condições de contratação antes de solicitar o pedido."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "A "
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "link",
+              "attrs": {
+                "href": "https://www.tim.com.br/para-voce/internet/internet-para-casa/tim-casa-internet/consulta-disponibilidade",
+                "target": null,
+                "rel": null,
+                "class": "text-blue-600 underline cursor-pointer transition-colors",
+                "data-entity": null,
+                "data-entity-type": null,
+                "data-link-type": null,
+                "data-post-id": null
+              }
+            }
+          ],
+          "text": "consulta de disponibilidade da TIM"
+        },
+        {
+          "type": "text",
+          "text": ", por exemplo, orienta informar CEP e número. Ela é um canal da própria TIM; o resultado não verifica a cobertura de outras empresas."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Se preferir, "
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "link",
+              "attrs": {
+                "href": "/planos",
+                "target": null,
+                "rel": null,
+                "class": "text-blue-600 underline cursor-pointer transition-colors",
+                "data-entity": null,
+                "data-entity-type": null,
+                "data-link-type": null,
+                "data-post-id": null
+              }
+            }
+          ],
+          "text": "consulte as opções para seu endereço com a WifiConecta"
+        },
+        {
+          "type": "text",
+          "text": ". A consulta é feita por atendimento humano no WhatsApp, não por um verificador automático no site."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "attrs": {
+        "level": 2
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "O que significa cada resultado da consulta?"
+        }
+      ]
+    },
+    {
+      "type": "bulletList",
+      "content": [
+        {
+          "type": "listItem",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "text": "A operadora aparece no CEP:"
+                },
+                {
+                  "type": "text",
+                  "text": " pergunte se a instalação já foi confirmada para o número do imóvel ou se a consulta indica apenas atendimento na região."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "text": "Seu vizinho já tem internet:"
+                },
+                {
+                  "type": "text",
+                  "text": " é uma pista útil para descobrir uma prestadora, mas não garante que a mesma rede consiga atender sua casa ou apartamento."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "text": "Você mora em apartamento:"
+                },
+                {
+                  "type": "text",
+                  "text": " informe prédio, bloco e unidade. A entrada da prestadora, a infraestrutura interna e as regras de acesso podem exigir verificação."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "text": "A instalação não foi liberada:"
+                },
+                {
+                  "type": "text",
+                  "text": " peça o motivo e o protocolo quando disponível. Pergunte se há uma previsão confirmada, sem presumir que exista uma data."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "attrs": {
+        "src": "/media/planos-de-internet/83405f33-d166-4fd6-8d44-7d6bb5f609de/1792821688567-internet-no-meu-cep-como-saber-quais-operadoras-chegam-a-sua-rua-imagem.webp",
+        "alt": "Internet no meu CEP: como saber quais operadoras chegam à sua rua imagem",
+        "title": "",
+        "width": "600",
+        "height": "600",
+        "data-uploading": null,
+        "data-id": "upload-1792821687754-9r5k0z",
+        "data-align": "center",
+        "data-tablet-align": "center",
+        "data-mobile-align": "center",
+        "widthMode": "content",
+        "maxWidth": null,
+        "wrap": "none",
+        "spacingY": "md",
+        "visibleDesktop": true,
+        "visibleTablet": true,
+        "visibleMobile": true,
+        "responsive": null
+      }
+    },
+    {
+      "type": "heading",
+      "attrs": {
+        "level": 2
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Por que a cobertura muda de uma casa para outra?"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Uma empresa pode atuar no bairro, mas a possibilidade de instalar depende da rede que chega ao imóvel e de suas condições de acesso. Dois prédios da mesma rua podem ter infraestrutura interna diferente; em uma casa, também pode ser necessária uma avaliação da ligação até o endereço."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Uma resposta comercial inicial positiva pode ser seguida por uma vistoria técnica. Antes de cancelar seu serviço atual ou contar com uma data de instalação, confirme qual etapa já foi concluída e qual ainda está pendente."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "attrs": {
+        "level": 2
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "E se nenhuma operadora aparecer?"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Revise os dados digitados e tente outros canais das prestadoras que atuam na região. Pergunte à administração do prédio ou a vizinhos quais empresas já instalaram serviços ali; use essa informação para iniciar uma consulta, não como garantia de cobertura."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Procure também provedores regionais. Uma empresa pode não aparecer em determinada plataforma porque as bases, parcerias e ofertas exibidas são diferentes. Se uma prestadora negar a instalação, pergunte se a negativa vale para todas as modalidades ou apenas para a tecnologia consultada."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "attrs": {
+        "level": 2
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Fibra no CEP: o que perguntar?"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "O nome comercial do plano não explica sozinho qual infraestrutura chega à residência. Pergunte se a fibra chega até o imóvel, qual tecnologia será instalada e se a resposta depende de vistoria. Ver cabos na rua não permite identificar, por si só, qual empresa consegue atender sua unidade."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Depois de identificar alternativas viáveis, veja "
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "link",
+              "attrs": {
+                "href": "/planos-de-internet/claro-vivo-tim-internet-residencial",
+                "target": null,
+                "rel": null,
+                "class": "text-blue-600 underline cursor-pointer transition-colors",
+                "data-entity": null,
+                "data-entity-type": null,
+                "data-link-type": null,
+                "data-post-id": null
+              }
+            }
+          ],
+          "text": "como comparar as prestadoras"
+        },
+        {
+          "type": "text",
+          "text": " sem presumir que exista uma vencedora para todos os endereços."
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "attrs": {
+        "src": "/media/planos-de-internet/83405f33-d166-4fd6-8d44-7d6bb5f609de/1792822021215-internet-no-meu-cep-como-saber-quais-operadoras-chegam-a-sua-rua-imagem.webp",
+        "alt": "Internet no meu CEP: como saber quais operadoras chegam à sua rua imagem",
+        "title": "",
+        "width": "600",
+        "height": "450",
+        "data-uploading": null,
+        "data-id": "upload-1792822020846-lwuuo2",
+        "data-align": "center",
+        "data-tablet-align": "center",
+        "data-mobile-align": "center",
+        "widthMode": "content",
+        "maxWidth": null,
+        "wrap": "none",
+        "spacingY": "md",
+        "visibleDesktop": true,
+        "visibleTablet": true,
+        "visibleMobile": true,
+        "responsive": null
+      }
+    },
+    {
+      "type": "heading",
+      "attrs": {
+        "level": 2
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "O que confirmar antes de pedir a instalação"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Peça por escrito a composição da proposta, o valor durante e depois do desconto, eventuais taxas de instalação, equipamento e regras de permanência. Confira se há benefício associado à fidelidade e como será a primeira cobrança."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "O guia sobre "
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "link",
+              "attrs": {
+                "href": "/planos-de-internet/instalacao-internet-primeira-fatura",
+                "target": null,
+                "rel": null,
+                "class": "text-blue-600 underline cursor-pointer transition-colors",
+                "data-entity": null,
+                "data-entity-type": null,
+                "data-link-type": null,
+                "data-post-id": null
+              }
+            }
+          ],
+          "text": "instalação e primeira fatura"
+        },
+        {
+          "type": "text",
+          "text": " ajuda a acompanhar as etapas depois da consulta. Para comparar propostas sem olhar só a mensalidade, veja também "
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "link",
+              "attrs": {
+                "href": "/planos-de-internet/internet-residencial-barato",
+                "target": null,
+                "rel": null,
+                "class": "text-blue-600 underline cursor-pointer transition-colors",
+                "data-entity": null,
+                "data-entity-type": null,
+                "data-link-type": null,
+                "data-post-id": null
+              }
+            }
+          ],
+          "text": "como calcular o custo da internet"
+        },
+        {
+          "type": "text",
+          "text": "."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "attrs": {
+        "level": 2
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Perguntas frequentes sobre internet no meu CEP"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "attrs": {
+        "level": 3
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Apareceu cobertura. Posso agendar?"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Pergunte à prestadora se a viabilidade para o endereço completo já foi confirmada. A consulta regional pode ser apenas uma etapa anterior ao agendamento."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "attrs": {
+        "level": 3
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "O resultado diz que não há cobertura. E agora?"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Confirme o CEP, o número e o complemento. Consulte outros canais e provedores locais e pergunte se a resposta vale para todas as tecnologias disponíveis naquela prestadora."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "attrs": {
+        "level": 3
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Quem instala e presta o serviço?"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "A operadora ou o provedor contratado é responsável pela instalação e pela conexão. A WifiConecta orienta a consulta e ajuda a encaminhar o pedido depois da sua confirmação."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Com as alternativas confirmadas, você pode "
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "link",
+              "attrs": {
+                "href": "/planos-de-internet/como-escolher-plano-internet-residencial",
+                "target": null,
+                "rel": null,
+                "class": "text-blue-600 underline cursor-pointer transition-colors",
+                "data-entity": null,
+                "data-entity-type": null,
+                "data-link-type": null,
+                "data-post-id": null
+              }
+            }
+          ],
+          "text": "comparar os critérios de escolha do plano"
+        },
+        {
+          "type": "text",
+          "text": " e decidir com mais tranquilidade."
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "authorLinks": [
+      "https://www.instagram.com/mii_ke7/",
+      "https://www.facebook.com/share/1DcqCCTa3n/",
+      "https://wificonecta.com.br/sobre#mike"
+    ],
+    "manualEdits": true,
+    "lastEditedAt": "2026-11-10T18:20:18.167Z"
+  }
+}

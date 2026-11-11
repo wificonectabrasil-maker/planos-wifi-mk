@@ -1,0 +1,40 @@
+diff --git a/docs/wificonecta/revisao-tom/operadoras-internet-no-meu-cep-antes.txt b/docs/wificonecta/revisao-tom/operadoras-internet-no-meu-cep-depois.txt
+index fc81ad2..5c6c0dd 100644
+--- a/docs/wificonecta/revisao-tom/operadoras-internet-no-meu-cep-antes.txt
++++ b/docs/wificonecta/revisao-tom/operadoras-internet-no-meu-cep-depois.txt
+@@ -98,7 +98,7 @@ Os prédios estão na mesma rua. A situação de instalação não é necessaria
+ 
+ Isso também pode acontecer entre apartamentos do mesmo prédio. Um vizinho já pode estar conectado enquanto a instalação de outra unidade depende de avaliação. A infraestrutura interna, a capacidade de atendimento, a passagem dos cabos e o acesso aos espaços técnicos são exemplos de condições que podem influenciar a resposta.
+ 
+-Ter um vizinho atendido é uma boa referência, mas não substitui a confirmação para sua unidade. Com os dados do imóvel, a equipe da WifiConecta ajuda a consultar alternativas antes de você comparar preços e promoções.
++O vizinho conectado é uma boa pista. Com os dados do seu imóvel, a equipe da WifiConecta consulta as alternativas para você comparar preços e promoções.
+ 
+ Também pode acontecer de uma rede passar em frente a uma casa, mas não existir uma condição técnica imediatamente disponível para realizar a conexão.
+ 
+@@ -130,7 +130,7 @@ O objetivo não é complicar a contratação. É evitar que você fique esperand
+ 
+ Fibra no seu CEP: o que confirmar antes de contratar
+ 
+-Encontrar fibra óptica disponível na sua região não garante que a fibra chegará à sua residência.
++A disponibilidade de fibra é confirmada para o endereço completo, incluindo número e unidade.
+ 
+ A confirmação precisa considerar o endereço completo e a tecnologia que será efetivamente utilizada.
+ 
+@@ -238,7 +238,7 @@ Confira o preço após a promoção, os critérios de reajuste, a instalação,
+ 
+ Para consumidores pessoas físicas, a regulamentação da Anatel admite prazo de permanência de até 12 meses vinculado a benefício concedido pela prestadora, com regras para eventual multa proporcional em caso de cancelamento antecipado.
+ 
+-Nem todo plano tem fidelidade. E fidelidade não significa multa automática em qualquer situação.
++Confira se a proposta tem fidelidade, o benefício associado e as condições de uma eventual multa.
+ 
+ O contrato precisa esclarecer as condições aplicáveis.
+ 
+@@ -280,7 +280,7 @@ Quem procura um provedor de internet na própria rua nem sempre precisa ficar re
+ 
+ Empresas regionais podem atender áreas ou imóveis que ainda não contam com determinada infraestrutura das grandes operadoras.
+ 
+-Ser uma empresa menor não significa necessariamente oferecer um serviço inferior.
++Um provedor regional merece entrar na comparação: confira a oferta, o atendimento e as condições para seu endereço.
+ 
+ Da mesma forma, atuar localmente não é garantia automática de qualidade.
+ 
