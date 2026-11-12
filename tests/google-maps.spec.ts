@@ -22,7 +22,7 @@ test("Maps identifies the existing organization without creating a physical busi
     areaServed: { "@type": "State", name: "São Paulo" },
   });
   expect(organization.sameAs).toContain(mapsUrl);
-  expect(organization.sameAs).toContain("https://www.instagram.com/wifi_pedeaqui/");
+  expect(organization.sameAs).toContain("https://www.instagram.com/wifi_conectabr/");
   expect(new Set(organization.sameAs).size).toBe(organization.sameAs.length);
   for (const key of ["address", "geo", "hasMap", "openingHours", "openingHoursSpecification", "aggregateRating", "review"])
     expect(organization).not.toHaveProperty(key);

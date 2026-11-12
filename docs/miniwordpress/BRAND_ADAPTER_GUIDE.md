@@ -10,7 +10,7 @@ WifiConecta em 14/10/2026: a política de fontes e o manifesto seguem a revisão
 
 Edite `brand.config.ts`: nome, URL, descrição, tagline, logo, idioma, contato, autor padrão, transparência de afiliados, nicho, tom e política de fontes.
 
-`instagramUrl` configura o ícone de Instagram da marca no rodapé. Na WifiConecta, o perfil é `https://www.instagram.com/wifi_pedeaqui/`; no preset neutro, o campo começa vazio e o botão não é exibido.
+`instagramUrl` configura o ícone de Instagram da marca no rodapé. Na WifiConecta, o perfil é `https://www.instagram.com/wifi_conectabr/`; no preset neutro, o campo começa vazio e o botão não é exibido.
 
 `googleMapsUrl` configura o perfil oficial no Google Maps. O componente de link é compartilhado pelo contato e rodapé; a Home associa o perfil à organização existente em `sameAs`. O preset neutro começa com esse campo vazio. Na WifiConecta, o vínculo usa o CID validado do cadastro. Por solicitação posterior do responsável, `FooterServiceMap` apresenta também um mapa regional no rodapé, com carregamento adiado e sem marcador da empresa. O centro da visualização representa São Paulo, sem atribuir endereço físico ou coordenadas à organização nos dados estruturados. [Auditoria e decisões da integração](../wificonecta/GOOGLE-MAPS-2026-10-23.md).
 
