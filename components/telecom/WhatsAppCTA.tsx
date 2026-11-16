@@ -10,6 +10,10 @@ import { safeAttribution } from "@/lib/telecom/attribution";
 
 const WhatsAppContext = createContext<string | null>(null);
 
+export function useWhatsAppPhone() {
+  return useContext(WhatsAppContext);
+}
+
 export function WhatsAppProvider({
   phone,
   children,

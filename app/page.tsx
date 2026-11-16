@@ -6,6 +6,7 @@ import { HeroVideoBackground } from "@/components/telecom/HeroVideoBackground";
 import { ContractProcess, FinalCTA, TrustStrip } from "@/components/telecom/Shared";
 import { ContentSection, EditorialResources, TransparencyNote } from "@/components/telecom/CommercialContent";
 import { CampaignSlot } from "@/components/telecom/CampaignSlot";
+import { MonthlyOffers } from "@/components/telecom/MonthlyOffers";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { resolveSiteUrl } from "@/lib/site/url";
 import { staticPageMetadata } from "@/lib/telecom/metadata";
@@ -40,6 +41,7 @@ export default function Home() {
       </div></div>
     </section>
     <TrustStrip />
+    <MonthlyOffers />
     <section className="wifi-categories wifi-container">
       <div className="wifi-section-heading"><div><p className="wifi-eyebrow">Sua rotina vem primeiro</p><h2>O que você quer conectar?</h2><p>O pacote depende do que você usa e do que está disponível onde mora.</p></div></div>
       <div className="wifi-category-grid">{categories.map(c => <Link prefetch={false} href={c.href} key={c.href} className="wifi-category-card"><span><c.icon size={25} aria-hidden="true" /></span><div><h3>{c.title}</h3><p>{c.text}</p></div><ArrowRight size={17} aria-hidden="true" /></Link>)}</div>
